@@ -13,26 +13,7 @@
 		520645D6256871DC00EB5AFE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 520645D4256871DC00EB5AFE /* Main.storyboard */; };
 		520645D8256871DE00EB5AFE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 520645D7256871DE00EB5AFE /* Assets.xcassets */; };
 		520645DB256871DE00EB5AFE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 520645D9256871DE00EB5AFE /* LaunchScreen.storyboard */; };
-		520645E6256871DE00EB5AFE /* FlashcardsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520645E5256871DE00EB5AFE /* FlashcardsTests.swift */; };
-		520645F1256871DE00EB5AFE /* FlashcardsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520645F0256871DE00EB5AFE /* FlashcardsUITests.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		520645E2256871DE00EB5AFE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 520645C3256871DB00EB5AFE /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 520645CA256871DB00EB5AFE;
-			remoteInfo = Flashcards;
-		};
-		520645ED256871DE00EB5AFE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 520645C3256871DB00EB5AFE /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 520645CA256871DB00EB5AFE;
-			remoteInfo = Flashcards;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		520645CB256871DB00EB5AFE /* Flashcards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flashcards.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -43,30 +24,10 @@
 		520645D7256871DE00EB5AFE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		520645DA256871DE00EB5AFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		520645DC256871DE00EB5AFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		520645E1256871DE00EB5AFE /* FlashcardsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlashcardsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		520645E5256871DE00EB5AFE /* FlashcardsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardsTests.swift; sourceTree = "<group>"; };
-		520645E7256871DE00EB5AFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		520645EC256871DE00EB5AFE /* FlashcardsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlashcardsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		520645F0256871DE00EB5AFE /* FlashcardsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardsUITests.swift; sourceTree = "<group>"; };
-		520645F2256871DE00EB5AFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		520645C8256871DB00EB5AFE /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		520645DE256871DE00EB5AFE /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		520645E9256871DE00EB5AFE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -80,8 +41,6 @@
 			isa = PBXGroup;
 			children = (
 				520645CD256871DC00EB5AFE /* Flashcards */,
-				520645E4256871DE00EB5AFE /* FlashcardsTests */,
-				520645EF256871DE00EB5AFE /* FlashcardsUITests */,
 				520645CC256871DB00EB5AFE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -90,8 +49,6 @@
 			isa = PBXGroup;
 			children = (
 				520645CB256871DB00EB5AFE /* Flashcards.app */,
-				520645E1256871DE00EB5AFE /* FlashcardsTests.xctest */,
-				520645EC256871DE00EB5AFE /* FlashcardsUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -108,24 +65,6 @@
 				520645DC256871DE00EB5AFE /* Info.plist */,
 			);
 			path = Flashcards;
-			sourceTree = "<group>";
-		};
-		520645E4256871DE00EB5AFE /* FlashcardsTests */ = {
-			isa = PBXGroup;
-			children = (
-				520645E5256871DE00EB5AFE /* FlashcardsTests.swift */,
-				520645E7256871DE00EB5AFE /* Info.plist */,
-			);
-			path = FlashcardsTests;
-			sourceTree = "<group>";
-		};
-		520645EF256871DE00EB5AFE /* FlashcardsUITests */ = {
-			isa = PBXGroup;
-			children = (
-				520645F0256871DE00EB5AFE /* FlashcardsUITests.swift */,
-				520645F2256871DE00EB5AFE /* Info.plist */,
-			);
-			path = FlashcardsUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,42 +87,6 @@
 			productReference = 520645CB256871DB00EB5AFE /* Flashcards.app */;
 			productType = "com.apple.product-type.application";
 		};
-		520645E0256871DE00EB5AFE /* FlashcardsTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 520645F8256871DE00EB5AFE /* Build configuration list for PBXNativeTarget "FlashcardsTests" */;
-			buildPhases = (
-				520645DD256871DE00EB5AFE /* Sources */,
-				520645DE256871DE00EB5AFE /* Frameworks */,
-				520645DF256871DE00EB5AFE /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				520645E3256871DE00EB5AFE /* PBXTargetDependency */,
-			);
-			name = FlashcardsTests;
-			productName = FlashcardsTests;
-			productReference = 520645E1256871DE00EB5AFE /* FlashcardsTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		520645EB256871DE00EB5AFE /* FlashcardsUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 520645FB256871DE00EB5AFE /* Build configuration list for PBXNativeTarget "FlashcardsUITests" */;
-			buildPhases = (
-				520645E8256871DE00EB5AFE /* Sources */,
-				520645E9256871DE00EB5AFE /* Frameworks */,
-				520645EA256871DE00EB5AFE /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				520645EE256871DE00EB5AFE /* PBXTargetDependency */,
-			);
-			name = FlashcardsUITests;
-			productName = FlashcardsUITests;
-			productReference = 520645EC256871DE00EB5AFE /* FlashcardsUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -195,14 +98,6 @@
 				TargetAttributes = {
 					520645CA256871DB00EB5AFE = {
 						CreatedOnToolsVersion = 12.1;
-					};
-					520645E0256871DE00EB5AFE = {
-						CreatedOnToolsVersion = 12.1;
-						TestTargetID = 520645CA256871DB00EB5AFE;
-					};
-					520645EB256871DE00EB5AFE = {
-						CreatedOnToolsVersion = 12.1;
-						TestTargetID = 520645CA256871DB00EB5AFE;
 					};
 				};
 			};
@@ -220,8 +115,6 @@
 			projectRoot = "";
 			targets = (
 				520645CA256871DB00EB5AFE /* Flashcards */,
-				520645E0256871DE00EB5AFE /* FlashcardsTests */,
-				520645EB256871DE00EB5AFE /* FlashcardsUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -234,20 +127,6 @@
 				520645DB256871DE00EB5AFE /* LaunchScreen.storyboard in Resources */,
 				520645D8256871DE00EB5AFE /* Assets.xcassets in Resources */,
 				520645D6256871DC00EB5AFE /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		520645DF256871DE00EB5AFE /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		520645EA256871DE00EB5AFE /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,36 +143,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		520645DD256871DE00EB5AFE /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				520645E6256871DE00EB5AFE /* FlashcardsTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		520645E8256871DE00EB5AFE /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				520645F1256871DE00EB5AFE /* FlashcardsUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		520645E3256871DE00EB5AFE /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 520645CA256871DB00EB5AFE /* Flashcards */;
-			targetProxy = 520645E2256871DE00EB5AFE /* PBXContainerItemProxy */;
-		};
-		520645EE256871DE00EB5AFE /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 520645CA256871DB00EB5AFE /* Flashcards */;
-			targetProxy = 520645ED256871DE00EB5AFE /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		520645D4256871DC00EB5AFE /* Main.storyboard */ = {
@@ -469,90 +319,6 @@
 			};
 			name = Release;
 		};
-		520645F9256871DE00EB5AFE /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 47P36FRVFR;
-				INFOPLIST_FILE = FlashcardsTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.johnsungunkim.FlashcardsTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Flashcards.app/Flashcards";
-			};
-			name = Debug;
-		};
-		520645FA256871DE00EB5AFE /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 47P36FRVFR;
-				INFOPLIST_FILE = FlashcardsTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.johnsungunkim.FlashcardsTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Flashcards.app/Flashcards";
-			};
-			name = Release;
-		};
-		520645FC256871DE00EB5AFE /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 47P36FRVFR;
-				INFOPLIST_FILE = FlashcardsUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.johnsungunkim.FlashcardsUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Flashcards;
-			};
-			name = Debug;
-		};
-		520645FD256871DE00EB5AFE /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 47P36FRVFR;
-				INFOPLIST_FILE = FlashcardsUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.johnsungunkim.FlashcardsUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Flashcards;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -570,24 +336,6 @@
 			buildConfigurations = (
 				520645F6256871DE00EB5AFE /* Debug */,
 				520645F7256871DE00EB5AFE /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		520645F8256871DE00EB5AFE /* Build configuration list for PBXNativeTarget "FlashcardsTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				520645F9256871DE00EB5AFE /* Debug */,
-				520645FA256871DE00EB5AFE /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		520645FB256871DE00EB5AFE /* Build configuration list for PBXNativeTarget "FlashcardsUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				520645FC256871DE00EB5AFE /* Debug */,
-				520645FD256871DE00EB5AFE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
