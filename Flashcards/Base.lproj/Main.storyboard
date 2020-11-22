@@ -52,9 +52,12 @@
                                                 <integer key="value" value="5"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+<<<<<<< HEAD
                                         <connections>
                                             <action selector="actionButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zNT-oT-DLN"/>
                                         </connections>
+=======
+>>>>>>> 3dfb629e33d6700b0dd069de707a4c8e8e7ab500
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -84,7 +87,11 @@
                     <connections>
                         <outlet property="flashcardLabel" destination="Qy2-LP-xay" id="2Wq-dU-UjB"/>
                         <outlet property="memorizedButton" destination="EpF-B3-RTX" id="ahU-C7-E4E"/>
+<<<<<<< HEAD
                         <outlet property="progressBar" destination="PN0-ZQ-YdC" id="dX3-jj-mHi"/>
+=======
+                        <outlet property="progressBar" destination="8bC-Xf-vdC" id="wiw-r7-KDt"/>
+>>>>>>> 3dfb629e33d6700b0dd069de707a4c8e8e7ab500
                         <outlet property="redoButton" destination="ayS-En-Xog" id="rHE-JP-DBE"/>
                     </connections>
                 </viewController>

@@ -8,6 +8,7 @@
 import UIKit
 
 class ViewController: UIViewController {
+<<<<<<< HEAD
     
     var flashcards = [String]()
     var tempFlashcards = [String]()
@@ -71,10 +72,26 @@ class ViewController: UIViewController {
     
     func updateProgressBar() {
         progressBar.progress = 1.0 - Float(tempFlashcards.count)/Float(total)
+=======
+
+    @IBOutlet weak var flashcardLabel: UILabel!
+    @IBOutlet weak var redoButton: UIButton!
+    @IBOutlet weak var memorizedButton: UIButton!
+    @IBOutlet var progressBar: UIView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+    }
+
+    @IBAction func actionButtonPressed(_ sender: UIButton) {
+        
+>>>>>>> 3dfb629e33d6700b0dd069de707a4c8e8e7ab500
     }
     
 }
 
+<<<<<<< HEAD
 public struct Queue<T> {
   private var elements: [T] = []
 
@@ -97,3 +114,5 @@ public struct Queue<T> {
     return elements.last
   }
 }
+=======
+>>>>>>> 3dfb629e33d6700b0dd069de707a4c8e8e7ab500
