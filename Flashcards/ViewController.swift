@@ -8,8 +8,6 @@
 import UIKit
 
 class ViewController: UIViewController {
-<<<<<<< HEAD
-    
     var flashcards = [String]()
     var tempFlashcards = [String]()
     var total = 0
@@ -28,10 +26,9 @@ class ViewController: UIViewController {
         tempFlashcards.shuffle()
         
         updateProgressBar()
-        updateFlashcardLabel(text: tempFlashcards[0])
-        
+        updateFlashcardLabel(text: tempFlashcards.first!)
     }
-
+    
     func addToFlashcards() {
         flashcards.append("Hello")
         flashcards.append("Bye")
@@ -72,47 +69,5 @@ class ViewController: UIViewController {
     
     func updateProgressBar() {
         progressBar.progress = 1.0 - Float(tempFlashcards.count)/Float(total)
-=======
-
-    @IBOutlet weak var flashcardLabel: UILabel!
-    @IBOutlet weak var redoButton: UIButton!
-    @IBOutlet weak var memorizedButton: UIButton!
-    @IBOutlet var progressBar: UIView!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
-
-    @IBAction func actionButtonPressed(_ sender: UIButton) {
-        
->>>>>>> 3dfb629e33d6700b0dd069de707a4c8e8e7ab500
-    }
-    
 }
-
-<<<<<<< HEAD
-public struct Queue<T> {
-  private var elements: [T] = []
-
-  mutating func enqueue(_ value: T) {
-    elements.append(value)
-  }
-
-  mutating func dequeue() -> T? {
-    guard !elements.isEmpty else {
-      return nil
-    }
-    return elements.removeFirst()
-  }
-
-  var head: T? {
-    return elements.first
-  }
-
-  var tail: T? {
-    return elements.last
-  }
-}
-=======
->>>>>>> 3dfb629e33d6700b0dd069de707a4c8e8e7ab500
