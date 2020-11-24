@@ -47,7 +47,6 @@ class ViewController: UIViewController {
     }
     
     @IBAction func actionButtonPressed(_ sender: UIButton) {
-        print(sender.currentTitle!)
         if !empty {
             if sender == redoButton {
                 redoButtonPressed()
