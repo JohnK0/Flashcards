@@ -13,6 +13,8 @@
 		520645D6256871DC00EB5AFE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 520645D4256871DC00EB5AFE /* Main.storyboard */; };
 		520645D8256871DE00EB5AFE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 520645D7256871DE00EB5AFE /* Assets.xcassets */; };
 		520645DB256871DE00EB5AFE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 520645D9256871DE00EB5AFE /* LaunchScreen.storyboard */; };
+		527F0410256E1BF6002AF200 /* FlashcardBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527F040F256E1BF6002AF200 /* FlashcardBrain.swift */; };
+		527F0417256E2A48002AF200 /* Flashcard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527F0416256E2A48002AF200 /* Flashcard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		520645D7256871DE00EB5AFE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		520645DA256871DE00EB5AFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		520645DC256871DE00EB5AFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		527F040F256E1BF6002AF200 /* FlashcardBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardBrain.swift; sourceTree = "<group>"; };
+		527F0416256E2A48002AF200 /* Flashcard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flashcard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,13 +62,39 @@
 			children = (
 				520645CE256871DC00EB5AFE /* AppDelegate.swift */,
 				520645D0256871DC00EB5AFE /* SceneDelegate.swift */,
-				520645D2256871DC00EB5AFE /* ViewController.swift */,
-				520645D4256871DC00EB5AFE /* Main.storyboard */,
+				527F040E256E1BC9002AF200 /* Model */,
+				527F040A256E1B77002AF200 /* View */,
+				527F040B256E1B85002AF200 /* Controller */,
 				520645D7256871DE00EB5AFE /* Assets.xcassets */,
 				520645D9256871DE00EB5AFE /* LaunchScreen.storyboard */,
 				520645DC256871DE00EB5AFE /* Info.plist */,
 			);
 			path = Flashcards;
+			sourceTree = "<group>";
+		};
+		527F040A256E1B77002AF200 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				520645D4256871DC00EB5AFE /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		527F040B256E1B85002AF200 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				520645D2256871DC00EB5AFE /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		527F040E256E1BC9002AF200 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				527F040F256E1BF6002AF200 /* FlashcardBrain.swift */,
+				527F0416256E2A48002AF200 /* Flashcard.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,8 +168,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				520645D3256871DC00EB5AFE /* ViewController.swift in Sources */,
+				527F0417256E2A48002AF200 /* Flashcard.swift in Sources */,
 				520645CF256871DC00EB5AFE /* AppDelegate.swift in Sources */,
 				520645D1256871DC00EB5AFE /* SceneDelegate.swift in Sources */,
+				527F0410256E1BF6002AF200 /* FlashcardBrain.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
