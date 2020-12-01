@@ -97,5 +97,4 @@ class ViewController: UIViewController {
         let allFlashcardCount = flashcardBrain.getAllFlashcardCount()
         progressBar.progress = 1.0 - Float(currentFlashcardCount)/Float(allFlashcardCount)
     }
-    
 }
