@@ -23,6 +23,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateFlashcard()
     }
     
     @IBAction func actionButtonPressed(_ sender: UIButton) {
@@ -85,7 +86,7 @@ class ViewController: UIViewController {
         }
     }
     
-    func updateFlashcardLabel(_ text: String = "O̲ppa̲ (っ-̶●̃益●̶̃)っ ,︵‿ S̲t̲yl̲e̲") {
+    func updateFlashcardLabel(_ text: String = "Finished!") {
         if flashcardBrain.getAllFlashcardCount() == 0 {
             flashcardLabel.text = "To submit a flashcard,\nopen the hidden text box below the progress bar\nand enter in the text.\nThen press the bottom right of the progress bar\n to submit."
         }
