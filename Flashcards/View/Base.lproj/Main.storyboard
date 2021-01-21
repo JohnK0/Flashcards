@@ -73,7 +73,7 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="flashcardLabel" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="Qy2-LP-xay">
-                                <rect key="frame" x="15" y="112" width="360" height="576.33333333333337"/>
+                                <rect key="frame" x="30" y="112" width="330" height="576.33333333333337"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <nil key="textColor"/>
@@ -92,8 +92,11 @@
                                 </constraints>
                                 <state key="normal">
                                     <attributedString key="attributedTitle"/>
-                                    <imageReference key="image" image="plus" catalog="system" symbolScale="large" renderingMode="original"/>
+                                    <imageReference key="image" image="plus" catalog="system" symbolScale="large"/>
                                 </state>
+                                <connections>
+                                    <action selector="createFlashcardButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="E6C-3W-qi1"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PQw-Xa-gf2" userLabel="RedoButton">
                                 <rect key="frame" x="10" y="54" width="40" height="40"/>
@@ -103,7 +106,7 @@
                                 </constraints>
                                 <state key="normal">
                                     <attributedString key="attributedTitle"/>
-                                    <imageReference key="image" image="arrow.counterclockwise" catalog="system" symbolScale="medium" renderingMode="original"/>
+                                    <imageReference key="image" image="arrow.counterclockwise" catalog="system" symbolScale="medium"/>
                                 </state>
                                 <connections>
                                     <action selector="actionButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HOk-0j-1cK"/>
@@ -115,11 +118,11 @@
                         <constraints>
                             <constraint firstItem="VLw-yY-zFX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="7o5-of-s4P"/>
                             <constraint firstItem="VLw-yY-zFX" firstAttribute="top" secondItem="Qy2-LP-xay" secondAttribute="bottom" constant="30" id="Jhc-Ea-y33"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Qy2-LP-xay" secondAttribute="trailing" constant="15" id="TvZ-vg-TCy"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Qy2-LP-xay" secondAttribute="trailing" constant="30" id="TvZ-vg-TCy"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="VLw-yY-zFX" secondAttribute="trailing" id="b2R-dc-ZVl"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="VLw-yY-zFX" secondAttribute="bottom" id="cSf-GU-Gon"/>
                             <constraint firstItem="PQw-Xa-gf2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="gqR-KP-8ba"/>
-                            <constraint firstItem="Qy2-LP-xay" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="iSb-WR-Ntv"/>
+                            <constraint firstItem="Qy2-LP-xay" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="iSb-WR-Ntv"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nAC-eg-8s1" secondAttribute="trailing" constant="10" id="oiT-wE-JsX"/>
                             <constraint firstItem="Qy2-LP-xay" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="112" id="tTA-bV-kQu"/>
                             <constraint firstItem="PQw-Xa-gf2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="vfS-zd-EtY"/>
@@ -132,32 +135,74 @@
                         <outlet property="nextButton" destination="MHd-JP-xOy" id="YWw-VA-stO"/>
                         <outlet property="progressBar" destination="PN0-ZQ-YdC" id="hL4-0M-vw2"/>
                         <outlet property="redoButton" destination="PQw-Xa-gf2" id="Hzr-ho-Qgf"/>
-                        <segue destination="KwF-51-eJk" kind="presentation" id="ACN-6z-gxi"/>
+                        <segue destination="FIG-8P-TXW" kind="presentation" identifier="goToCreate" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="t0D-SK-hAu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="135.38461538461539" y="92.417061611374407"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="D7e-xT-NuZ">
+        <!--CreateFlashcard Controller-->
+        <scene sceneID="c97-3o-FT3">
             <objects>
-                <viewController id="KwF-51-eJk" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="AaI-MR-8Ar">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
+                <viewController id="FIG-8P-TXW" userLabel="CreateFlashcard Controller" customClass="CreateFlashcardController" customModule="Flashcards" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ca4-8e-2Yp">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="kMv-nX-40W"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Source" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="T87-30-LsE">
+                                <rect key="frame" x="80" y="506" width="230" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G3W-sH-YOK">
+                                <rect key="frame" x="172" y="580" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="submitButtonPressed:" destination="FIG-8P-TXW" eventType="touchUpInside" id="3bg-Nz-5hs"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Submit text here" translatesAutoresizingMaskIntoConstraints="NO" id="nXu-Be-Uva">
+                                <rect key="frame" x="45" y="144" width="300" height="322"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ccl-Hh-bOj"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="nXu-Be-Uva" firstAttribute="top" secondItem="ccl-Hh-bOj" secondAttribute="top" constant="100" id="5vo-VV-VrZ"/>
+                            <constraint firstItem="nXu-Be-Uva" firstAttribute="leading" secondItem="ccl-Hh-bOj" secondAttribute="leading" constant="45" id="H42-Da-kQT"/>
+                            <constraint firstItem="T87-30-LsE" firstAttribute="centerX" secondItem="Ca4-8e-2Yp" secondAttribute="centerX" id="J2x-Z8-WrE"/>
+                            <constraint firstItem="nXu-Be-Uva" firstAttribute="centerX" secondItem="Ca4-8e-2Yp" secondAttribute="centerX" id="N3W-8Y-lW7"/>
+                            <constraint firstItem="G3W-sH-YOK" firstAttribute="top" secondItem="T87-30-LsE" secondAttribute="bottom" constant="40" id="WiL-fS-tsn"/>
+                            <constraint firstItem="ccl-Hh-bOj" firstAttribute="trailing" secondItem="nXu-Be-Uva" secondAttribute="trailing" constant="45" id="Xh7-Hp-zDL"/>
+                            <constraint firstItem="T87-30-LsE" firstAttribute="top" secondItem="nXu-Be-Uva" secondAttribute="bottom" constant="40" id="aBV-Uw-Vvi"/>
+                            <constraint firstItem="G3W-sH-YOK" firstAttribute="centerX" secondItem="Ca4-8e-2Yp" secondAttribute="centerX" id="bbb-QC-2Q8"/>
+                            <constraint firstItem="ccl-Hh-bOj" firstAttribute="bottom" secondItem="G3W-sH-YOK" secondAttribute="bottom" constant="200" id="j55-nP-cti"/>
+                            <constraint firstItem="ccl-Hh-bOj" firstAttribute="trailing" secondItem="T87-30-LsE" secondAttribute="trailing" constant="80" id="pKz-Mk-bi3"/>
+                            <constraint firstItem="T87-30-LsE" firstAttribute="leading" secondItem="ccl-Hh-bOj" secondAttribute="leading" constant="80" id="yjG-jd-BFX"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="sourceField" destination="T87-30-LsE" id="tXM-lO-3sD"/>
+                        <outlet property="submitButton" destination="G3W-sH-YOK" id="nEj-UR-GGF"/>
+                        <outlet property="textView" destination="nXu-Be-Uva" id="1f7-4I-ijx"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="goToMain" modalPresentationStyle="fullScreen" id="NT7-bx-uYf"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1Bp-gd-EDS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2d1-8v-Xnk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="890" y="98"/>
+            <point key="canvasLocation" x="920" y="96.682464454976298"/>
         </scene>
     </scenes>
     <resources>
         <image name="arrow.counterclockwise" catalog="system" width="115" height="128"/>
         <image name="plus" catalog="system" width="128" height="113"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -16,6 +16,7 @@
 		525DAE71256EF14E006C3751 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525DAE70256EF14E006C3751 /* Queue.swift */; };
 		527F0410256E1BF6002AF200 /* FlashcardBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527F040F256E1BF6002AF200 /* FlashcardBrain.swift */; };
 		527F0417256E2A48002AF200 /* Flashcard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527F0416256E2A48002AF200 /* Flashcard.swift */; };
+		52C3C69F25B8FD4700AB29DA /* CreateFlashcardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C3C69E25B8FD4700AB29DA /* CreateFlashcardController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		525DAE70256EF14E006C3751 /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 		527F040F256E1BF6002AF200 /* FlashcardBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardBrain.swift; sourceTree = "<group>"; };
 		527F0416256E2A48002AF200 /* Flashcard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flashcard.swift; sourceTree = "<group>"; };
+		52C3C69E25B8FD4700AB29DA /* CreateFlashcardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFlashcardController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				520645D2256871DC00EB5AFE /* ViewController.swift */,
+				52C3C69E25B8FD4700AB29DA /* CreateFlashcardController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -172,6 +175,7 @@
 			files = (
 				520645D3256871DC00EB5AFE /* ViewController.swift in Sources */,
 				525DAE71256EF14E006C3751 /* Queue.swift in Sources */,
+				52C3C69F25B8FD4700AB29DA /* CreateFlashcardController.swift in Sources */,
 				527F0417256E2A48002AF200 /* Flashcard.swift in Sources */,
 				520645CF256871DC00EB5AFE /* AppDelegate.swift in Sources */,
 				520645D1256871DC00EB5AFE /* SceneDelegate.swift in Sources */,
