@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var flashcardLabel: UILabel!
     @IBOutlet weak var redoButton: UIButton!
-    @IBOutlet weak var memorizedButton: UIButton!
+    @IBOutlet weak var retainedButton: UIButton!
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var progressBar: UIProgressView!
     @IBOutlet weak var textView: UITextView!
@@ -23,7 +23,13 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        retainedButton.layer.cornerRadius = retainedButton.frame.width/2
+        retainedButton.layer.masksToBounds = true
+        nextButton.layer.cornerRadius = nextButton.frame.width/2
+        nextButton.layer.masksToBounds = true
         updateFlashcard()
+        
+        
     }
 
     @IBAction func actionButtonPressed(_ sender: UIButton) {
@@ -31,7 +37,7 @@ class ViewController: UIViewController {
             redoButtonPressed()
         }
         if !flashcardBrain.noCurrentFlashcardsLeft() {
-            if sender == memorizedButton {
+            if sender == retainedButton {
                 memorizedButtonPressed()
                 updateProgressBar()
             }

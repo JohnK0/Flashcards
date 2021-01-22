@@ -18,49 +18,43 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="VLw-yY-zFX">
-                                <rect key="frame" x="0.0" y="718.33333333333337" width="390" height="91.666666666666629"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="65" translatesAutoresizingMaskIntoConstraints="NO" id="VLw-yY-zFX">
+                                <rect key="frame" x="0.0" y="638.33333333333337" width="390" height="171.66666666666663"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="wCn-5L-AYC">
-                                        <rect key="frame" x="70" y="0.0" width="250" height="50"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="wCn-5L-AYC">
+                                        <rect key="frame" x="40" y="0.0" width="310" height="105"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EpF-B3-RTX">
-                                                <rect key="frame" x="0.0" y="0.0" width="112.66666666666667" height="50"/>
-                                                <color key="backgroundColor" systemColor="systemFillColor"/>
-                                                <state key="normal" title="Memorized">
-                                                    <color key="titleColor" systemColor="systemBlueColor"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="105" height="105"/>
+                                                <color key="backgroundColor" red="0.058830624771953409" green="0.14813074857879718" blue="0.73525461162839623" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="EpF-B3-RTX" secondAttribute="height" multiplier="1:1" id="5NT-Y1-j98"/>
+                                                </constraints>
+                                                <state key="normal" title="Retained">
+                                                    <color key="titleColor" red="0.0" green="0.73975997609119659" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </state>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                        <integer key="value" value="5"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="actionButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WQo-73-GQH"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MHd-JP-xOy">
-                                                <rect key="frame" x="137.66666666666666" y="0.0" width="112.33333333333334" height="50"/>
-                                                <color key="backgroundColor" systemColor="systemFillColor"/>
+                                                <rect key="frame" x="205" y="0.0" width="105" height="105"/>
+                                                <color key="backgroundColor" red="0.20917543336591035" green="0.45179931061608447" blue="0.13626345082938709" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <state key="normal" title="Next">
-                                                    <color key="titleColor" systemColor="systemGreenColor"/>
+                                                    <color key="titleColor" red="0.46298307334881428" green="1" blue="0.30160172365817683" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </state>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                        <integer key="value" value="5"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="actionButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XqH-2Y-pcF"/>
                                                 </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="wCn-5L-AYC" secondAttribute="height" multiplier="5:1" id="UQr-az-bU5"/>
+                                            <constraint firstItem="MHd-JP-xOy" firstAttribute="width" secondItem="EpF-B3-RTX" secondAttribute="width" id="hJZ-h3-EU2"/>
+                                            <constraint firstItem="MHd-JP-xOy" firstAttribute="height" secondItem="EpF-B3-RTX" secondAttribute="height" id="yxl-Kf-cC9"/>
                                         </constraints>
                                     </stackView>
                                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" translatesAutoresizingMaskIntoConstraints="NO" id="PN0-ZQ-YdC">
-                                        <rect key="frame" x="8" y="90" width="374" height="2.6666666666666714"/>
+                                        <rect key="frame" x="8" y="170" width="374" height="2.6666666666666572"/>
                                         <color key="tintColor" red="1" green="0.70353001356124878" blue="0.0036191917024552822" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="progressTintColor" systemColor="systemOrangeColor"/>
                                         <color key="trackTintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -68,12 +62,12 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="PN0-ZQ-YdC" secondAttribute="trailing" constant="8" id="cEv-vZ-oFY"/>
-                                    <constraint firstItem="wCn-5L-AYC" firstAttribute="leading" secondItem="VLw-yY-zFX" secondAttribute="leading" constant="70" id="iim-LS-Xp9"/>
+                                    <constraint firstItem="wCn-5L-AYC" firstAttribute="leading" secondItem="VLw-yY-zFX" secondAttribute="leading" constant="40" id="iim-LS-Xp9"/>
                                     <constraint firstItem="PN0-ZQ-YdC" firstAttribute="leading" secondItem="VLw-yY-zFX" secondAttribute="leading" constant="8" id="vZP-dw-q0H"/>
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="flashcardLabel" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="Qy2-LP-xay">
-                                <rect key="frame" x="30" y="112" width="330" height="576.33333333333337"/>
+                                <rect key="frame" x="30" y="149.99999999999997" width="330" height="458.33333333333326"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <nil key="textColor"/>
@@ -106,7 +100,7 @@
                                 </constraints>
                                 <state key="normal">
                                     <attributedString key="attributedTitle"/>
-                                    <imageReference key="image" image="arrow.counterclockwise" catalog="system" symbolScale="medium"/>
+                                    <imageReference key="image" image="arrow.counterclockwise" catalog="system" symbolScale="medium" renderingMode="template"/>
                                 </state>
                                 <connections>
                                     <action selector="actionButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HOk-0j-1cK"/>
@@ -124,17 +118,17 @@
                             <constraint firstItem="PQw-Xa-gf2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="gqR-KP-8ba"/>
                             <constraint firstItem="Qy2-LP-xay" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="iSb-WR-Ntv"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nAC-eg-8s1" secondAttribute="trailing" constant="10" id="oiT-wE-JsX"/>
-                            <constraint firstItem="Qy2-LP-xay" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="112" id="tTA-bV-kQu"/>
+                            <constraint firstItem="Qy2-LP-xay" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="150" id="tTA-bV-kQu"/>
                             <constraint firstItem="PQw-Xa-gf2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="vfS-zd-EtY"/>
                             <constraint firstItem="nAC-eg-8s1" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="wzf-BS-0tK"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="flashcardLabel" destination="Qy2-LP-xay" id="YXB-MI-I9Q"/>
-                        <outlet property="memorizedButton" destination="EpF-B3-RTX" id="ahU-C7-E4E"/>
                         <outlet property="nextButton" destination="MHd-JP-xOy" id="YWw-VA-stO"/>
                         <outlet property="progressBar" destination="PN0-ZQ-YdC" id="hL4-0M-vw2"/>
                         <outlet property="redoButton" destination="PQw-Xa-gf2" id="Hzr-ho-Qgf"/>
+                        <outlet property="retainedButton" destination="EpF-B3-RTX" id="ahU-C7-E4E"/>
                         <segue destination="FIG-8P-TXW" kind="presentation" identifier="goToCreate" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="t0D-SK-hAu"/>
                     </connections>
                 </viewController>
@@ -205,15 +199,6 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemFillColor">
-            <color red="0.47058823529411764" green="0.47058823529411764" blue="0.50196078431372548" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -17,7 +17,7 @@ class CreateFlashcardController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let borderColor : UIColor = UIColor(red: 0.85, green: 0.85, blue: 0.85, alpha: 1.0)
+        let borderColor : UIColor = .darkGray
         textView.layer.borderWidth = 0.5
         textView.layer.borderColor = borderColor.cgColor
         textView.layer.cornerRadius = 5.0
