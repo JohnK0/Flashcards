@@ -51,23 +51,6 @@ class ViewController: UIViewController {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
     }
-
-    func saveFlashcard(_ body: String, _ source: String, _ memorized: Bool = false) {
-        let entity = NSEntityDescription.entity(forEntityName: "Flashcard", in: managedContext!)!
-        let flashcard = NSManagedObject(entity: entity, insertInto: managedContext!)
-        flashcard.setValue(body, forKeyPath: "body")
-        flashcard.setValue(source, forKeyPath: "source")
-        flashcard.setValue(memorized, forKeyPath: "memorized")
-        
-        do {
-            try managedContext!.save()
-            flashcardBrain.addFlashcard(flashcard)
-            updateFlashcard()
-            updateProgressBar()
-            } catch let error as NSError {
-            print("Could not save. \(error), \(error.userInfo)")
-        }
-    }
     
     @IBAction func actionButtonPressed(_ sender: UIButton) {
         if flashcardBrain.getAllFlashcardCount() != 0 && sender == redoButton {
@@ -111,11 +94,11 @@ class ViewController: UIViewController {
         
     }
     
-    func updateFlashcardLabel(_ text: String = "Finished!", _ source: String = "") {
+    func updateFlashcardLabel(_ body: String = "Redo?", _ source: String = "John Kim") {
         if flashcardBrain.getAllFlashcardCount() == 0 {
-            flashcardLabel.text = "To submit a flashcard,\nopen the hidden text box below the progress bar\nand enter in the text.\nThen press the bottom right of the progress bar\n to submit."
+            flashcardLabel.text = "To add a flashcard, press the add button on the top right."
         }
-        flashcardLabel.text = text+"\n-"+source
+        flashcardLabel.text = body+"\n\n- "+source
     }
     
     func updateProgressBar() {
@@ -137,6 +120,7 @@ class ViewController: UIViewController {
         if seque.identifier == "goToCreate" {
             let destinationVC = seque.destination as! CreateFlashcardController
             destinationVC.flashcardBrain = flashcardBrain
+            destinationVC.managedContext = managedContext
         }
     }
     

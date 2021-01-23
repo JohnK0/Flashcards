@@ -15,6 +15,7 @@ class CreateFlashcardController: UIViewController {
     @IBOutlet weak var submitButton: UIButton!
     
     var flashcardBrain:FlashcardBrain?
+    var managedContext: NSManagedObjectContext?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,8 +33,22 @@ class CreateFlashcardController: UIViewController {
     }
     
     func save(_ body: String, _ source: String, _ memorized: Bool = false) {
-        if let presenter = presentingViewController as? ViewController {
-            presenter.saveFlashcard(body, source, memorized)
+        let entity = NSEntityDescription.entity(forEntityName: "Flashcard", in: managedContext!)!
+        let flashcard = NSManagedObject(entity: entity, insertInto: managedContext!)
+        flashcard.setValue(body, forKeyPath: "body")
+        flashcard.setValue(source, forKeyPath: "source")
+        flashcard.setValue(memorized, forKeyPath: "memorized")
+        
+        do {
+            try managedContext!.save()
+            if let presenter = presentingViewController as? ViewController {
+                presenter.flashcardBrain.addFlashcard(flashcard)
+                presenter.updateFlashcard()
+                presenter.updateProgressBar()
+            }
+            
+            } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
         }
     }
     
