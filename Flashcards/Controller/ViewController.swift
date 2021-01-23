@@ -25,10 +25,10 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        retainedButton.layer.cornerRadius = retainedButton.frame.width/2
-        retainedButton.layer.masksToBounds = true
-        nextButton.layer.cornerRadius = nextButton.frame.width/2
-        nextButton.layer.masksToBounds = true
+//        retainedButton.layer.cornerRadius = retainedButton.frame.width/2
+//        retainedButton.layer.masksToBounds = true
+//        nextButton.layer.cornerRadius = nextButton.frame.width/2
+//        nextButton.layer.masksToBounds = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -98,13 +98,19 @@ class ViewController: UIViewController {
         if flashcardBrain.getAllFlashcardCount() == 0 {
             flashcardLabel.text = "To add a flashcard, press the add button on the top right."
         }
-        flashcardLabel.text = body+"\n\n- "+source
+        let source = source
+        
+        let attributedText = NSMutableAttributedString(string: source, attributes: [NSAttributedString.Key.font: UIFont(name: "Lora-Regular", size: 24)!])
+        attributedText.append(NSMutableAttributedString(string: "\n\n"))
+        attributedText.append(NSMutableAttributedString(string: body, attributes: [NSAttributedString.Key.font: UIFont(name: "Lora-Regular", size: 17)!]))
+        
+        flashcardLabel.attributedText = attributedText
     }
     
     func updateProgressBar() {
         let currentFlashcardCount = flashcardBrain.getCurrentFlashcardCount()
         let allFlashcardCount = flashcardBrain.getAllFlashcardCount()
-        if currentFlashcardCount == 0 {
+        if allFlashcardCount == 0 {
             progressBar.progress = 0
         } else {
         progressBar.progress = 1.0 - Float(currentFlashcardCount)/Float(allFlashcardCount)

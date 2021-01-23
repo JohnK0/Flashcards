@@ -17,7 +17,7 @@
 		527F0410256E1BF6002AF200 /* FlashcardBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527F040F256E1BF6002AF200 /* FlashcardBrain.swift */; };
 		52C3C69F25B8FD4700AB29DA /* CreateFlashcardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C3C69E25B8FD4700AB29DA /* CreateFlashcardController.swift */; };
 		52C3C6A525BBFC6100AB29DA /* Flashcards.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 52C3C6A325BBFC6100AB29DA /* Flashcards.xcdatamodeld */; };
-		52C3C6E025BCA8F500AB29DA /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = 52C3C6DF25BCA8F500AB29DA /* Fonts */; };
+		52C3C6ED25BCB26300AB29DA /* Lora-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 52C3C6EC25BCB25C00AB29DA /* Lora-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,7 +33,7 @@
 		527F040F256E1BF6002AF200 /* FlashcardBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardBrain.swift; sourceTree = "<group>"; };
 		52C3C69E25B8FD4700AB29DA /* CreateFlashcardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFlashcardController.swift; sourceTree = "<group>"; };
 		52C3C6A425BBFC6100AB29DA /* Flashcards.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Flashcards.xcdatamodel; sourceTree = "<group>"; };
-		52C3C6DF25BCA8F500AB29DA /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Fonts; sourceTree = "<group>"; };
+		52C3C6EC25BCB25C00AB29DA /* Lora-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lora-Regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,7 +66,7 @@
 		520645CD256871DC00EB5AFE /* Flashcards */ = {
 			isa = PBXGroup;
 			children = (
-				52C3C6DF25BCA8F500AB29DA /* Fonts */,
+				52C3C6EC25BCB25C00AB29DA /* Lora-Regular.ttf */,
 				52C3C6A325BBFC6100AB29DA /* Flashcards.xcdatamodeld */,
 				520645CE256871DC00EB5AFE /* AppDelegate.swift */,
 				520645D0256871DC00EB5AFE /* SceneDelegate.swift */,
@@ -163,7 +163,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				52C3C6E025BCA8F500AB29DA /* Fonts in Resources */,
+				52C3C6ED25BCB26300AB29DA /* Lora-Regular.ttf in Resources */,
 				520645DB256871DE00EB5AFE /* LaunchScreen.storyboard in Resources */,
 				520645D8256871DE00EB5AFE /* Assets.xcassets in Resources */,
 				520645D6256871DC00EB5AFE /* Main.storyboard in Resources */,
