@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class ViewController: UIViewController {
     
@@ -17,9 +18,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var progressBar: UIProgressView!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var submitButton: UIButton!
-    
+
     var flashcardBrain = FlashcardBrain()
-    var flashcard: Flashcard?
+    var managedContext: NSManagedObjectContext?
+    var flag = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,11 +29,46 @@ class ViewController: UIViewController {
         retainedButton.layer.masksToBounds = true
         nextButton.layer.cornerRadius = nextButton.frame.width/2
         nextButton.layer.masksToBounds = true
-        updateFlashcard()
-        
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+          return
+        }
+        managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Flashcard")
+        do {
+            flashcardBrain.flashcards = try managedContext!.fetch(fetchRequest)
+            print(flashcardBrain.getAllFlashcardCount())
+            if !flag {
+                flashcardBrain.setupFlashcards()
+                flag = true
+            }
+            updateFlashcard()
+            updateProgressBar()
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
     }
 
+    func saveFlashcard(_ body: String, _ source: String, _ memorized: Bool = false) {
+        let entity = NSEntityDescription.entity(forEntityName: "Flashcard", in: managedContext!)!
+        let flashcard = NSManagedObject(entity: entity, insertInto: managedContext!)
+        flashcard.setValue(body, forKeyPath: "body")
+        flashcard.setValue(source, forKeyPath: "source")
+        flashcard.setValue(memorized, forKeyPath: "memorized")
+        
+        do {
+            try managedContext!.save()
+            flashcardBrain.addFlashcard(flashcard)
+            updateFlashcard()
+            updateProgressBar()
+            } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+    }
+    
     @IBAction func actionButtonPressed(_ sender: UIButton) {
         if flashcardBrain.getAllFlashcardCount() != 0 && sender == redoButton {
             redoButtonPressed()
@@ -48,9 +85,10 @@ class ViewController: UIViewController {
     }
     
     func redoButtonPressed() {
-        flashcardBrain.reset()
+        flashcardBrain.setupFlashcards()
         updateFlashcard()
         updateProgressBar()
+
     }
     
     func memorizedButtonPressed() {
@@ -65,8 +103,8 @@ class ViewController: UIViewController {
     
     func updateFlashcard() {
         if !flashcardBrain.noCurrentFlashcardsLeft() {
-            flashcard = flashcardBrain.flashcard()
-            updateFlashcardLabel(flashcard!.text, flashcard!.source)
+            let flashcard = flashcardBrain.getCurrentFlashcard()
+            updateFlashcardLabel((flashcard.value(forKeyPath: "body") as? String)!, (flashcard.value(forKeyPath: "source") as? String)!)
         } else {
             updateFlashcardLabel()
         }
@@ -83,7 +121,11 @@ class ViewController: UIViewController {
     func updateProgressBar() {
         let currentFlashcardCount = flashcardBrain.getCurrentFlashcardCount()
         let allFlashcardCount = flashcardBrain.getAllFlashcardCount()
+        if currentFlashcardCount == 0 {
+            progressBar.progress = 0
+        } else {
         progressBar.progress = 1.0 - Float(currentFlashcardCount)/Float(allFlashcardCount)
+        }
     }
     
     @IBAction func createFlashcardButtonPressed(_ sender: UIButton) {

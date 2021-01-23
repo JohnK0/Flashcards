@@ -6,33 +6,30 @@
 //
 
 import Foundation
+import CoreData
 
 struct Queue {
-    private var queue = [Flashcard]()
-    var count: Int = 0
+    private var queue = [NSManagedObject]()
     
-    mutating func addList(_ list: [Flashcard]) {
+    mutating func addList(_ list: [NSManagedObject]) {
         queue = list
-        count = queue.count
     }
-    mutating func dequeue() -> Flashcard {
-        count -= 1
+    mutating func dequeue() -> NSManagedObject {
         return queue.removeFirst()
         
     }
-    mutating func enqueue(_ node: Flashcard) {
+    mutating func enqueue(_ node: NSManagedObject) {
         queue.append(node)
-        count += 1
     }
     mutating func rotate() {
         enqueue(dequeue())
     }
     
-    func getNode() -> Flashcard {
+    func getNode() -> NSManagedObject {
         return queue.first!
     }
     
     func getCount() -> Int {
-        return count
+        return queue.count
     }
 }

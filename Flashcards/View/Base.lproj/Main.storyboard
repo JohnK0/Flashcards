@@ -183,7 +183,6 @@
                         <outlet property="sourceField" destination="T87-30-LsE" id="tXM-lO-3sD"/>
                         <outlet property="submitButton" destination="G3W-sH-YOK" id="nEj-UR-GGF"/>
                         <outlet property="textView" destination="nXu-Be-Uva" id="1f7-4I-ijx"/>
-                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="goToMain" modalPresentationStyle="fullScreen" id="NT7-bx-uYf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2d1-8v-Xnk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

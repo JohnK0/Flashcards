@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class CreateFlashcardController: UIViewController {
 
@@ -30,28 +31,25 @@ class CreateFlashcardController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    func save(_ body: String, _ source: String, _ memorized: Bool = false) {
+        if let presenter = presentingViewController as? ViewController {
+            presenter.saveFlashcard(body, source, memorized)
+        }
+    }
     
     @IBAction func submitButtonPressed(_ sender: UIButton) {
         guard !(textView.text == nil && sourceField.text == nil) else {
             return
         }
         self.addFlashcard()
-        self.performSegue(withIdentifier: "goToMain", sender: self)
+        self.dismiss(animated: true, completion: nil)
     }
 //    
     func addFlashcard() {
-        let text = textView.text!
+        let body = textView.text!
         let source = sourceField.text!
-        if text != "" && source != "" {
-            print("Hi")
-            flashcardBrain!.addFlashcard(text: text, source: source)
-        }
-    }
-    
-    override func prepare(for seque: UIStoryboardSegue, sender: Any?) {
-        if seque.identifier == "goToMain" {
-            let destinationVC = seque.destination as! ViewController
-            destinationVC.flashcardBrain = flashcardBrain!
+        if body != "" && source != "" {
+            save(body, source)
         }
     }
     
