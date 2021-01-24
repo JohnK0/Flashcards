@@ -15,9 +15,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var redoButton: UIButton!
     @IBOutlet weak var retainedButton: UIButton!
     @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var progressBar: UIProgressView!
-    @IBOutlet weak var textView: UITextView!
-    @IBOutlet weak var submitButton: UIButton!
+    
 
     var flashcardBrain = FlashcardBrain()
     var managedContext: NSManagedObjectContext?
@@ -25,10 +25,36 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        retainedButton.layer.cornerRadius = retainedButton.frame.width/2
-//        retainedButton.layer.masksToBounds = true
-//        nextButton.layer.cornerRadius = nextButton.frame.width/2
-//        nextButton.layer.masksToBounds = true
+        redoButton.tintColor = UIColor(named: "TopButtonColor")
+        addButton.tintColor = UIColor(named: "TopButtonColor")
+        retainedButton.tintColor = UIColor(named: "TopButtonColor")
+        nextButton.tintColor = UIColor(named: "TopButtonColor")
+        let recognizer: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(self.swipeLeft))
+            recognizer.direction = .left
+            self.view.addGestureRecognizer(recognizer)
+    }
+    
+    @objc func bottonButtonTapped(_ i: Int) {
+        switch i {
+        case 1:
+            let generator = UIImpactFeedbackGenerator(style: .light)
+            generator.impactOccurred()
+        case 2:
+            let generator = UIImpactFeedbackGenerator(style: .medium)
+            generator.impactOccurred()
+        case 3:
+            let generator = UISelectionFeedbackGenerator()
+            generator.selectionChanged()
+        
+        default:
+            let generator = UIImpactFeedbackGenerator(style: .light)
+            generator.impactOccurred()
+        }
+    }
+    
+    @objc func swipeLeft(recognizer : UISwipeGestureRecognizer) {
+        self.performSegue(withIdentifier: "goToFlashcardList", sender: self)
+         
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -75,11 +101,13 @@ class ViewController: UIViewController {
     }
     
     func memorizedButtonPressed() {
+        bottonButtonTapped(1)
         flashcardBrain.memorizedFlashcard()
         updateFlashcard()
     }
     
     func nextButtonPressed() {
+        bottonButtonTapped(1)
         flashcardBrain.rotate()
         updateFlashcard()
     }
@@ -100,7 +128,7 @@ class ViewController: UIViewController {
         }
         let source = source
         
-        let attributedText = NSMutableAttributedString(string: source, attributes: [NSAttributedString.Key.font: UIFont(name: "Lora-Regular", size: 24)!])
+        let attributedText = NSMutableAttributedString(string: source, attributes: [NSAttributedString.Key.font: UIFont(name: "Lora-Regular", size: 28)!])
         attributedText.append(NSMutableAttributedString(string: "\n\n"))
         attributedText.append(NSMutableAttributedString(string: body, attributes: [NSAttributedString.Key.font: UIFont(name: "Lora-Regular", size: 17)!]))
         
@@ -119,14 +147,22 @@ class ViewController: UIViewController {
     
     @IBAction func createFlashcardButtonPressed(_ sender: UIButton) {
         self.performSegue(withIdentifier: "goToCreate", sender: self)
-        
     }
     
     override func prepare(for seque: UIStoryboardSegue, sender: Any?) {
-        if seque.identifier == "goToCreate" {
+        let s = seque
+        if s.identifier == "goToCreate" {
             let destinationVC = seque.destination as! CreateFlashcardController
             destinationVC.flashcardBrain = flashcardBrain
             destinationVC.managedContext = managedContext
+        }
+        else if s.identifier == "goToFlashcardList" {
+            let trans = CATransition()
+            trans.type = CATransitionType.moveIn
+            trans.subtype = CATransitionSubtype.fromLeft
+            trans.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+            trans.duration = 0.35
+            self.navigationController?.view.layer.add(trans, forKey: nil)
         }
     }
     

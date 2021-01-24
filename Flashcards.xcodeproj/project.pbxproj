@@ -18,6 +18,8 @@
 		52C3C69F25B8FD4700AB29DA /* CreateFlashcardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C3C69E25B8FD4700AB29DA /* CreateFlashcardController.swift */; };
 		52C3C6A525BBFC6100AB29DA /* Flashcards.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 52C3C6A325BBFC6100AB29DA /* Flashcards.xcdatamodeld */; };
 		52C3C6ED25BCB26300AB29DA /* Lora-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 52C3C6EC25BCB25C00AB29DA /* Lora-Regular.ttf */; };
+		52C3C6F425BCCC4E00AB29DA /* CATransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C3C6F325BCCC4E00AB29DA /* CATransition.swift */; };
+		52C3C6F725BCCE5D00AB29DA /* FlashcardListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C3C6F625BCCE5D00AB29DA /* FlashcardListController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		52C3C69E25B8FD4700AB29DA /* CreateFlashcardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFlashcardController.swift; sourceTree = "<group>"; };
 		52C3C6A425BBFC6100AB29DA /* Flashcards.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Flashcards.xcdatamodel; sourceTree = "<group>"; };
 		52C3C6EC25BCB25C00AB29DA /* Lora-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lora-Regular.ttf"; sourceTree = "<group>"; };
+		52C3C6F325BCCC4E00AB29DA /* CATransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CATransition.swift; sourceTree = "<group>"; };
+		52C3C6F625BCCE5D00AB29DA /* FlashcardListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardListController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				520645D4256871DC00EB5AFE /* Main.storyboard */,
+				52C3C6F325BCCC4E00AB29DA /* CATransition.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -93,6 +98,7 @@
 			children = (
 				520645D2256871DC00EB5AFE /* ViewController.swift */,
 				52C3C69E25B8FD4700AB29DA /* CreateFlashcardController.swift */,
+				52C3C6F625BCCE5D00AB29DA /* FlashcardListController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -181,9 +187,11 @@
 				525DAE71256EF14E006C3751 /* Queue.swift in Sources */,
 				52C3C6A525BBFC6100AB29DA /* Flashcards.xcdatamodeld in Sources */,
 				52C3C69F25B8FD4700AB29DA /* CreateFlashcardController.swift in Sources */,
+				52C3C6F425BCCC4E00AB29DA /* CATransition.swift in Sources */,
 				520645CF256871DC00EB5AFE /* AppDelegate.swift in Sources */,
 				520645D1256871DC00EB5AFE /* SceneDelegate.swift in Sources */,
 				527F0410256E1BF6002AF200 /* FlashcardBrain.swift in Sources */,
+				52C3C6F725BCCE5D00AB29DA /* FlashcardListController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
