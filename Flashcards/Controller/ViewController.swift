@@ -34,7 +34,7 @@ class ViewController: UIViewController {
             self.view.addGestureRecognizer(recognizer)
     }
     
-    @objc func bottonButtonTapped(_ i: Int) {
+    @objc func tapped(_ i: Int) {
         switch i {
         case 1:
             let generator = UIImpactFeedbackGenerator(style: .light)
@@ -94,6 +94,7 @@ class ViewController: UIViewController {
     }
     
     func redoButtonPressed() {
+        tapped(1)
         flashcardBrain.setupFlashcards()
         updateFlashcard()
         updateProgressBar()
@@ -101,15 +102,20 @@ class ViewController: UIViewController {
     }
     
     func memorizedButtonPressed() {
-        bottonButtonTapped(1)
+        tapped(1)
         flashcardBrain.memorizedFlashcard()
         updateFlashcard()
     }
     
     func nextButtonPressed() {
-        bottonButtonTapped(1)
+        tapped(1)
         flashcardBrain.rotate()
         updateFlashcard()
+    }
+    
+    @IBAction func addButtonPressed(_ sender: UIButton) {
+        tapped(1)
+        self.performSegue(withIdentifier: "goToCreate", sender: self)
     }
     
     func updateFlashcard() {
@@ -126,11 +132,17 @@ class ViewController: UIViewController {
         if flashcardBrain.getAllFlashcardCount() == 0 {
             flashcardLabel.text = "To add a flashcard, press the add button on the top right."
         }
-        let source = source
         
-        let attributedText = NSMutableAttributedString(string: source, attributes: [NSAttributedString.Key.font: UIFont(name: "Lora-Regular", size: 28)!])
+        let label = UILabel()
+        let source = source
+        // font
+        var attributedText = NSMutableAttributedString(string: source, attributes: [NSAttributedString.Key.font: UIFont(name: "Lora-Regular", size: 28)!, NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue, NSAttributedString.Key.underlineColor: UIColor(named: "BodyTextColor")!])
+        attributedText = label.setAlignment(attributedText: attributedText, alignment: 1)
         attributedText.append(NSMutableAttributedString(string: "\n\n"))
-        attributedText.append(NSMutableAttributedString(string: body, attributes: [NSAttributedString.Key.font: UIFont(name: "Lora-Regular", size: 17)!]))
+        var body = NSMutableAttributedString(string: body, attributes: [NSAttributedString.Key.font: UIFont(name: "Lora-Regular", size: 17)!])
+        body = label.setLineSpacing(attributedText: body, lineSpacing: 5)
+        body = label.setAlignment(attributedText: body)
+        attributedText.append(body)
         
         flashcardLabel.attributedText = attributedText
     }
@@ -143,10 +155,6 @@ class ViewController: UIViewController {
         } else {
         progressBar.progress = 1.0 - Float(currentFlashcardCount)/Float(allFlashcardCount)
         }
-    }
-    
-    @IBAction func createFlashcardButtonPressed(_ sender: UIButton) {
-        self.performSegue(withIdentifier: "goToCreate", sender: self)
     }
     
     override func prepare(for seque: UIStoryboardSegue, sender: Any?) {

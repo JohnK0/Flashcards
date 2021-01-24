@@ -11,10 +11,16 @@ class FlashcardListController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        let recognizer: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(self.swipeRight))
+            recognizer.direction = .right
+            self.view.addGestureRecognizer(recognizer)
         // Do any additional setup after loading the view.
     }
     
+    @objc func swipeRight(recognizer : UISwipeGestureRecognizer) {
+        self.dismiss(animated: true, completion: nil)
+         
+    }
 
     /*
     // MARK: - Navigation

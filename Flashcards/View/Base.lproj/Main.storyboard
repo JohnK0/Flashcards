@@ -10,11 +10,6 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="Lora-Regular.ttf">
-            <string>Lora-Regular</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -24,10 +19,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="flashcardLabel" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="Qy2-LP-xay">
-                                <rect key="frame" x="30" y="119.99999999999997" width="330" height="490.33333333333326"/>
-                                <fontDescription key="fontDescription" name="Lora-Regular" family="Lora" pointSize="17"/>
-                                <color key="textColor" name="BodyTextColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="50" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="Qy2-LP-xay">
+                                <rect key="frame" x="30" y="123.99999999999997" width="330" height="486.33333333333326"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="flashcardLabel">
+                                        <attributes>
+                                            <color key="NSColor" name="BodyTextColor"/>
+                                            <font key="NSFont" size="17" name="Lora-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" lineSpacing="5" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -42,7 +44,7 @@
                                         <rect key="frame" x="20" y="0.0" width="350" height="2.666666666666667"/>
                                         <color key="tintColor" red="1" green="0.70353001356124878" blue="0.0036191917024552822" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="progressTintColor" systemColor="systemOrangeColor"/>
-                                        <color key="trackTintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="trackTintColor" name="ButtonColor"/>
                                     </progressView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="wCn-5L-AYC" userLabel="bottomButtons">
                                         <rect key="frame" x="50" y="46.666666666666629" width="290" height="78"/>
@@ -106,7 +108,7 @@
                                     <imageReference key="image" image="plus" catalog="system" symbolScale="large" renderingMode="template"/>
                                 </state>
                                 <connections>
-                                    <action selector="createFlashcardButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="E6C-3W-qi1"/>
+                                    <action selector="addButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="E6C-3W-qi1"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PQw-Xa-gf2" userLabel="RedoButton">
@@ -133,16 +135,16 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="VLw-yY-zFX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="7o5-of-s4P"/>
-                            <constraint firstItem="VLw-yY-zFX" firstAttribute="top" secondItem="Qy2-LP-xay" secondAttribute="bottom" constant="30" id="Jhc-Ea-y33"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Qy2-LP-xay" secondAttribute="trailing" constant="30" id="TvZ-vg-TCy"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Qy2-LP-xay" secondAttribute="trailing" constant="30" id="EqD-o5-9Af"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="VLw-yY-zFX" secondAttribute="trailing" id="b2R-dc-ZVl"/>
+                            <constraint firstItem="Qy2-LP-xay" firstAttribute="top" secondItem="nAC-eg-8s1" secondAttribute="top" constant="70" id="bo5-pL-YCc"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="VLw-yY-zFX" secondAttribute="bottom" constant="45" id="cSf-GU-Gon"/>
+                            <constraint firstItem="Qy2-LP-xay" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="czj-xo-ioJ"/>
                             <constraint firstItem="Sg7-NY-ean" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="d1m-YD-vEf"/>
                             <constraint firstItem="Sg7-NY-ean" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="f13-aX-ZBJ"/>
                             <constraint firstItem="PQw-Xa-gf2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="gqR-KP-8ba"/>
-                            <constraint firstItem="Qy2-LP-xay" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="iSb-WR-Ntv"/>
+                            <constraint firstItem="VLw-yY-zFX" firstAttribute="top" secondItem="Qy2-LP-xay" secondAttribute="bottom" constant="30" id="kj2-Vt-XOD"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nAC-eg-8s1" secondAttribute="trailing" constant="10" id="oiT-wE-JsX"/>
-                            <constraint firstItem="Qy2-LP-xay" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="120" id="tTA-bV-kQu"/>
                             <constraint firstItem="PQw-Xa-gf2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="vfS-zd-EtY"/>
                             <constraint firstItem="nAC-eg-8s1" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="wzf-BS-0tK"/>
                         </constraints>
