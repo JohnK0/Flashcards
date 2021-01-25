@@ -10,33 +10,31 @@ import UIKit
 
 extension UILabel {
 
-    func setLineSpacing(attributedText: NSMutableAttributedString, lineSpacing: CGFloat = 0.0) -> NSMutableAttributedString {
-
-        let paragraphStyle = NSMutableParagraphStyle()
+    func setLineSpacing(_ paragraphStyle: NSMutableParagraphStyle, attributedText: NSMutableAttributedString, lineSpacing: CGFloat = 0.0){
         paragraphStyle.lineSpacing = lineSpacing
-
-        // Line spacing attribute
         attributedText.addAttribute(NSAttributedString.Key.paragraphStyle, value:paragraphStyle, range:NSMakeRange(0, attributedText.length))
-
-       return attributedText
     }
-//    0: left, 1: center, 2: right, 3: justified, default: natural
-    func setAlignment(attributedText: NSMutableAttributedString, alignment: Int = 4) -> NSMutableAttributedString {
-        let paragraphStyle = NSMutableParagraphStyle()
-        switch alignment {
-        case 0:
-            paragraphStyle.alignment = .left
-        case 1:
-            paragraphStyle.alignment = .center
-        case 2:
-            paragraphStyle.alignment = .right
-        case 3:
-            paragraphStyle.alignment = .justified
-        default:
-            paragraphStyle.alignment = .natural
-        }
+    
+    func setAlignment(_ paragraphStyle: NSMutableParagraphStyle, attributedText: NSMutableAttributedString, alignment: NSTextAlignment = .left) {
+        paragraphStyle.alignment = alignment
         attributedText.addAttribute(NSAttributedString.Key.paragraphStyle, value:paragraphStyle, range:NSMakeRange(0, attributedText.length))
-
-       return attributedText
+    }
+    
+    func underlineAttributedText(_ attributedText: NSMutableAttributedString, color: String = "BodyTextColor") -> NSMutableAttributedString {
+        attributedText.addAttributes([NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue, NSAttributedString.Key.underlineColor: UIColor(named: color)!], range: NSMakeRange(0, attributedText.length))
+        return attributedText
+    }
+    
+    func createAttributedText(text: String, font: String = "Lora-Regular", textSize: Int = 17, alignment: NSTextAlignment = .left, spacing: Int = 0) -> NSMutableAttributedString {
+        
+        let attributedText = NSMutableAttributedString(string: text, attributes: [NSAttributedString.Key.font: UIFont(name: font, size: CGFloat(textSize))!])
+        
+        let paragraphStyle = NSMutableParagraphStyle()
+        setAlignment(paragraphStyle, attributedText: attributedText, alignment: alignment)
+        setLineSpacing(paragraphStyle, attributedText: attributedText, lineSpacing: CGFloat(spacing))
+        
+        
+        
+        return attributedText
     }
 }

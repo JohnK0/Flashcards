@@ -43,7 +43,7 @@ class CreateFlashcardController: UIViewController {
             try managedContext!.save()
             if let presenter = presentingViewController as? ViewController {
                 presenter.flashcardBrain.addFlashcard(flashcard)
-                presenter.updateFlashcard()
+                presenter.updateFlashcardLabel()
                 presenter.updateProgressBar()
             }
             

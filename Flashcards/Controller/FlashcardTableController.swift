@@ -1,13 +1,13 @@
 //
-//  FlashcardListController.swift
+//  FlashcardTableController.swift
 //  Flashcards
 //
-//  Created by John Kim on 1/23/21.
+//  Created by John Kim on 1/24/21.
 //
 
 import UIKit
 
-class FlashcardListController: UIViewController {
+class FlashcardTableController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +21,7 @@ class FlashcardListController: UIViewController {
         self.dismiss(animated: true, completion: nil)
          
     }
+    
 
     /*
     // MARK: - Navigation

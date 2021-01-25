@@ -20,8 +20,14 @@ class ViewController: UIViewController {
     
 
     var flashcardBrain = FlashcardBrain()
+    var currFlashcard: NSManagedObject?
     var managedContext: NSManagedObjectContext?
-    var flag = false
+    var flag: Bool = false
+    var full: Bool = false
+    // false: front true: back
+    var currSide: Bool = false
+    // false: front true: back
+    var defaultSide: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,12 +35,44 @@ class ViewController: UIViewController {
         addButton.tintColor = UIColor(named: "TopButtonColor")
         retainedButton.tintColor = UIColor(named: "TopButtonColor")
         nextButton.tintColor = UIColor(named: "TopButtonColor")
-        let recognizer: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(self.swipeLeft))
-            recognizer.direction = .left
-            self.view.addGestureRecognizer(recognizer)
+        
+        let downRecognizer = createDirectionFunction(selector: #selector(makeFull), direction: .up)
+        flashcardLabel.addGestureRecognizer(downRecognizer)
+        let upRecognizer = createDirectionFunction(selector: #selector(makeHalf), direction: .down)
+        flashcardLabel.addGestureRecognizer(upRecognizer)
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(flip))
+        flashcardLabel.addGestureRecognizer(tap)
     }
     
-    @objc func tapped(_ i: Int) {
+    func createDirectionFunction(selector: Selector, direction: UISwipeGestureRecognizer.Direction) -> UISwipeGestureRecognizer{
+        let recognizer: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: selector)
+        recognizer.direction = direction
+        return recognizer
+    }
+    
+    @objc func makeFull(a: Int) {
+        full = true
+        updateFlashcardLabel()
+    }
+    
+    @objc func makeHalf() {
+        full = false
+        updateFlashcardLabel(down: true)
+    }
+    
+    @objc func toggleBetweenFrontandBack() {
+        defaultSide = !defaultSide
+        updateFlashcardLabel()
+    }
+    
+    @objc func flip() {
+        if !full {
+            updateFlashcardLabel(flip: true)
+        }
+    }
+    
+    @objc func hapticFeedback(_ i: Int) {
         switch i {
         case 1:
             let generator = UIImpactFeedbackGenerator(style: .light)
@@ -52,11 +90,6 @@ class ViewController: UIViewController {
         }
     }
     
-    @objc func swipeLeft(recognizer : UISwipeGestureRecognizer) {
-        self.performSegue(withIdentifier: "goToFlashcardList", sender: self)
-         
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
@@ -69,9 +102,10 @@ class ViewController: UIViewController {
             print(flashcardBrain.getAllFlashcardCount())
             if !flag {
                 flashcardBrain.setupFlashcards()
+                currFlashcard = flashcardBrain.getCurrentFlashcard()
                 flag = true
             }
-            updateFlashcard()
+            updateFlashcardLabel()
             updateProgressBar()
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
@@ -94,55 +128,72 @@ class ViewController: UIViewController {
     }
     
     func redoButtonPressed() {
-        tapped(1)
+        hapticFeedback(2)
         flashcardBrain.setupFlashcards()
-        updateFlashcard()
+        updateFlashcardLabel(flip: false)
         updateProgressBar()
 
     }
     
     func memorizedButtonPressed() {
-        tapped(1)
+        hapticFeedback(2)
         flashcardBrain.memorizedFlashcard()
-        updateFlashcard()
+        updateFlashcardLabel(flip: false)
     }
     
     func nextButtonPressed() {
-        tapped(1)
+        hapticFeedback(2)
         flashcardBrain.rotate()
-        updateFlashcard()
+        updateFlashcardLabel(flip: false)
     }
     
     @IBAction func addButtonPressed(_ sender: UIButton) {
-        tapped(1)
+        hapticFeedback(2
+        )
         self.performSegue(withIdentifier: "goToCreate", sender: self)
     }
     
-    func updateFlashcard() {
-        if !flashcardBrain.noCurrentFlashcardsLeft() {
-            let flashcard = flashcardBrain.getCurrentFlashcard()
-            updateFlashcardLabel((flashcard.value(forKeyPath: "body") as? String)!, (flashcard.value(forKeyPath: "source") as? String)!)
-        } else {
-            updateFlashcardLabel()
+    func getFrontText(_ label: UILabel, underline: Bool = false) -> NSMutableAttributedString {
+        var attributedText = label.createAttributedText(text: (currFlashcard!.value(forKey: "source") as? String)!, textSize: 28, alignment: .center)
+        if underline {
+            attributedText = label.underlineAttributedText(attributedText, color: "BodyTextColor")
         }
-        
+        return attributedText
     }
     
-    func updateFlashcardLabel(_ body: String = "Redo?", _ source: String = "John Kim") {
+    func getBackText(_ label: UILabel) -> NSMutableAttributedString {
+        return label.createAttributedText(text: (currFlashcard!.value(forKey: "body") as? String)!, textSize: 17, spacing: 5)
+    }
+
+    func updateFlashcardLabel(flip: Bool = false, down: Bool = false) {
+        currFlashcard = flashcardBrain.getCurrentFlashcard()
         if flashcardBrain.getAllFlashcardCount() == 0 {
             flashcardLabel.text = "To add a flashcard, press the add button on the top right."
         }
         
         let label = UILabel()
-        let source = source
-        // font
-        var attributedText = NSMutableAttributedString(string: source, attributes: [NSAttributedString.Key.font: UIFont(name: "Lora-Regular", size: 28)!, NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue, NSAttributedString.Key.underlineColor: UIColor(named: "BodyTextColor")!])
-        attributedText = label.setAlignment(attributedText: attributedText, alignment: 1)
-        attributedText.append(NSMutableAttributedString(string: "\n\n"))
-        var body = NSMutableAttributedString(string: body, attributes: [NSAttributedString.Key.font: UIFont(name: "Lora-Regular", size: 17)!])
-        body = label.setLineSpacing(attributedText: body, lineSpacing: 5)
-        body = label.setAlignment(attributedText: body)
-        attributedText.append(body)
+        var attributedText: NSMutableAttributedString
+        
+        if full {
+            attributedText = getFrontText(label, underline: true)
+            attributedText.append(NSMutableAttributedString(string: "\n\n"))
+            attributedText.append(getBackText(label))
+        } else if flip || down {
+            if flip {
+                currSide = !currSide
+            }
+            if currSide {
+                attributedText = getBackText(label)
+            } else {
+                attributedText = getFrontText(label)
+            }
+        } else {
+            if defaultSide {
+                attributedText = getBackText(label)
+            } else {
+                attributedText = getFrontText(label)
+            }
+        }
         
         flashcardLabel.attributedText = attributedText
     }

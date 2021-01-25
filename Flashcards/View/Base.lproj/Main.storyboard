@@ -10,6 +10,11 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Lora-Regular.ttf">
+            <string>Lora-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -19,7 +24,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="50" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="Qy2-LP-xay">
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="50" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="Qy2-LP-xay">
                                 <rect key="frame" x="30" y="123.99999999999997" width="330" height="486.33333333333326"/>
                                 <attributedString key="attributedText">
                                     <fragment content="flashcardLabel">
@@ -157,28 +162,61 @@
                         <outlet property="redoButton" destination="PQw-Xa-gf2" id="Hzr-ho-Qgf"/>
                         <outlet property="retainedButton" destination="EpF-B3-RTX" id="ahU-C7-E4E"/>
                         <segue destination="FIG-8P-TXW" kind="presentation" identifier="goToCreate" modalPresentationStyle="automatic" modalTransitionStyle="coverVertical" id="t0D-SK-hAu"/>
-                        <segue destination="rOC-V0-uqb" kind="presentation" identifier="goToFlashcardList" animates="NO" modalPresentationStyle="fullScreen" id="teH-Bb-plU"/>
+                        <segue destination="Sjy-l1-LFa" kind="presentation" id="tfl-dj-lRT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="135.38461538461539" y="92.417061611374407"/>
         </scene>
-        <!--Flashcard List Controller-->
-        <scene sceneID="Rsz-RJ-kLw">
+        <!--Flashcard Table Controller-->
+        <scene sceneID="WZs-yv-4QZ">
             <objects>
-                <viewController id="rOC-V0-uqb" customClass="FlashcardListController" customModule="Flashcards" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="lgd-pH-kvX">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                <tableViewController id="Sjy-l1-LFa" customClass="FlashcardTableController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="29k-Kn-OOB">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="fZJ-kf-ewx"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="vth-0Z-bPB"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iww-qA-ZSW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="gWS-YE-eaT">
+                                <rect key="frame" x="0.0" y="28" width="390" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gWS-YE-eaT" id="447-6O-ff6">
+                                    <rect key="frame" x="0.0" y="0.0" width="390" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="63" id="gTv-pC-Qko">
+                                <rect key="frame" x="0.0" y="71.666667938232422" width="390" height="63"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gTv-pC-Qko" id="8rg-AJ-tGw">
+                                    <rect key="frame" x="0.0" y="0.0" width="390" height="63"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="JRS-EY-Pad">
+                                            <rect key="frame" x="20" y="11" width="43" height="41"/>
+                                            <fontDescription key="fontDescription" name="Lora-Regular" family="Lora" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="JRS-EY-Pad" firstAttribute="leading" secondItem="8rg-AJ-tGw" secondAttribute="leadingMargin" id="Kre-AT-MjR"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="JRS-EY-Pad" secondAttribute="bottom" id="rqP-ja-8fB"/>
+                                        <constraint firstItem="JRS-EY-Pad" firstAttribute="top" secondItem="8rg-AJ-tGw" secondAttribute="topMargin" id="vF9-V0-cyc"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Sjy-l1-LFa" id="sJJ-OL-c8S"/>
+                            <outlet property="delegate" destination="Sjy-l1-LFa" id="RhJ-wp-bDX"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tAZ-1q-76Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="546" y="834"/>
+            <point key="canvasLocation" x="1167.6923076923076" y="834.59715639810418"/>
         </scene>
         <!--CreateFlashcard Controller-->
         <scene sceneID="c97-3o-FT3">
