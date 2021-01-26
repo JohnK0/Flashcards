@@ -20,7 +20,6 @@ class ViewController: UIViewController {
     
 
     var flashcardBrain = FlashcardBrain()
-    var currFlashcard: NSManagedObject?
     var managedContext: NSManagedObjectContext?
     var flag: Bool = false
     var full: Bool = false
@@ -36,11 +35,34 @@ class ViewController: UIViewController {
         retainedButton.tintColor = UIColor(named: "TopButtonColor")
         nextButton.tintColor = UIColor(named: "TopButtonColor")
         
+        setUpGestureRecognizers()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+          return
+        }
+        managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Flashcard")
+        do {
+            flashcardBrain.setFlashcards(try managedContext!.fetch(fetchRequest))
+            updateFlashcardLabel()
+            updateProgressBar()
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+    }
+    
+    func setUpGestureRecognizers() {
         let downRecognizer = createDirectionFunction(selector: #selector(makeFull), direction: .up)
         flashcardLabel.addGestureRecognizer(downRecognizer)
         let upRecognizer = createDirectionFunction(selector: #selector(makeHalf), direction: .down)
         flashcardLabel.addGestureRecognizer(upRecognizer)
-        
+        let leftRecognizer = createDirectionFunction(selector: #selector(nextFlashcard), direction: .left)
+        flashcardLabel.addGestureRecognizer(leftRecognizer)
+        let rightRecognizer = createDirectionFunction(selector: #selector(lastFlashcard), direction: .right)
+        flashcardLabel.addGestureRecognizer(rightRecognizer)
         let tap = UITapGestureRecognizer(target: self, action: #selector(flip))
         flashcardLabel.addGestureRecognizer(tap)
     }
@@ -53,21 +75,37 @@ class ViewController: UIViewController {
     
     @objc func makeFull(a: Int) {
         full = true
+        hapticFeedback(3)
         updateFlashcardLabel()
     }
     
     @objc func makeHalf() {
         full = false
+        hapticFeedback(3)
         updateFlashcardLabel(down: true)
     }
     
     @objc func toggleBetweenFrontandBack() {
+        hapticFeedback(3)
         defaultSide = !defaultSide
         updateFlashcardLabel()
     }
     
+    @objc func lastFlashcard() {
+        hapticFeedback(2)
+        flashcardBrain.back()
+        updateFlashcardLabel(flip: false)
+    }
+    
+    @objc func nextFlashcard() {
+        hapticFeedback(2)
+        flashcardBrain.next()
+        updateFlashcardLabel(flip: false)
+    }
+    
     @objc func flip() {
         if !full {
+            hapticFeedback(2)
             updateFlashcardLabel(flip: true)
         }
     }
@@ -81,34 +119,15 @@ class ViewController: UIViewController {
             let generator = UIImpactFeedbackGenerator(style: .medium)
             generator.impactOccurred()
         case 3:
+            let generator = UIImpactFeedbackGenerator(style: .heavy)
+            generator.impactOccurred()
+        case 4:
             let generator = UISelectionFeedbackGenerator()
             generator.selectionChanged()
         
         default:
             let generator = UIImpactFeedbackGenerator(style: .light)
             generator.impactOccurred()
-        }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-          return
-        }
-        managedContext = appDelegate.persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Flashcard")
-        do {
-            flashcardBrain.flashcards = try managedContext!.fetch(fetchRequest)
-            print(flashcardBrain.getAllFlashcardCount())
-            if !flag {
-                flashcardBrain.setupFlashcards()
-                currFlashcard = flashcardBrain.getCurrentFlashcard()
-                flag = true
-            }
-            updateFlashcardLabel()
-            updateProgressBar()
-        } catch let error as NSError {
-            print("Could not fetch. \(error), \(error.userInfo)")
         }
     }
     
@@ -122,7 +141,7 @@ class ViewController: UIViewController {
                 updateProgressBar()
             }
             if sender == nextButton {
-                nextButtonPressed()
+                nextFlashcard()
             }
         }
     }
@@ -137,13 +156,9 @@ class ViewController: UIViewController {
     
     func memorizedButtonPressed() {
         hapticFeedback(2)
+//        if !(currFlashcard!.value(forKey: "Memorized") as? Bool)! {
         flashcardBrain.memorizedFlashcard()
-        updateFlashcardLabel(flip: false)
-    }
-    
-    func nextButtonPressed() {
-        hapticFeedback(2)
-        flashcardBrain.rotate()
+//        }
         updateFlashcardLabel(flip: false)
     }
     
@@ -154,7 +169,7 @@ class ViewController: UIViewController {
     }
     
     func getFrontText(_ label: UILabel, underline: Bool = false) -> NSMutableAttributedString {
-        var attributedText = label.createAttributedText(text: (currFlashcard!.value(forKey: "source") as? String)!, textSize: 28, alignment: .center)
+        var attributedText = label.createAttributedText(text: (flashcardBrain.getCurrentFlashcard().value(forKey: "source") as? String)!, textSize: 28, alignment: .center)
         if underline {
             attributedText = label.underlineAttributedText(attributedText, color: "BodyTextColor")
         }
@@ -162,13 +177,16 @@ class ViewController: UIViewController {
     }
     
     func getBackText(_ label: UILabel) -> NSMutableAttributedString {
-        return label.createAttributedText(text: (currFlashcard!.value(forKey: "body") as? String)!, textSize: 17, spacing: 5)
+        return label.createAttributedText(text: (flashcardBrain.getCurrentFlashcard().value(forKey: "body") as? String)!, textSize: 17, spacing: 5)
     }
 
     func updateFlashcardLabel(flip: Bool = false, down: Bool = false) {
-        currFlashcard = flashcardBrain.getCurrentFlashcard()
         if flashcardBrain.getAllFlashcardCount() == 0 {
             flashcardLabel.text = "To add a flashcard, press the add button on the top right."
+            return
+        }
+        if flashcardBrain.noCurrentFlashcardsLeft() {
+            return
         }
         
         let label = UILabel()

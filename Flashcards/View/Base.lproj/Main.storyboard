@@ -25,7 +25,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="50" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="Qy2-LP-xay">
-                                <rect key="frame" x="30" y="123.99999999999997" width="330" height="486.33333333333326"/>
+                                <rect key="frame" x="30" y="84" width="330" height="526.33333333333337"/>
                                 <attributedString key="attributedText">
                                     <fragment content="flashcardLabel">
                                         <attributes>
@@ -142,7 +142,7 @@
                             <constraint firstItem="VLw-yY-zFX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="7o5-of-s4P"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Qy2-LP-xay" secondAttribute="trailing" constant="30" id="EqD-o5-9Af"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="VLw-yY-zFX" secondAttribute="trailing" id="b2R-dc-ZVl"/>
-                            <constraint firstItem="Qy2-LP-xay" firstAttribute="top" secondItem="nAC-eg-8s1" secondAttribute="top" constant="70" id="bo5-pL-YCc"/>
+                            <constraint firstItem="Qy2-LP-xay" firstAttribute="top" secondItem="nAC-eg-8s1" secondAttribute="top" constant="30" id="bo5-pL-YCc"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="VLw-yY-zFX" secondAttribute="bottom" constant="45" id="cSf-GU-Gon"/>
                             <constraint firstItem="Qy2-LP-xay" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="czj-xo-ioJ"/>
                             <constraint firstItem="Sg7-NY-ean" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="d1m-YD-vEf"/>
