@@ -25,15 +25,15 @@ extension UILabel {
         return attributedText
     }
     
-    func createAttributedText(text: String, font: String = "Lora-Regular", textSize: Int = 17, alignment: NSTextAlignment = .left, spacing: Int = 0, textColor: String = "BodyTextColor") -> NSMutableAttributedString {
+    func createAttributedText(text: String, font: String = "Lora-Regular", textSize: Int = 17, alignment: NSTextAlignment = .left, spacing: Int = 0, textColor: String = "BodyTextColor", underline: Bool = false, underlineColor: String = "BodyTextColor") -> NSMutableAttributedString {
         
-        let attributedText = NSMutableAttributedString(string: text, attributes: [NSAttributedString.Key.font: UIFont(name: font, size: CGFloat(textSize))!, NSAttributedString.Key.foregroundColor: UIColor(named: textColor)!])
+        var attributedText = NSMutableAttributedString(string: text, attributes: [NSAttributedString.Key.font: UIFont(name: font, size: CGFloat(textSize))!, NSAttributedString.Key.foregroundColor: UIColor(named: textColor)!])
         let paragraphStyle = NSMutableParagraphStyle()
         setAlignment(paragraphStyle, attributedText: attributedText, alignment: alignment)
         setLineSpacing(paragraphStyle, attributedText: attributedText, lineSpacing: CGFloat(spacing))
-        
-        
-        
+        if underline {
+            attributedText = underlineAttributedText(attributedText)
+        }
         return attributedText
     }
 }

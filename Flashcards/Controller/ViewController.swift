@@ -11,6 +11,7 @@ import CoreData
 class ViewController: UIViewController {
     
     
+    @IBOutlet weak var superView: UIView!
     @IBOutlet weak var flashcardLabel: UILabel!
     @IBOutlet weak var redoButton: UIButton!
     @IBOutlet weak var retainedButton: UIButton!
@@ -27,13 +28,22 @@ class ViewController: UIViewController {
     var currSide: Bool = false
     // false: front true: back
     var defaultSide: Bool = false
+    weak var memorizeHoldToCancelTimer: Timer?
+    weak var memorizeHoldTimer: Timer?
+    let memorizeHoldToCancelDuration = 3
+    let memorizeHoldDuration = 2
+    
+    let headerTextSize = 28
+    let bodyTextSize = 17
+    let bodySpacing = 5
+    let topButtonColor = "TopButtonColor"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        redoButton.tintColor = UIColor(named: "TopButtonColor")
-        addButton.tintColor = UIColor(named: "TopButtonColor")
-        retainedButton.tintColor = UIColor(named: "TopButtonColor")
-        nextButton.tintColor = UIColor(named: "TopButtonColor")
+        redoButton.tintColor = UIColor(named: topButtonColor)
+        addButton.tintColor = UIColor(named: topButtonColor)
+//        retainedButton.tintColor = UIColor(named: topButtonColor)
+//        nextButton.tintColor = UIColor(named: topButtonColor)
         
         setUpGestureRecognizers()
     }
@@ -55,6 +65,9 @@ class ViewController: UIViewController {
     }
     
     func setUpGestureRecognizers() {
+        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(heldToMemorize))
+        longPressRecognizer.minimumPressDuration = 0.35
+        flashcardLabel.addGestureRecognizer(longPressRecognizer)
         let downRecognizer = createDirectionFunction(selector: #selector(makeFull), direction: .up)
         flashcardLabel.addGestureRecognizer(downRecognizer)
         let upRecognizer = createDirectionFunction(selector: #selector(makeHalf), direction: .down)
@@ -67,11 +80,46 @@ class ViewController: UIViewController {
         flashcardLabel.addGestureRecognizer(tap)
     }
     
+    @objc func heldToMemorize(sender: UILongPressGestureRecognizer) {
+        if !flashcardBrain.noCurrentFlashcardsLeft() {
+            switch (sender.state) {
+                    case .ended:
+                        memorizeHoldToCancelTimer?.invalidate()
+                        let touchLocation = sender.location(in: flashcardLabel)
+                        if flashcardLabel.bounds.contains(touchLocation) {
+                            print("End")
+                            memorizedButtonPressed()
+                        }
+                    case .began:
+                        memorizeHoldToCancelTimer?.invalidate()
+                        memorizeHoldToCancelTimer = Timer.scheduledTimer(withTimeInterval: TimeInterval(memorizeHoldToCancelDuration), repeats: false) { _ in
+                                    sender.state = .cancelled
+                                }
+//                        memorizeHoldTimer = Timer.scheduledTimer(timeInterval: TimeInterval(memorizeHoldDuration), repeats: false)
+                        print("Began")
+                    case .cancelled:
+                        print("Cancelled")
+                    case .changed:
+                        print("Changed")
+                    default:
+                        print("Nothing")
+                }
+        }
+    }
+    
+    func cancelHold() {
+        
+    }
+    
     func createDirectionFunction(selector: Selector, direction: UISwipeGestureRecognizer.Direction) -> UISwipeGestureRecognizer{
+        
+        
         let recognizer: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: selector)
         recognizer.direction = direction
         return recognizer
     }
+    
+    
     
     @objc func makeFull(a: Int) {
         full = true
@@ -94,13 +142,13 @@ class ViewController: UIViewController {
     @objc func lastFlashcard() {
         hapticFeedback(2)
         flashcardBrain.back()
-        updateFlashcardLabel(flip: false)
+            updateFlashcardLabel(flip: false)
     }
     
     @objc func nextFlashcard() {
         hapticFeedback(2)
         flashcardBrain.next()
-        updateFlashcardLabel(flip: false)
+            updateFlashcardLabel(flip: false)
     }
     
     @objc func flip() {
@@ -132,13 +180,13 @@ class ViewController: UIViewController {
     }
     
     @IBAction func actionButtonPressed(_ sender: UIButton) {
+        hapticFeedback(2)
         if flashcardBrain.getAllFlashcardCount() != 0 && sender == redoButton {
             redoButtonPressed()
         }
         if !flashcardBrain.noCurrentFlashcardsLeft() {
             if sender == retainedButton {
                 memorizedButtonPressed()
-                updateProgressBar()
             }
             if sender == nextButton {
                 nextFlashcard()
@@ -147,7 +195,6 @@ class ViewController: UIViewController {
     }
     
     func redoButtonPressed() {
-        hapticFeedback(2)
         flashcardBrain.setupFlashcards()
         updateFlashcardLabel(flip: false)
         updateProgressBar()
@@ -155,11 +202,9 @@ class ViewController: UIViewController {
     }
     
     func memorizedButtonPressed() {
-        hapticFeedback(2)
-//        if !(currFlashcard!.value(forKey: "Memorized") as? Bool)! {
         flashcardBrain.memorizedFlashcard()
-//        }
         updateFlashcardLabel(flip: false)
+        updateProgressBar()
     }
     
     @IBAction func addButtonPressed(_ sender: UIButton) {
@@ -169,7 +214,7 @@ class ViewController: UIViewController {
     }
     
     func getFrontText(_ label: UILabel, underline: Bool = false) -> NSMutableAttributedString {
-        var attributedText = label.createAttributedText(text: (flashcardBrain.getCurrentFlashcard().value(forKey: "source") as? String)!, textSize: 28, alignment: .center)
+        var attributedText = label.createAttributedText(text: (flashcardBrain.getCurrentFlashcard()!.value(forKey: "source") as? String)!, textSize: 28, alignment: .center)
         if underline {
             attributedText = label.underlineAttributedText(attributedText, color: "BodyTextColor")
         }
@@ -177,42 +222,56 @@ class ViewController: UIViewController {
     }
     
     func getBackText(_ label: UILabel) -> NSMutableAttributedString {
-        return label.createAttributedText(text: (flashcardBrain.getCurrentFlashcard().value(forKey: "body") as? String)!, textSize: 17, spacing: 5)
+        return label.createAttributedText(text: (flashcardBrain.getCurrentFlashcard()!.value(forKey: "body") as? String)!, textSize: 17, spacing: 5)
     }
 
+    func frodoGandalfQuote(_ label: UILabel) -> NSMutableAttributedString {
+        let frodo = "Frodo"
+        let frodoQuote = "I wish it need not have happened in my time."
+        let gandalf = "Gandalf the Grey"
+        let gandalfQuote = "So do I, and so do all who live to see such times. But that is not for them to decide. All we have to decide is what to do with the time that is given us." 
+        let attributedText = label.createAttributedText(text: frodo, textSize: headerTextSize, alignment: .center, underline: true)
+        attributedText.append(NSMutableAttributedString(string: "\n"))
+        attributedText.append(label.createAttributedText(text: frodoQuote, textSize: bodyTextSize, spacing: bodySpacing))
+        attributedText.append(NSMutableAttributedString(string: "\n"))
+        attributedText.append(label.createAttributedText(text: gandalf, textSize: headerTextSize, alignment: .center, underline: true))
+        attributedText.append(NSMutableAttributedString(string: "\n"))
+        attributedText.append(label.createAttributedText(text: gandalfQuote, textSize: bodyTextSize, spacing: bodySpacing))
+        return attributedText
+    }
+    
     func updateFlashcardLabel(flip: Bool = false, down: Bool = false) {
         if flashcardBrain.getAllFlashcardCount() == 0 {
             flashcardLabel.text = "To add a flashcard, press the add button on the top right."
             return
         }
-        if flashcardBrain.noCurrentFlashcardsLeft() {
-            return
-        }
-        
         let label = UILabel()
         var attributedText: NSMutableAttributedString
-        
-        if full {
-            attributedText = getFrontText(label, underline: true)
-            attributedText.append(NSMutableAttributedString(string: "\n\n"))
-            attributedText.append(getBackText(label))
-        } else if flip || down {
-            if flip {
-                currSide = !currSide
-            }
-            if currSide {
-                attributedText = getBackText(label)
-            } else {
-                attributedText = getFrontText(label)
-            }
+        if flashcardBrain.getCurrentFlashcard() == nil {
+            attributedText = frodoGandalfQuote(label)
         } else {
-            if defaultSide {
-                attributedText = getBackText(label)
+            
+            if full {
+                attributedText = getFrontText(label, underline: true)
+                attributedText.append(NSMutableAttributedString(string: "\n\n"))
+                attributedText.append(getBackText(label))
+            } else if flip || down {
+                if flip {
+                    currSide = !currSide
+                }
+                if currSide {
+                    attributedText = getBackText(label)
+                } else {
+                    attributedText = getFrontText(label)
+                }
             } else {
-                attributedText = getFrontText(label)
+                if defaultSide {
+                    attributedText = getBackText(label)
+                } else {
+                    attributedText = getFrontText(label)
+                }
             }
         }
-        
         flashcardLabel.attributedText = attributedText
     }
     

@@ -10,28 +10,32 @@ import CoreData
 
 struct FlashcardBrain {
     private var flashcards: [NSManagedObject] = []
-    private var currentFlashcards = LinkedList<NSManagedObject>()
+    private var currFlashcards = LinkedList<NSManagedObject>()
     private var currFlashcard: Node<NSManagedObject>?
     private var itr = 0
     private var flashcardLength: Int = 0
+    private var emptyDeck = true
     
     mutating func setFlashcards(_ flashcards: [NSManagedObject]) {
-        self.flashcards = flashcards
-        setupFlashcards()
+        if !flashcards.isEmpty {
+            self.flashcards = flashcards
+            setupFlashcards()
+        }
     }
     
     mutating func setupFlashcards() {
+        emptyDeck = false
 //        shuffleFlashcards()
-        currentFlashcards.removeAll()
+        currFlashcards.removeAll()
         for flashcard in flashcards {
             flashcard.setValue(false, forKey: "Memorized")
-            currentFlashcards.append(value: flashcard)
+            currFlashcards.append(value: flashcard)
         }
-        currentFlashcards.first!.previous = currentFlashcards.last
-        currentFlashcards.last!.next = currentFlashcards.first
-        currFlashcard = currentFlashcards.first
-        print(currentFlashcards.getCount())
-        print((currentFlashcards.first!.value.value(forKey: "source") as? String)!)
+        currFlashcards.first!.previous = currFlashcards.last
+        currFlashcards.last!.next = currFlashcards.first
+        currFlashcard = currFlashcards.first
+        print(currFlashcards.getCount())
+        print((currFlashcards.first!.value.value(forKey: "source") as? String)!)
         
     }
     
@@ -44,7 +48,7 @@ struct FlashcardBrain {
     }
     
     func noCurrentFlashcardsLeft() -> Bool{
-        if  currentFlashcards.isEmpty {
+        if  currFlashcards.isEmpty {
             return true
         }
         return false
@@ -53,29 +57,36 @@ struct FlashcardBrain {
     
     mutating func addFlashcard(_ flashcard: NSManagedObject) {
         flashcards.append(flashcard)
-        currentFlashcards.append(value: flashcard)
+        currFlashcards.append(value: flashcard)
+        if emptyDeck {
+            currFlashcard = currFlashcards.first
+        }
+        
     }
     
     mutating func memorizedFlashcard() {
         let temp = currFlashcard!.next
-        _ = currentFlashcards.remove(node: currFlashcard!)
+        _ = currFlashcards.remove(node: currFlashcard!)
         currFlashcard = temp
-        print((currFlashcard!.value.value(forKey: "source") as? String)!)
+        if temp != nil {
+            print((currFlashcard!.value.value(forKey: "source") as? String)!)
+        }
+        
     }
     mutating func back() {
-        currFlashcard = currFlashcard!.previous
+        currFlashcard = currFlashcard?.previous
     }
     mutating func next() {
-        currFlashcard = currFlashcard!.next
+        currFlashcard = currFlashcard?.next
     }
     func getCurrentFlashcardCount() -> Int {
-        currentFlashcards.getCount()
+        currFlashcards.getCount()
     }
     func getAllFlashcardCount() -> Int {
         return flashcards.count
     }
-    func getCurrentFlashcard() -> NSManagedObject {
-        return currFlashcard!.value
+    func getCurrentFlashcard() -> NSManagedObject? {
+        return currFlashcard?.value
     }
 
     

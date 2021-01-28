@@ -17,6 +17,70 @@
     </customFonts>
     <scenes>
         <!--View Controller-->
+        <scene sceneID="plr-6F-VjX">
+            <objects>
+                <viewController id="p95-83-Hi4" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Dg1-qY-liT">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="wCn-5L-AYC" userLabel="bottomButtons">
+                                <rect key="frame" x="0.0" y="736" width="390" height="108"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EpF-B3-RTX">
+                                        <rect key="frame" x="0.0" y="0.0" width="180" height="108"/>
+                                        <color key="backgroundColor" name="ButtonColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="EpF-B3-RTX" secondAttribute="height" multiplier="5:3" id="5NT-Y1-j98"/>
+                                        </constraints>
+                                        <state key="normal">
+                                            <attributedString key="attributedTitle"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="actionButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WQo-73-GQH"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MHd-JP-xOy">
+                                        <rect key="frame" x="210" y="0.0" width="180" height="108"/>
+                                        <color key="backgroundColor" name="ButtonColor"/>
+                                        <state key="normal">
+                                            <attributedString key="attributedTitle"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="actionButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XqH-2Y-pcF"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="MHd-JP-xOy" firstAttribute="width" secondItem="EpF-B3-RTX" secondAttribute="width" id="hJZ-h3-EU2"/>
+                                    <constraint firstItem="MHd-JP-xOy" firstAttribute="height" secondItem="EpF-B3-RTX" secondAttribute="height" id="yxl-Kf-cC9"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Fpc-GQ-ZHz"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="wCn-5L-AYC" firstAttribute="leading" secondItem="Dg1-qY-liT" secondAttribute="leading" id="D1H-bA-dke"/>
+                            <constraint firstItem="Fpc-GQ-ZHz" firstAttribute="trailing" secondItem="wCn-5L-AYC" secondAttribute="trailing" id="E0r-iq-51x"/>
+                            <constraint firstAttribute="bottom" secondItem="wCn-5L-AYC" secondAttribute="bottom" id="qUV-xq-cDP"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l4s-0V-iOf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-666" y="62"/>
+        </scene>
+        <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Flashcards" customModuleProvider="target" sceneMemberID="viewController">
@@ -24,8 +88,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="2" translatesAutoresizingMaskIntoConstraints="NO" id="Sg7-NY-ean">
+                                <rect key="frame" x="143.33333333333334" y="763.33333333333337" width="103.33333333333334" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="AZf-Iz-I1h"/>
+                                </constraints>
+                                <color key="pageIndicatorTintColor" name="BodyTextColor"/>
+                                <color key="currentPageIndicatorTintColor" systemColor="systemOrangeColor"/>
+                            </pageControl>
                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="50" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="Qy2-LP-xay">
-                                <rect key="frame" x="30" y="84" width="330" height="526.33333333333337"/>
+                                <rect key="frame" x="30" y="89" width="330" height="624.33333333333337"/>
                                 <attributedString key="attributedText">
                                     <fragment content="flashcardLabel">
                                         <attributes>
@@ -43,7 +115,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="45" translatesAutoresizingMaskIntoConstraints="NO" id="VLw-yY-zFX" userLabel="bottomFunctionalities">
-                                <rect key="frame" x="0.0" y="640.33333333333337" width="390" height="124.66666666666663"/>
+                                <rect key="frame" x="0.0" y="798.33333333333337" width="390" height="1.6666666666666288"/>
                                 <subviews>
                                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" translatesAutoresizingMaskIntoConstraints="NO" id="PN0-ZQ-YdC">
                                         <rect key="frame" x="20" y="0.0" width="350" height="2.666666666666667"/>
@@ -51,59 +123,14 @@
                                         <color key="progressTintColor" systemColor="systemOrangeColor"/>
                                         <color key="trackTintColor" name="ButtonColor"/>
                                     </progressView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="wCn-5L-AYC" userLabel="bottomButtons">
-                                        <rect key="frame" x="50" y="46.666666666666629" width="290" height="78"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EpF-B3-RTX">
-                                                <rect key="frame" x="0.0" y="0.0" width="130" height="78"/>
-                                                <color key="backgroundColor" name="ButtonColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="EpF-B3-RTX" secondAttribute="height" multiplier="5:3" id="5NT-Y1-j98"/>
-                                                </constraints>
-                                                <state key="normal">
-                                                    <attributedString key="attributedTitle"/>
-                                                    <imageReference key="image" image="hand.thumbsup.fill" catalog="system" symbolScale="large" renderingMode="template"/>
-                                                </state>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                        <integer key="value" value="15"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="actionButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WQo-73-GQH"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MHd-JP-xOy">
-                                                <rect key="frame" x="160" y="0.0" width="130" height="78"/>
-                                                <color key="backgroundColor" name="ButtonColor"/>
-                                                <state key="normal">
-                                                    <attributedString key="attributedTitle"/>
-                                                    <imageReference key="image" image="arrowshape.turn.up.forward.fill" catalog="system" symbolScale="large" renderingMode="template"/>
-                                                </state>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                        <integer key="value" value="15"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="actionButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XqH-2Y-pcF"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstItem="MHd-JP-xOy" firstAttribute="width" secondItem="EpF-B3-RTX" secondAttribute="width" id="hJZ-h3-EU2"/>
-                                            <constraint firstItem="MHd-JP-xOy" firstAttribute="height" secondItem="EpF-B3-RTX" secondAttribute="height" id="yxl-Kf-cC9"/>
-                                        </constraints>
-                                    </stackView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="PN0-ZQ-YdC" secondAttribute="trailing" constant="20" id="cEv-vZ-oFY"/>
-                                    <constraint firstItem="wCn-5L-AYC" firstAttribute="leading" secondItem="VLw-yY-zFX" secondAttribute="leading" constant="50" id="iim-LS-Xp9"/>
                                     <constraint firstItem="PN0-ZQ-YdC" firstAttribute="leading" secondItem="VLw-yY-zFX" secondAttribute="leading" constant="20" id="vZP-dw-q0H"/>
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nAC-eg-8s1" userLabel="AddFlashcardButton">
-                                <rect key="frame" x="340" y="54" width="40" height="40"/>
+                                <rect key="frame" x="340" y="44" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="G5A-Tn-1Mi"/>
                                     <constraint firstAttribute="width" secondItem="nAC-eg-8s1" secondAttribute="height" multiplier="1:1" id="giJ-VT-iTQ"/>
@@ -117,7 +144,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PQw-Xa-gf2" userLabel="RedoButton">
-                                <rect key="frame" x="10" y="54" width="40" height="40"/>
+                                <rect key="frame" x="10" y="44" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="9M0-KC-Zr4"/>
                                     <constraint firstAttribute="width" secondItem="PQw-Xa-gf2" secondAttribute="height" multiplier="1:1" id="Z0n-JT-Xm6"/>
@@ -130,28 +157,23 @@
                                     <action selector="actionButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HOk-0j-1cK"/>
                                 </connections>
                             </button>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="2" translatesAutoresizingMaskIntoConstraints="NO" id="Sg7-NY-ean">
-                                <rect key="frame" x="143.33333333333334" y="782.66666666666663" width="103.33333333333334" height="27.333333333333371"/>
-                                <color key="pageIndicatorTintColor" name="BodyTextColor"/>
-                                <color key="currentPageIndicatorTintColor" systemColor="systemOrangeColor"/>
-                            </pageControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="VLw-yY-zFX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="7o5-of-s4P"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Qy2-LP-xay" secondAttribute="trailing" constant="30" id="EqD-o5-9Af"/>
+                            <constraint firstItem="Sg7-NY-ean" firstAttribute="top" secondItem="Qy2-LP-xay" secondAttribute="bottom" constant="50" id="QlJ-b6-1uw"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="VLw-yY-zFX" secondAttribute="trailing" id="b2R-dc-ZVl"/>
-                            <constraint firstItem="Qy2-LP-xay" firstAttribute="top" secondItem="nAC-eg-8s1" secondAttribute="top" constant="30" id="bo5-pL-YCc"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="VLw-yY-zFX" secondAttribute="bottom" constant="45" id="cSf-GU-Gon"/>
+                            <constraint firstItem="Qy2-LP-xay" firstAttribute="top" secondItem="nAC-eg-8s1" secondAttribute="bottom" constant="5" id="bo5-pL-YCc"/>
                             <constraint firstItem="Qy2-LP-xay" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="czj-xo-ioJ"/>
                             <constraint firstItem="Sg7-NY-ean" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="d1m-YD-vEf"/>
-                            <constraint firstItem="Sg7-NY-ean" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="f13-aX-ZBJ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="VLw-yY-zFX" secondAttribute="bottom" constant="10" id="eae-xF-h05"/>
                             <constraint firstItem="PQw-Xa-gf2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="gqR-KP-8ba"/>
-                            <constraint firstItem="VLw-yY-zFX" firstAttribute="top" secondItem="Qy2-LP-xay" secondAttribute="bottom" constant="30" id="kj2-Vt-XOD"/>
+                            <constraint firstItem="VLw-yY-zFX" firstAttribute="top" secondItem="Sg7-NY-ean" secondAttribute="bottom" constant="5" id="kj2-Vt-XOD"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nAC-eg-8s1" secondAttribute="trailing" constant="10" id="oiT-wE-JsX"/>
-                            <constraint firstItem="PQw-Xa-gf2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="vfS-zd-EtY"/>
-                            <constraint firstItem="nAC-eg-8s1" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="wzf-BS-0tK"/>
+                            <constraint firstItem="PQw-Xa-gf2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="vfS-zd-EtY"/>
+                            <constraint firstItem="nAC-eg-8s1" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="wzf-BS-0tK"/>
                         </constraints>
                     </view>
                     <connections>
@@ -161,6 +183,7 @@
                         <outlet property="progressBar" destination="PN0-ZQ-YdC" id="hL4-0M-vw2"/>
                         <outlet property="redoButton" destination="PQw-Xa-gf2" id="Hzr-ho-Qgf"/>
                         <outlet property="retainedButton" destination="EpF-B3-RTX" id="ahU-C7-E4E"/>
+                        <outlet property="superView" destination="8bC-Xf-vdC" id="4tB-Nb-U0c"/>
                         <segue destination="FIG-8P-TXW" kind="presentation" identifier="goToCreate" modalPresentationStyle="automatic" modalTransitionStyle="coverVertical" id="t0D-SK-hAu"/>
                         <segue destination="Sjy-l1-LFa" kind="presentation" id="tfl-dj-lRT"/>
                     </connections>
@@ -274,8 +297,6 @@
     </scenes>
     <resources>
         <image name="arrow.counterclockwise" catalog="system" width="115" height="128"/>
-        <image name="arrowshape.turn.up.forward.fill" catalog="system" width="128" height="106"/>
-        <image name="hand.thumbsup.fill" catalog="system" width="128" height="121"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <namedColor name="BodyTextColor">
             <color red="0.31372549019607843" green="0.30196078431372547" blue="0.27843137254901962" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
