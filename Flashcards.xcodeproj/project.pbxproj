@@ -15,6 +15,8 @@
 		520645DB256871DE00EB5AFE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 520645D9256871DE00EB5AFE /* LaunchScreen.storyboard */; };
 		525DAE71256EF14E006C3751 /* LinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525DAE70256EF14E006C3751 /* LinkedList.swift */; };
 		527F0410256E1BF6002AF200 /* FlashcardBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527F040F256E1BF6002AF200 /* FlashcardBrain.swift */; };
+		52A3E16825C393530099CFEC /* flashcardGestureControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A3E16725C393530099CFEC /* flashcardGestureControls.swift */; };
+		52A3E16B25C398BD0099CFEC /* updateFlashcardViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A3E16A25C398BD0099CFEC /* updateFlashcardViews.swift */; };
 		52C3C69F25B8FD4700AB29DA /* CreateFlashcardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C3C69E25B8FD4700AB29DA /* CreateFlashcardController.swift */; };
 		52C3C6A525BBFC6100AB29DA /* Flashcards.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 52C3C6A325BBFC6100AB29DA /* Flashcards.xcdatamodeld */; };
 		52C3C6ED25BCB26300AB29DA /* Lora-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 52C3C6EC25BCB25C00AB29DA /* Lora-Regular.ttf */; };
@@ -34,6 +36,8 @@
 		520645DC256871DE00EB5AFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		525DAE70256EF14E006C3751 /* LinkedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedList.swift; sourceTree = "<group>"; };
 		527F040F256E1BF6002AF200 /* FlashcardBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardBrain.swift; sourceTree = "<group>"; };
+		52A3E16725C393530099CFEC /* flashcardGestureControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = flashcardGestureControls.swift; sourceTree = "<group>"; };
+		52A3E16A25C398BD0099CFEC /* updateFlashcardViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = updateFlashcardViews.swift; sourceTree = "<group>"; };
 		52C3C69E25B8FD4700AB29DA /* CreateFlashcardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFlashcardController.swift; sourceTree = "<group>"; };
 		52C3C6A425BBFC6100AB29DA /* Flashcards.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Flashcards.xcdatamodel; sourceTree = "<group>"; };
 		52C3C6EC25BCB25C00AB29DA /* Lora-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lora-Regular.ttf"; sourceTree = "<group>"; };
@@ -99,7 +103,7 @@
 		527F040B256E1B85002AF200 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				520645D2256871DC00EB5AFE /* ViewController.swift */,
+				52A3E17325C3B84F0099CFEC /* ViewController */,
 				52C3C69E25B8FD4700AB29DA /* CreateFlashcardController.swift */,
 				52C3C6FE25BE75DC00AB29DA /* FlashcardTableController.swift */,
 			);
@@ -113,6 +117,16 @@
 				525DAE70256EF14E006C3751 /* LinkedList.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		52A3E17325C3B84F0099CFEC /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				520645D2256871DC00EB5AFE /* ViewController.swift */,
+				52A3E16A25C398BD0099CFEC /* updateFlashcardViews.swift */,
+				52A3E16725C393530099CFEC /* flashcardGestureControls.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -186,7 +200,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52A3E16825C393530099CFEC /* flashcardGestureControls.swift in Sources */,
 				52C3C6FA25BD3E6A00AB29DA /* UILabel.swift in Sources */,
+				52A3E16B25C398BD0099CFEC /* updateFlashcardViews.swift in Sources */,
 				520645D3256871DC00EB5AFE /* ViewController.swift in Sources */,
 				525DAE71256EF14E006C3751 /* LinkedList.swift in Sources */,
 				52C3C6A525BBFC6100AB29DA /* Flashcards.xcdatamodeld in Sources */,
@@ -272,7 +288,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -327,7 +343,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

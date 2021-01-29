@@ -37,8 +37,15 @@ public class LinkedList<T> {
     public func append(value: T) {
         let newNode = Node(value: value)
         if let tailNode = tail {
-          newNode.previous = tailNode
-          tailNode.next = newNode
+            newNode.previous = tailNode
+            tailNode.next = newNode
+            if let headNode = head {
+                newNode.next = headNode
+                headNode.previous = newNode
+            } else {
+                print("No head node")
+            }
+            
         } else {
           head = newNode
         }

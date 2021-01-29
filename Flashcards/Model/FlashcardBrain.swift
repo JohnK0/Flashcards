@@ -74,10 +74,18 @@ struct FlashcardBrain {
         
     }
     mutating func back() {
-        currFlashcard = currFlashcard?.previous
+        if let previous = currFlashcard?.previous {
+            currFlashcard = previous
+        } else {
+            return
+        }
     }
     mutating func next() {
-        currFlashcard = currFlashcard?.next
+        if let next = currFlashcard?.next {
+            currFlashcard = next
+        } else {
+            return
+        }
     }
     func getCurrentFlashcardCount() -> Int {
         currFlashcards.getCount()

@@ -10,26 +10,58 @@ import CoreData
 
 class CreateFlashcardController: UIViewController {
 
-    @IBOutlet weak var textView: UITextView!
-    @IBOutlet weak var sourceField: UITextField!
-    @IBOutlet weak var submitButton: UIButton!
+    @IBOutlet weak var bodyView: UITextView!
+    @IBOutlet weak var headerField: UITextField!
+    @IBOutlet weak var createButton: UIButton!
+    @IBOutlet weak var header: UILabel!
+    @IBOutlet weak var body: UILabel!
     
     var flashcardBrain:FlashcardBrain?
     var managedContext: NSManagedObjectContext?
+    let bodyPlaceholder = "Body text here"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let borderColor : UIColor = .darkGray
-        textView.layer.borderWidth = 0.5
-        textView.layer.borderColor = borderColor.cgColor
-        textView.layer.cornerRadius = 5.0
+        setInterface()
+        initializeGestureRecognizers()
+    }
+    
+    func setInterface() {
+        let label = UILabel()
+        var headerText: NSMutableAttributedString = NSMutableAttributedString(string: header.text!)
+        headerText = label.underlineAttributedText(headerText)
+        header.attributedText = headerText
+        var bodyText: NSMutableAttributedString = NSMutableAttributedString(string: body.text!)
+        bodyText = label.underlineAttributedText(bodyText)
+        body.attributedText = bodyText
         
-        //Looks for single or multiple taps.
-        let tap = UITapGestureRecognizer(target: self, action: #selector(CreateFlashcardController.dismissKeyboard))
-        //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
-        //tap.cancelsTouchesInView = false
+        bodyView.layer.borderWidth = 0.1
+        bodyView.layer.borderColor = UIColor(named: "BodyTextColor")?.cgColor
+        bodyView.layer.cornerRadius = 5.0
+//        bodyView.text = bodyPlaceholder
+//        bodyView.textColor = UIColor.lightGray
+        bodyView.backgroundColor = UIColor(named: "BackgroundColor")
+        createButton.tintColor = UIColor(named: "TopButtonColor")
+        createButton.setTitleColor(UIColor(named: "TopButtonColor"), for: UIControl.State.normal)
+    }
+    
+    
+    func initializeGestureRecognizers() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tap)
-        // Do any additional setup after loading the view.
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == UIColor.lightGray {
+            textView.text = nil
+            textView.textColor = UIColor(named: "BodyTextColor")
+        }
+    }
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = bodyPlaceholder
+            textView.textColor = UIColor.lightGray
+        }
     }
     
     func save(_ body: String, _ source: String, _ memorized: Bool = false) {
@@ -53,7 +85,7 @@ class CreateFlashcardController: UIViewController {
     }
     
     @IBAction func submitButtonPressed(_ sender: UIButton) {
-        guard !(textView.text == nil && sourceField.text == nil) else {
+        guard !(bodyView.text == nil && headerField.text == nil) else {
             return
         }
         self.addFlashcard()
@@ -61,8 +93,8 @@ class CreateFlashcardController: UIViewController {
     }
 //    
     func addFlashcard() {
-        let body = textView.text!
-        let source = sourceField.text!
+        let body = bodyView.text!
+        let source = headerField.text!
         if body != "" && source != "" {
             save(body, source)
         }
