@@ -86,7 +86,7 @@ class ViewController: UIViewController {
     
     func setUpGestureRecognizers() {
         let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(heldToMemorize))
-        longPressRecognizer.minimumPressDuration = 0.1
+        longPressRecognizer.minimumPressDuration = 0.35
         flashcardView.addGestureRecognizer(longPressRecognizer)
         let downRecognizer = createDirectionFunction(selector: #selector(makeFull), direction: .up)
         flashcardView.addGestureRecognizer(downRecognizer)

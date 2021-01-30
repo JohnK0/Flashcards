@@ -79,15 +79,15 @@ extension ViewController {
                 attributedText = getFrontText(label, underline: true)
                 attributedText.append(NSMutableAttributedString(string: "\n\n"))
                 attributedText.append(getBackText(label))
-            } else if flip || down {
-                if flip {
+            } else if flip {
                     currSide = !currSide
-                }
                 if currSide {
                     attributedText = getBackText(label)
                 } else {
                     attributedText = getFrontText(label)
                 }
+            } else if down {
+                attributedText = getFrontText(label)
             } else {
                 if defaultSide {
                     attributedText = getBackText(label)
