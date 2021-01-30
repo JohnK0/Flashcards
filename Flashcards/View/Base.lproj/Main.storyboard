@@ -87,40 +87,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="flashcardView" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JWY-Cd-6AK" userLabel="FlashcardView">
+                                <rect key="frame" x="30" y="89" width="330" height="634.33333333333337"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" name="BodyTextColor"/>
+                                <fontDescription key="fontDescription" name="Lora-Regular" family="Lora" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="2" translatesAutoresizingMaskIntoConstraints="NO" id="Sg7-NY-ean">
-                                <rect key="frame" x="50" y="763.33333333333337" width="290" height="30"/>
+                                <rect key="frame" x="50" y="773.33333333333337" width="290" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="AZf-Iz-I1h"/>
                                 </constraints>
                                 <color key="pageIndicatorTintColor" name="PageControlColor"/>
                                 <color key="currentPageIndicatorTintColor" systemColor="systemOrangeColor"/>
+                                <connections>
+                                    <action selector="flashcardControlPressed:" destination="BYZ-38-t0r" eventType="valueChanged" id="d5h-In-AP5"/>
+                                </connections>
                             </pageControl>
-                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="50" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="Qy2-LP-xay">
-                                <rect key="frame" x="30" y="89" width="330" height="624.33333333333337"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="flashcardLabel">
-                                        <attributes>
-                                            <color key="NSColor" name="BodyTextColor"/>
-                                            <font key="NSFont" size="17" name="Lora-Regular"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" lineSpacing="5" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <nil key="highlightedColor"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="45" translatesAutoresizingMaskIntoConstraints="NO" id="VLw-yY-zFX" userLabel="bottomFunctionalities">
-                                <rect key="frame" x="0.0" y="798.33333333333337" width="390" height="1.6666666666666288"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="VLw-yY-zFX" userLabel="bottomFunctionalities">
+                                <rect key="frame" x="0.0" y="808.33333333333337" width="390" height="1.6666666666666288"/>
                                 <subviews>
                                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" translatesAutoresizingMaskIntoConstraints="NO" id="PN0-ZQ-YdC">
                                         <rect key="frame" x="20" y="0.0" width="350" height="2.666666666666667"/>
                                         <color key="tintColor" red="1" green="0.70353001356124878" blue="0.0036191917024552822" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="progressTintColor" systemColor="systemOrangeColor"/>
-                                        <color key="trackTintColor" name="ButtonColor"/>
+                                        <color key="trackTintColor" name="ProgressBarColor"/>
                                     </progressView>
                                 </subviews>
                                 <constraints>
@@ -161,16 +153,16 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="VLw-yY-zFX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="7o5-of-s4P"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Qy2-LP-xay" secondAttribute="trailing" constant="30" id="EqD-o5-9Af"/>
-                            <constraint firstItem="Sg7-NY-ean" firstAttribute="top" secondItem="Qy2-LP-xay" secondAttribute="bottom" constant="50" id="QlJ-b6-1uw"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="JWY-Cd-6AK" secondAttribute="trailing" constant="30" id="ElF-v0-7g4"/>
+                            <constraint firstItem="JWY-Cd-6AK" firstAttribute="top" secondItem="nAC-eg-8s1" secondAttribute="bottom" constant="5" id="Jz0-rf-NzT"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="VLw-yY-zFX" secondAttribute="trailing" id="b2R-dc-ZVl"/>
-                            <constraint firstItem="Qy2-LP-xay" firstAttribute="top" secondItem="nAC-eg-8s1" secondAttribute="bottom" constant="5" id="bo5-pL-YCc"/>
-                            <constraint firstItem="Qy2-LP-xay" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="czj-xo-ioJ"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="VLw-yY-zFX" secondAttribute="bottom" constant="10" id="eae-xF-h05"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="VLw-yY-zFX" secondAttribute="bottom" id="eae-xF-h05"/>
                             <constraint firstItem="PQw-Xa-gf2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="gqR-KP-8ba"/>
                             <constraint firstItem="VLw-yY-zFX" firstAttribute="top" secondItem="Sg7-NY-ean" secondAttribute="bottom" constant="5" id="kj2-Vt-XOD"/>
+                            <constraint firstItem="JWY-Cd-6AK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="lcc-rl-m8L"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nAC-eg-8s1" secondAttribute="trailing" constant="10" id="oiT-wE-JsX"/>
                             <constraint firstItem="Sg7-NY-ean" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="rfv-Cz-hJn"/>
+                            <constraint firstItem="Sg7-NY-ean" firstAttribute="top" secondItem="JWY-Cd-6AK" secondAttribute="bottom" constant="50" id="u94-e2-RjC"/>
                             <constraint firstItem="PQw-Xa-gf2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="vfS-zd-EtY"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Sg7-NY-ean" secondAttribute="trailing" constant="50" id="wJC-bD-mSv"/>
                             <constraint firstItem="nAC-eg-8s1" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="wzf-BS-0tK"/>
@@ -179,7 +171,7 @@
                     <connections>
                         <outlet property="addButton" destination="nAC-eg-8s1" id="XvU-wK-oxX"/>
                         <outlet property="flashcardControl" destination="Sg7-NY-ean" id="Knp-ok-Is5"/>
-                        <outlet property="flashcardLabel" destination="Qy2-LP-xay" id="YXB-MI-I9Q"/>
+                        <outlet property="flashcardView" destination="JWY-Cd-6AK" id="m2o-J8-xfK"/>
                         <outlet property="nextButton" destination="MHd-JP-xOy" id="YWw-VA-stO"/>
                         <outlet property="progressBar" destination="PN0-ZQ-YdC" id="hL4-0M-vw2"/>
                         <outlet property="redoButton" destination="PQw-Xa-gf2" id="Hzr-ho-Qgf"/>
@@ -308,6 +300,7 @@
                     <connections>
                         <outlet property="BodyView" destination="nXu-Be-Uva" id="1f7-4I-ijx"/>
                         <outlet property="body" destination="fFr-8v-esm" id="DR3-LO-1mA"/>
+                        <outlet property="bodyView" destination="nXu-Be-Uva" id="Hlx-ca-liF"/>
                         <outlet property="createButton" destination="G3W-sH-YOK" id="nEj-UR-GGF"/>
                         <outlet property="header" destination="bIb-mm-1Tz" id="axb-Cd-ry1"/>
                         <outlet property="headerField" destination="T87-30-LsE" id="tXM-lO-3sD"/>
@@ -330,6 +323,9 @@
         </namedColor>
         <namedColor name="PageControlColor">
             <color red="0.31372549019607843" green="0.30196078431372547" blue="0.27843137254901962" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="ProgressBarColor">
+            <color red="0.8784313725490196" green="0.8666666666666667" blue="0.88627450980392153" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

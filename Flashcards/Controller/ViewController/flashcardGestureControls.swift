@@ -21,13 +21,17 @@ extension ViewController {
         if !flashcardBrain.noCurrentFlashcardsLeft() {
             switch (sender.state) {
                     case .ended:
+                        hapticFeedback(2)
+                        uiView.animateBackground(view: self.flashcardView, color: UIColor(named:"BackgroundColor")!)
                         memorizeHoldToCancelTimer?.invalidate()
-                        let touchLocation = sender.location(in: flashcardLabel)
-                        if flashcardLabel.bounds.contains(touchLocation) {
+                        let touchLocation = sender.location(in: flashcardView)
+                        if flashcardView.bounds.contains(touchLocation) {
                             print("End")
                             memorizedFlashcard()
                         }
                     case .began:
+                        hapticFeedback(2)
+                        uiView.animateBackground(view: self.flashcardView, color: UIColor(named:"LabelBackgroundBoldedColor")!)
                         memorizeHoldToCancelTimer?.invalidate()
                         memorizeHoldToCancelTimer = Timer.scheduledTimer(withTimeInterval: TimeInterval(memorizeHoldToCancelDuration), repeats: false) { _ in
                                     sender.state = .cancelled
@@ -35,6 +39,8 @@ extension ViewController {
 //                        memorizeHoldTimer = Timer.scheduledTimer(timeInterval: TimeInterval(memorizeHoldDuration), repeats: false)
                         print("Began")
                     case .cancelled:
+                        hapticFeedback(2)
+                        uiView.animateBackground(view: self.flashcardView, color: UIColor(named:"BackgroundColor")!)
                         print("Cancelled")
                     case .changed:
                         print("Changed")
@@ -46,35 +52,34 @@ extension ViewController {
     
     @objc func makeFull(a: Int) {
         full = true
-        hapticFeedback(3)
+        hapticFeedback(2)
         updateFlashcardLabel()
     }
     
     @objc func makeHalf() {
         full = false
-        hapticFeedback(3)
+        hapticFeedback(2)
         updateFlashcardLabel(down: true)
     }
     
     @objc func toggleBetweenFrontandBack() {
-        hapticFeedback(3)
+        hapticFeedback(2)
         defaultSide = !defaultSide
         updateFlashcardLabel()
     }
     
-    @objc func lastFlashcard() {
+    @objc func swipeToPreviousFlashcard() {
         hapticFeedback(2)
         moveFlashcardControlCurrentPage(direction: -1)
-        flashcardBrain.back()
-            updateFlashcardLabel(flip: false)
+        previousFlashcard()
     }
     
-    @objc func nextFlashcard() {
+    @objc func SwipeToNextFlashcard() {
         hapticFeedback(2)
         moveFlashcardControlCurrentPage(direction: 1)
-        flashcardBrain.next()
-            updateFlashcardLabel(flip: false)
+        nextFlashcard()
     }
+    
     
     @objc func flip() {
         if !full {

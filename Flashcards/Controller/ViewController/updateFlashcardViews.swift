@@ -7,30 +7,66 @@
 //
 import UIKit
 //
+
+extension UIView {
+    func animateBackground(view: UIView, color: UIColor, duration: Float = 0.2) {
+        UIView.transition(with: view, duration: TimeInterval(duration), options: .transitionCrossDissolve, animations: {
+            view.backgroundColor = color
+        },
+        completion: nil)
+    }
+    
+    func animateProgressTintColor(view: UIProgressView, color: UIColor, duration: Float = 0.4) {
+        UIView.transition(with: view, duration: TimeInterval(duration), options: .transitionCrossDissolve, animations: {
+            view.progressTintColor = color
+        },
+        completion: nil)
+    }
+}
 extension ViewController {
-//    
+    
     func resetFlashcardControl() {
         flashcardControl.numberOfPages = flashcardBrain.getCurrentFlashcardCount()
+        flashcardControl.currentPage = 0
+        currentPage = 0
     }
     func removeFlashcardControlPage() {
+        if currentPage == flashcardControl.numberOfPages-1 {
+            flashcardControl.currentPage = 0
+            currentPage = 0
+        }
         flashcardControl.numberOfPages = flashcardControl.numberOfPages - 1
+        
     }
     func moveFlashcardControlCurrentPage (direction: Int) {
         let currentCount = flashcardBrain.getCurrentFlashcardCount()
         if currentCount > 1 {
             if direction == 1 && flashcardControl.currentPage == currentCount - 1 {
                 flashcardControl.currentPage = 0
+                currentPage = 0
             } else if direction == -1 && flashcardControl.currentPage == 0{
                 flashcardControl.currentPage = currentCount-1
+                currentPage = currentCount-1
             } else {
                 flashcardControl.currentPage = flashcardControl.currentPage + direction
+                currentPage = currentPage + direction
             }
         }
     }
-//    
+    
+    func previousFlashcard() {
+        flashcardBrain.back()
+        updateFlashcardLabel(flip: false)
+    }
+    
+    func nextFlashcard() {
+        flashcardBrain.next()
+        updateFlashcardLabel(flip: false)
+    }
+    
     func updateFlashcardLabel(flip: Bool = false, down: Bool = false) {
         if flashcardBrain.getAllFlashcardCount() == 0 {
-            flashcardLabel.text = "To add a flashcard, press the add button on the top right."
+            flashcardView.text = "To add a flashcard, press the add button on the top right."
             return
         }
         let label = UILabel()
@@ -60,7 +96,9 @@ extension ViewController {
                 }
             }
         }
-        flashcardLabel.attributedText = attributedText
+        
+        flashcardView.attributedText = attributedText
+        flashcardView.centerVertically()
     }
     
     func updateProgressBar() {
@@ -69,7 +107,13 @@ extension ViewController {
         if allFlashcardCount == 0 {
             progressBar.progress = 0
         } else {
+            if progressBar.progressTintColor == UIColor(named: "ProgressBarTintColor")! {
+                uiView.animateProgressTintColor(view: progressBar, color: .orange, duration: 0.2)
+            }
         progressBar.progress = 1.0 - Float(currentFlashcardCount)/Float(allFlashcardCount)
+        }
+        if progressBar.progress == 1 {
+            uiView.animateProgressTintColor(view: progressBar, color: UIColor(named: "ProgressBarTintColor")!)
         }
     }
     

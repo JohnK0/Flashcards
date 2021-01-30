@@ -8,11 +8,24 @@
 import UIKit
 import CoreData
 
+
+extension UITextView {
+
+   func centerVertically() {
+       let fittingSize = CGSize(width: bounds.width, height: CGFloat.greatestFiniteMagnitude)
+       let size = sizeThatFits(fittingSize)
+       let topOffset = (bounds.size.height - size.height * zoomScale) / 2
+       let positiveTopOffset = max(1, topOffset)-10
+       contentOffset.y = -positiveTopOffset
+   }
+
+}
+
 class ViewController: UIViewController {
     
     
     @IBOutlet weak var superView: UIView!
-    @IBOutlet weak var flashcardLabel: UILabel!
+    @IBOutlet weak var flashcardView: UITextView!
     @IBOutlet weak var redoButton: UIButton!
     @IBOutlet weak var retainedButton: UIButton!
     @IBOutlet weak var nextButton: UIButton!
@@ -31,9 +44,9 @@ class ViewController: UIViewController {
     var defaultSide: Bool = false
     weak var memorizeHoldToCancelTimer: Timer?
     weak var memorizeHoldTimer: Timer?
-    let memorizeHoldToCancelDuration = 3
-    let memorizeHoldDuration = 2
-    
+    var currentPage = 0
+    let uiView = UIView()
+    let memorizeHoldToCancelDuration = 1.5
     let headerTextSize = 28
     let bodyTextSize = 17
     let bodySpacing = 5
@@ -45,8 +58,13 @@ class ViewController: UIViewController {
         addButton.tintColor = UIColor(named: topButtonColor)
 //        retainedButton.tintColor = UIColor(named: topButtonColor)
 //        nextButton.tintColor = UIColor(named: topButtonColor)
-        
+        flashcardView.layer.cornerRadius = 10
+        flashcardView.clipsToBounds = true
         setUpGestureRecognizers()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        flashcardView.centerVertically()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -68,20 +86,19 @@ class ViewController: UIViewController {
     
     func setUpGestureRecognizers() {
         let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(heldToMemorize))
-        longPressRecognizer.minimumPressDuration = 0.35
-        flashcardLabel.addGestureRecognizer(longPressRecognizer)
+        longPressRecognizer.minimumPressDuration = 0.1
+        flashcardView.addGestureRecognizer(longPressRecognizer)
         let downRecognizer = createDirectionFunction(selector: #selector(makeFull), direction: .up)
-        flashcardLabel.addGestureRecognizer(downRecognizer)
+        flashcardView.addGestureRecognizer(downRecognizer)
         let upRecognizer = createDirectionFunction(selector: #selector(makeHalf), direction: .down)
-        flashcardLabel.addGestureRecognizer(upRecognizer)
-        let leftRecognizer = createDirectionFunction(selector: #selector(nextFlashcard), direction: .left)
-        flashcardLabel.addGestureRecognizer(leftRecognizer)
-        let rightRecognizer = createDirectionFunction(selector: #selector(lastFlashcard), direction: .right)
-        flashcardLabel.addGestureRecognizer(rightRecognizer)
+        flashcardView.addGestureRecognizer(upRecognizer)
+        let leftRecognizer = createDirectionFunction(selector: #selector(SwipeToNextFlashcard), direction: .left)
+        flashcardView.addGestureRecognizer(leftRecognizer)
+        let rightRecognizer = createDirectionFunction(selector: #selector(swipeToPreviousFlashcard), direction: .right)
+        flashcardView.addGestureRecognizer(rightRecognizer)
         let tap = UITapGestureRecognizer(target: self, action: #selector(flip))
-        flashcardLabel.addGestureRecognizer(tap)
+        flashcardView.addGestureRecognizer(tap)
     }
-    
     
     @objc func hapticFeedback(_ i: Int) {
         switch i {
@@ -104,6 +121,24 @@ class ViewController: UIViewController {
         }
     }
     
+    @IBAction func flashcardControlPressed(_ sender: UIPageControl) {
+        let diff = sender.currentPage-currentPage
+        if diff ==  0{
+            return
+        }
+        
+        let action: () -> Void
+        if diff < 0 {
+            action = previousFlashcard
+        } else {
+            action = nextFlashcard
+        }
+        for _ in 1...abs(diff) {
+            action()
+        }
+        currentPage = sender.currentPage
+    }
+    
     @IBAction func actionButtonPressed(_ sender: UIButton) {
         hapticFeedback(2)
         if flashcardBrain.getAllFlashcardCount() != 0 && sender == redoButton {
@@ -114,7 +149,7 @@ class ViewController: UIViewController {
                 memorizedFlashcard()
             }
             if sender == nextButton {
-                nextFlashcard()
+                SwipeToNextFlashcard()
             }
         }
     }
@@ -135,8 +170,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func addButtonPressed(_ sender: UIButton) {
-        hapticFeedback(2
-        )
+        hapticFeedback(2)
          self.performSegue(withIdentifier: "goToCreate", sender: self)
     }
     
