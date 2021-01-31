@@ -8,6 +8,18 @@
 import UIKit
 //
 
+extension UITextView {
+
+   func centerVertically() {
+       let fittingSize = CGSize(width: bounds.width, height: CGFloat.greatestFiniteMagnitude)
+       let size = sizeThatFits(fittingSize)
+       let topOffset = (bounds.size.height - size.height * zoomScale) / 2
+       let positiveTopOffset = max(1, topOffset)-10
+       contentOffset.y = -positiveTopOffset
+   }
+
+}
+
 extension UIView {
     func animateBackground(view: UIView, color: UIColor, duration: Float = 0.2) {
         UIView.transition(with: view, duration: TimeInterval(duration), options: .transitionCrossDissolve, animations: {
@@ -56,15 +68,15 @@ extension ViewController {
     
     func previousFlashcard() {
         flashcardBrain.back()
-        updateFlashcardLabel(flip: false)
+        updateFlashcardView(flip: false)
     }
     
     func nextFlashcard() {
         flashcardBrain.next()
-        updateFlashcardLabel(flip: false)
+        updateFlashcardView(flip: false)
     }
     
-    func updateFlashcardLabel(flip: Bool = false, down: Bool = false) {
+    func updateFlashcardView(flip: Bool = false, down: Bool = false) {
         if flashcardBrain.getAllFlashcardCount() == 0 {
             flashcardView.text = "To add a flashcard, press the add button on the top right."
             return

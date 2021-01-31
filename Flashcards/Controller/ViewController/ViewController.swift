@@ -8,22 +8,9 @@
 import UIKit
 import CoreData
 
-
-extension UITextView {
-
-   func centerVertically() {
-       let fittingSize = CGSize(width: bounds.width, height: CGFloat.greatestFiniteMagnitude)
-       let size = sizeThatFits(fittingSize)
-       let topOffset = (bounds.size.height - size.height * zoomScale) / 2
-       let positiveTopOffset = max(1, topOffset)-10
-       contentOffset.y = -positiveTopOffset
-   }
-
-}
-
 class ViewController: UIViewController {
     
-    
+//  IIBOutlets
     @IBOutlet weak var superView: UIView!
     @IBOutlet weak var flashcardView: UITextView!
     @IBOutlet weak var redoButton: UIButton!
@@ -32,26 +19,35 @@ class ViewController: UIViewController {
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var progressBar: UIProgressView!
     @IBOutlet weak var flashcardControl: UIPageControl!
-    
-
+//  instances
     var flashcardBrain = FlashcardBrain()
-    var managedContext: NSManagedObjectContext?
-    var flag: Bool = false
-    var full: Bool = false
-    // false: front true: back
-    var currSide: Bool = false
-    // false: front true: back
-    var defaultSide: Bool = false
-    weak var memorizeHoldToCancelTimer: Timer?
-    weak var memorizeHoldTimer: Timer?
-    var currentPage = 0
     let uiView = UIView()
-    let memorizeHoldToCancelDuration = 1.5
+//  colors
+    let topButtonColor = "TopButtonColor"
+//  flashcardView
     let headerTextSize = 28
     let bodyTextSize = 17
     let bodySpacing = 5
-    let topButtonColor = "TopButtonColor"
+    var currSide: Bool = false  // false: front true: back
+    var defaultSide: Bool = false  // false: front true: back
+    var flag: Bool = false
+    var full: Bool = false
+//  page control
+    var currentPage = 0
+//  memorize time
+    weak var memorizeHoldToCancelTimer: Timer?
+    weak var memorizeHoldTimer: Timer?
+    let memorizeHoldToCancelDuration = 1.5
+//  seque variables
+    var managedContext: NSManagedObjectContext?
     
+    
+    
+    /*
+     Sets tintColor of redoo and add buttons to topButtonColor
+     Rounds flashcardView's corner
+     Sets up flashcardView's gesture recognizers
+     */
     override func viewDidLoad() {
         super.viewDidLoad()
         redoButton.tintColor = UIColor(named: topButtonColor)
@@ -63,10 +59,17 @@ class ViewController: UIViewController {
         setUpGestureRecognizers()
     }
     
+    
+    /*
+     Centers flashcardView's text at view controller's activation
+     */
     override func viewDidLayoutSubviews() {
         flashcardView.centerVertically()
     }
     
+    /*
+     Sets up flashcards at return to view controller
+     */
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
@@ -77,13 +80,16 @@ class ViewController: UIViewController {
         do {
             flashcardBrain.setFlashcards(try managedContext!.fetch(fetchRequest))
             resetFlashcardControl()
-            updateFlashcardLabel()
+            updateFlashcardView()
             updateProgressBar()
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
     }
     
+    /*
+     Initializes and adds gesture recognizers to flashcardView
+     */
     func setUpGestureRecognizers() {
         let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(heldToMemorize))
         longPressRecognizer.minimumPressDuration = 0.35
@@ -100,6 +106,11 @@ class ViewController: UIViewController {
         flashcardView.addGestureRecognizer(tap)
     }
     
+    /*
+     Activates haptic feedback based on variable i
+     parameters:
+        i: Int
+     */
     @objc func hapticFeedback(_ i: Int) {
         switch i {
         case 1:
@@ -121,6 +132,9 @@ class ViewController: UIViewController {
         }
     }
     
+    /*
+     Flashcard control pressed
+     */
     @IBAction func flashcardControlPressed(_ sender: UIPageControl) {
         let diff = sender.currentPage-currentPage
         if diff ==  0{
@@ -139,6 +153,9 @@ class ViewController: UIViewController {
         currentPage = sender.currentPage
     }
     
+    /*
+     Action button pressed
+     */
     @IBAction func actionButtonPressed(_ sender: UIButton) {
         hapticFeedback(2)
         if flashcardBrain.getAllFlashcardCount() != 0 && sender == redoButton {
@@ -154,26 +171,42 @@ class ViewController: UIViewController {
         }
     }
     
-    func redoButtonPressed() {
-        flashcardBrain.setupFlashcards()
-        resetFlashcardControl()
-        updateFlashcardLabel(flip: false)
-        updateProgressBar()
-
-    }
-    
-    func memorizedFlashcard() {
-        flashcardBrain.memorizedFlashcard()
-        removeFlashcardControlPage()
-        updateFlashcardLabel(flip: false)
-        updateProgressBar()
-    }
-    
+    /*
+     Add button pressed
+     */
     @IBAction func addButtonPressed(_ sender: UIButton) {
         hapticFeedback(2)
          self.performSegue(withIdentifier: "goToCreate", sender: self)
     }
     
+    /*
+     Redo button pressed
+     */
+    func redoButtonPressed() {
+        flashcardBrain.setupFlashcards()
+        resetFlashcardControl()
+        updateFlashcardView(flip: false)
+        updateProgressBar()
+
+    }
+    
+    /*
+     Removes current flashcard from linked list
+     Removes a flashcard control node
+     Updates flashcardView
+     Updates progress Bar
+     */
+    func memorizedFlashcard() {
+        flashcardBrain.memorizedFlashcard()
+        removeFlashcardControlPage()
+        updateFlashcardView(flip: false)
+        updateProgressBar()
+    }
+    
+    
+    /*
+     Segue to other view controllers
+     */
     override func prepare(for seque: UIStoryboardSegue, sender: Any?) {
         let s = seque
         if s.identifier == "goToCreate" {

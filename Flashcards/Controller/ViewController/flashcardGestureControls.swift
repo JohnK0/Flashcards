@@ -53,19 +53,19 @@ extension ViewController {
     @objc func makeFull(a: Int) {
         full = true
         hapticFeedback(2)
-        updateFlashcardLabel()
+        updateFlashcardView()
     }
     
     @objc func makeHalf() {
         full = false
         hapticFeedback(2)
-        updateFlashcardLabel(down: true)
+        updateFlashcardView(down: true)
     }
     
     @objc func toggleBetweenFrontandBack() {
         hapticFeedback(2)
         defaultSide = !defaultSide
-        updateFlashcardLabel()
+        updateFlashcardView()
     }
     
     @objc func swipeToPreviousFlashcard() {
@@ -84,7 +84,7 @@ extension ViewController {
     @objc func flip() {
         if !full {
             hapticFeedback(2)
-            updateFlashcardLabel(flip: true)
+            updateFlashcardView(flip: true)
         }
     }
 
