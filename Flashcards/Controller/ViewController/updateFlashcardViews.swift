@@ -9,7 +9,6 @@ import UIKit
 //
 
 extension UITextView {
-
    func centerVertically() {
        let fittingSize = CGSize(width: bounds.width, height: CGFloat.greatestFiniteMagnitude)
        let size = sizeThatFits(fittingSize)
@@ -17,7 +16,6 @@ extension UITextView {
        let positiveTopOffset = max(1, topOffset)-10
        contentOffset.y = -positiveTopOffset
    }
-
 }
 
 extension UIView {
@@ -35,6 +33,7 @@ extension UIView {
         completion: nil)
     }
 }
+
 extension ViewController {
     
     func resetFlashcardControl() {
@@ -92,7 +91,7 @@ extension ViewController {
                 attributedText.append(NSMutableAttributedString(string: "\n\n"))
                 attributedText.append(getBackText(label))
             } else if flip {
-                    currSide = !currSide
+                currSide = !currSide
                 if currSide {
                     attributedText = getBackText(label)
                 } else {

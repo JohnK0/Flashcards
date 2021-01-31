@@ -16,70 +16,6 @@
     </customFonts>
     <scenes>
         <!--View Controller-->
-        <scene sceneID="plr-6F-VjX">
-            <objects>
-                <viewController id="p95-83-Hi4" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Dg1-qY-liT">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="wCn-5L-AYC" userLabel="bottomButtons">
-                                <rect key="frame" x="0.0" y="736" width="390" height="108"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EpF-B3-RTX">
-                                        <rect key="frame" x="0.0" y="0.0" width="180" height="108"/>
-                                        <color key="backgroundColor" name="ButtonColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="EpF-B3-RTX" secondAttribute="height" multiplier="5:3" id="5NT-Y1-j98"/>
-                                        </constraints>
-                                        <state key="normal">
-                                            <attributedString key="attributedTitle"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="15"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="actionButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WQo-73-GQH"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MHd-JP-xOy">
-                                        <rect key="frame" x="210" y="0.0" width="180" height="108"/>
-                                        <color key="backgroundColor" name="ButtonColor"/>
-                                        <state key="normal">
-                                            <attributedString key="attributedTitle"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="15"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="actionButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XqH-2Y-pcF"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="MHd-JP-xOy" firstAttribute="width" secondItem="EpF-B3-RTX" secondAttribute="width" id="hJZ-h3-EU2"/>
-                                    <constraint firstItem="MHd-JP-xOy" firstAttribute="height" secondItem="EpF-B3-RTX" secondAttribute="height" id="yxl-Kf-cC9"/>
-                                </constraints>
-                            </stackView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="Fpc-GQ-ZHz"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="wCn-5L-AYC" firstAttribute="leading" secondItem="Dg1-qY-liT" secondAttribute="leading" id="D1H-bA-dke"/>
-                            <constraint firstItem="Fpc-GQ-ZHz" firstAttribute="trailing" secondItem="wCn-5L-AYC" secondAttribute="trailing" id="E0r-iq-51x"/>
-                            <constraint firstAttribute="bottom" secondItem="wCn-5L-AYC" secondAttribute="bottom" id="qUV-xq-cDP"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="l4s-0V-iOf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-666" y="62"/>
-        </scene>
-        <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Flashcards" customModuleProvider="target" sceneMemberID="viewController">
@@ -172,67 +108,15 @@
                         <outlet property="addButton" destination="nAC-eg-8s1" id="XvU-wK-oxX"/>
                         <outlet property="flashcardControl" destination="Sg7-NY-ean" id="Knp-ok-Is5"/>
                         <outlet property="flashcardView" destination="JWY-Cd-6AK" id="m2o-J8-xfK"/>
-                        <outlet property="nextButton" destination="MHd-JP-xOy" id="YWw-VA-stO"/>
                         <outlet property="progressBar" destination="PN0-ZQ-YdC" id="hL4-0M-vw2"/>
                         <outlet property="redoButton" destination="PQw-Xa-gf2" id="Hzr-ho-Qgf"/>
-                        <outlet property="retainedButton" destination="EpF-B3-RTX" id="ahU-C7-E4E"/>
                         <outlet property="superView" destination="8bC-Xf-vdC" id="4tB-Nb-U0c"/>
                         <segue destination="FIG-8P-TXW" kind="presentation" identifier="goToCreate" modalPresentationStyle="automatic" modalTransitionStyle="coverVertical" id="t0D-SK-hAu"/>
-                        <segue destination="Sjy-l1-LFa" kind="presentation" id="tfl-dj-lRT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="135.38461538461539" y="92.417061611374407"/>
-        </scene>
-        <!--Flashcard Table Controller-->
-        <scene sceneID="WZs-yv-4QZ">
-            <objects>
-                <tableViewController id="Sjy-l1-LFa" customClass="FlashcardTableController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="29k-Kn-OOB">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="gWS-YE-eaT">
-                                <rect key="frame" x="0.0" y="28" width="390" height="43.666667938232422"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gWS-YE-eaT" id="447-6O-ff6">
-                                    <rect key="frame" x="0.0" y="0.0" width="390" height="43.666667938232422"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="63" id="gTv-pC-Qko">
-                                <rect key="frame" x="0.0" y="71.666667938232422" width="390" height="63"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gTv-pC-Qko" id="8rg-AJ-tGw">
-                                    <rect key="frame" x="0.0" y="0.0" width="390" height="63"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="JRS-EY-Pad">
-                                            <rect key="frame" x="20" y="11" width="43" height="41"/>
-                                            <fontDescription key="fontDescription" name="Lora-Regular" family="Lora" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="JRS-EY-Pad" firstAttribute="leading" secondItem="8rg-AJ-tGw" secondAttribute="leadingMargin" id="Kre-AT-MjR"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="JRS-EY-Pad" secondAttribute="bottom" id="rqP-ja-8fB"/>
-                                        <constraint firstItem="JRS-EY-Pad" firstAttribute="top" secondItem="8rg-AJ-tGw" secondAttribute="topMargin" id="vF9-V0-cyc"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="Sjy-l1-LFa" id="sJJ-OL-c8S"/>
-                            <outlet property="delegate" destination="Sjy-l1-LFa" id="RhJ-wp-bDX"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tAZ-1q-76Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1167.6923076923076" y="834.59715639810418"/>
         </scene>
         <!--CreateFlashcard Controller-->
         <scene sceneID="c97-3o-FT3">
@@ -243,7 +127,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="T87-30-LsE" userLabel="HeaderField">
-                                <rect key="frame" x="50" y="33" width="290" height="34"/>
+                                <rect key="frame" x="50" y="36" width="290" height="34"/>
                                 <color key="textColor" name="BodyTextColor"/>
                                 <fontDescription key="fontDescription" name="Lora-Regular" family="Lora" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -259,19 +143,22 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Header" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bIb-mm-1Tz">
-                                <rect key="frame" x="15" y="0.0" width="360" height="28"/>
+                                <rect key="frame" x="15" y="0.0" width="360" height="31"/>
                                 <fontDescription key="fontDescription" name="Lora-Regular" family="Lora" pointSize="24"/>
                                 <color key="textColor" name="BodyTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Body" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fFr-8v-esm">
-                                <rect key="frame" x="15" y="97" width="360" height="28"/>
+                                <rect key="frame" x="15" y="100" width="360" height="31"/>
                                 <fontDescription key="fontDescription" name="Lora-Regular" family="Lora" pointSize="24"/>
                                 <color key="textColor" name="BodyTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nXu-Be-Uva" userLabel="BodyView">
-                                <rect key="frame" x="45" y="134" width="300" height="400"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nXu-Be-Uva" userLabel="BodyView">
+                                <rect key="frame" x="45" y="136" width="300" height="398"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="398" id="PSE-jX-ebH"/>
+                                </constraints>
                                 <color key="textColor" name="BodyTextColor"/>
                                 <fontDescription key="fontDescription" name="Lora-Regular" family="Lora" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -317,9 +204,6 @@
         <image name="plus" catalog="system" width="128" height="113"/>
         <namedColor name="BodyTextColor">
             <color red="0.31372549019607843" green="0.30196078431372547" blue="0.27843137254901962" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="ButtonColor">
-            <color red="0.94901960784313721" green="0.94509803921568625" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="PageControlColor">
             <color red="0.31372549019607843" green="0.30196078431372547" blue="0.27843137254901962" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
