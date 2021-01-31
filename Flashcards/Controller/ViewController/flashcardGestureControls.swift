@@ -22,7 +22,7 @@ extension ViewController {
             switch (sender.state) {
                     case .ended:
                         hapticFeedback(2)
-                        uiView.animateBackground(view: self.flashcardView, color: UIColor(named:"BackgroundColor")!)
+                        uiView.animateBackground(view: self.flashcardView, color: UIColor(named: flashcardViewBackgroundColor)!)
                         memorizeHoldToCancelTimer?.invalidate()
                         let touchLocation = sender.location(in: flashcardView)
                         if flashcardView.bounds.contains(touchLocation) {
@@ -31,7 +31,7 @@ extension ViewController {
                         }
                     case .began:
                         hapticFeedback(2)
-                        uiView.animateBackground(view: self.flashcardView, color: UIColor(named:"LabelBackgroundBoldedColor")!)
+                        uiView.animateBackground(view: self.flashcardView, color: UIColor(named:flashcardViewMemorizingBackgroundColor)!)
                         memorizeHoldToCancelTimer?.invalidate()
                         memorizeHoldToCancelTimer = Timer.scheduledTimer(withTimeInterval: TimeInterval(memorizeHoldToCancelDuration), repeats: false) { _ in
                                     sender.state = .cancelled
@@ -40,7 +40,7 @@ extension ViewController {
                         print("Began")
                     case .cancelled:
                         hapticFeedback(2)
-                        uiView.animateBackground(view: self.flashcardView, color: UIColor(named:"BackgroundColor")!)
+                        uiView.animateBackground(view: self.flashcardView, color: UIColor(named:flashcardViewBackgroundColor)!)
                         print("Cancelled")
                     case .changed:
                         print("Changed")

@@ -23,7 +23,11 @@ class ViewController: UIViewController {
     var flashcardBrain = FlashcardBrain()
     let uiView = UIView()
 //  colors
+    let flashcardViewTextColor = "BodyTextColor"
+    let flashcardViewBackgroundColor = "BackgroundColor"
+    let flashcardViewMemorizingBackgroundColor = "LabelBackgroundBoldedColor"
     let topButtonColor = "TopButtonColor"
+    let progressBarProgressTintColor = "ProgressBarTintColor"
 //  flashcardView
     let headerTextSize = 28
     let bodyTextSize = 17
@@ -44,7 +48,7 @@ class ViewController: UIViewController {
     
     
     /*
-     Sets tintColor of redoo and add buttons to topButtonColor
+     Sets tintColor of redo and add buttons to topButtonColor
      Rounds flashcardView's corner
      Sets up flashcardView's gesture recognizers
      */

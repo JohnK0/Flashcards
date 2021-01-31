@@ -9,16 +9,22 @@ import UIKit
 import CoreData
 
 class CreateFlashcardController: UIViewController {
-
+//  IBOutlets
     @IBOutlet weak var bodyView: UITextView!
     @IBOutlet weak var headerField: UITextField!
     @IBOutlet weak var createButton: UIButton!
     @IBOutlet weak var header: UILabel!
     @IBOutlet weak var body: UILabel!
-    
+//  instances
     var flashcardBrain:FlashcardBrain?
+//  seque variables
     var managedContext: NSManagedObjectContext?
-    let bodyPlaceholder = "Body text here"
+//  colors
+    let flashcardViewTextColor = "BodyTextColor"
+    let flashcardViewBackgroundColor = "BackgroundColor"
+    let flashcardViewMemorizingBackgroundColor = "LabelBackgroundBoldedColor"
+    let topButtonColor = "TopButtonColor"
+    let progressBarProgressTintColor = "ProgressBarTintColor"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,32 +42,19 @@ class CreateFlashcardController: UIViewController {
         body.attributedText = bodyText
         
         bodyView.layer.borderWidth = 0.1
-        bodyView.layer.borderColor = UIColor(named: "BodyTextColor")?.cgColor
+        bodyView.layer.borderColor = UIColor(named: flashcardViewTextColor)?.cgColor
         bodyView.layer.cornerRadius = 5.0
 //        bodyView.text = bodyPlaceholder
 //        bodyView.textColor = UIColor.lightGray
-        bodyView.backgroundColor = UIColor(named: "BackgroundColor")
-        createButton.tintColor = UIColor(named: "TopButtonColor")
-        createButton.setTitleColor(UIColor(named: "TopButtonColor"), for: UIControl.State.normal)
+        bodyView.backgroundColor = UIColor(named: flashcardViewBackgroundColor)
+        createButton.tintColor = UIColor(named: topButtonColor)
+        createButton.setTitleColor(UIColor(named: topButtonColor), for: UIControl.State.normal)
     }
     
     
     func initializeGestureRecognizers() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tap)
-    }
-    
-    func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.textColor == UIColor.lightGray {
-            textView.text = nil
-            textView.textColor = UIColor(named: "BodyTextColor")
-        }
-    }
-    func textViewDidEndEditing(_ textView: UITextView) {
-        if textView.text.isEmpty {
-            textView.text = bodyPlaceholder
-            textView.textColor = UIColor.lightGray
-        }
     }
     
     func save(_ body: String, _ source: String, _ memorized: Bool = false) {

@@ -119,20 +119,20 @@ extension ViewController {
         if allFlashcardCount == 0 {
             progressBar.progress = 0
         } else {
-            if progressBar.progressTintColor == UIColor(named: "ProgressBarTintColor")! {
+            if progressBar.progressTintColor == UIColor(named: progressBarProgressTintColor)! {
                 uiView.animateProgressTintColor(view: progressBar, color: .orange, duration: 0.2)
             }
         progressBar.progress = 1.0 - Float(currentFlashcardCount)/Float(allFlashcardCount)
         }
         if progressBar.progress == 1 {
-            uiView.animateProgressTintColor(view: progressBar, color: UIColor(named: "ProgressBarTintColor")!)
+            uiView.animateProgressTintColor(view: progressBar, color: UIColor(named: progressBarProgressTintColor)!)
         }
     }
     
     func getFrontText(_ label: UILabel, underline: Bool = false) -> NSMutableAttributedString {
         var attributedText = label.createAttributedText(text: (flashcardBrain.getCurrentFlashcard()!.value(forKey: "source") as? String)!, textSize: 28, alignment: .center)
         if underline {
-            attributedText = label.underlineAttributedText(attributedText, color: "BodyTextColor")
+            attributedText = label.underlineAttributedText(attributedText, color: flashcardViewTextColor)
         }
         return attributedText
     }
