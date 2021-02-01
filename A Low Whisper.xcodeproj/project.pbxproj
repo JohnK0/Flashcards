@@ -25,7 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		520645CB256871DB00EB5AFE /* Hagah.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hagah.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		520645CB256871DB00EB5AFE /* A Low Whisper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "A Low Whisper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		520645CE256871DC00EB5AFE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		520645D0256871DC00EB5AFE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		520645D2256871DC00EB5AFE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -58,7 +58,7 @@
 		520645C2256871DB00EB5AFE = {
 			isa = PBXGroup;
 			children = (
-				520645CD256871DC00EB5AFE /* Hagah */,
+				520645CD256871DC00EB5AFE /* A Low Whisper */,
 				520645CC256871DB00EB5AFE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -66,12 +66,12 @@
 		520645CC256871DB00EB5AFE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				520645CB256871DB00EB5AFE /* Hagah.app */,
+				520645CB256871DB00EB5AFE /* A Low Whisper.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		520645CD256871DC00EB5AFE /* Hagah */ = {
+		520645CD256871DC00EB5AFE /* A Low Whisper */ = {
 			isa = PBXGroup;
 			children = (
 				52C3C6EC25BCB25C00AB29DA /* Lora-Regular.ttf */,
@@ -85,7 +85,7 @@
 				520645D9256871DE00EB5AFE /* LaunchScreen.storyboard */,
 				520645DC256871DE00EB5AFE /* Info.plist */,
 			);
-			path = Hagah;
+			path = "A Low Whisper";
 			sourceTree = "<group>";
 		};
 		527F040A256E1B77002AF200 /* View */ = {
@@ -129,9 +129,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		520645CA256871DB00EB5AFE /* Hagah */ = {
+		520645CA256871DB00EB5AFE /* A Low Whisper */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 520645F5256871DE00EB5AFE /* Build configuration list for PBXNativeTarget "Hagah" */;
+			buildConfigurationList = 520645F5256871DE00EB5AFE /* Build configuration list for PBXNativeTarget "A Low Whisper" */;
 			buildPhases = (
 				520645C7256871DB00EB5AFE /* Sources */,
 				520645C8256871DB00EB5AFE /* Frameworks */,
@@ -141,9 +141,9 @@
 			);
 			dependencies = (
 			);
-			name = Hagah;
+			name = "A Low Whisper";
 			productName = Flashcards;
-			productReference = 520645CB256871DB00EB5AFE /* Hagah.app */;
+			productReference = 520645CB256871DB00EB5AFE /* A Low Whisper.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -160,7 +160,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 520645C6256871DB00EB5AFE /* Build configuration list for PBXProject "Hagah" */;
+			buildConfigurationList = 520645C6256871DB00EB5AFE /* Build configuration list for PBXProject "A Low Whisper" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -173,7 +173,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				520645CA256871DB00EB5AFE /* Hagah */,
+				520645CA256871DB00EB5AFE /* A Low Whisper */,
 			);
 		};
 /* End PBXProject section */
@@ -356,7 +356,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 47P36FRVFR;
-				INFOPLIST_FILE = Hagah/Info.plist;
+				INFOPLIST_FILE = "A Low Whisper/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -375,7 +375,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 47P36FRVFR;
-				INFOPLIST_FILE = Hagah/Info.plist;
+				INFOPLIST_FILE = "A Low Whisper/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -390,7 +390,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		520645C6256871DB00EB5AFE /* Build configuration list for PBXProject "Hagah" */ = {
+		520645C6256871DB00EB5AFE /* Build configuration list for PBXProject "A Low Whisper" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				520645F3256871DE00EB5AFE /* Debug */,
@@ -399,7 +399,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		520645F5256871DE00EB5AFE /* Build configuration list for PBXNativeTarget "Hagah" */ = {
+		520645F5256871DE00EB5AFE /* Build configuration list for PBXNativeTarget "A Low Whisper" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				520645F6256871DE00EB5AFE /* Debug */,
