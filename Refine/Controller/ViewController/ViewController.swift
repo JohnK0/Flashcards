@@ -13,6 +13,7 @@ class ViewController: UIViewController {
 //  IIBOutlets
     @IBOutlet weak var superView: UIView!
     @IBOutlet weak var flashcardView: UITextView!
+    @IBOutlet weak var removeButton: UIButton!
     @IBOutlet weak var redoButton: UIButton!
     @IBOutlet weak var retainedButton: UIButton!
     @IBOutlet weak var nextButton: UIButton!
@@ -46,7 +47,6 @@ class ViewController: UIViewController {
     var managedContext: NSManagedObjectContext?
     
     
-    
     /*
      Sets tintColor of redo and add buttons to topButtonColor
      Rounds flashcardView's corner
@@ -56,6 +56,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         redoButton.tintColor = UIColor(named: topButtonColor)
         addButton.tintColor = UIColor(named: topButtonColor)
+        removeButton.tintColor = UIColor(named: topButtonColor)
 //        retainedButton.tintColor = UIColor(named: topButtonColor)
 //        nextButton.tintColor = UIColor(named: topButtonColor)
         flashcardView.layer.cornerRadius = 10
@@ -75,6 +76,7 @@ class ViewController: UIViewController {
      Sets up flashcards at return to view controller
      */
     override func viewWillAppear(_ animated: Bool) {
+        print("ViewWillAppear")
         super.viewWillAppear(animated)
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
           return
@@ -85,7 +87,7 @@ class ViewController: UIViewController {
             flashcardBrain.setFlashcards(try managedContext!.fetch(fetchRequest))
             resetFlashcardControl()
             updateFlashcardView()
-            updateProgressBar()
+//            updateProgressBar()
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
@@ -157,6 +159,9 @@ class ViewController: UIViewController {
         currentPage = sender.currentPage
     }
     
+    @IBAction func removeButtonPressed(_ sender: UIButton) {
+         
+    }
     /*
      Action button pressed
      */
@@ -190,7 +195,7 @@ class ViewController: UIViewController {
         flashcardBrain.setupFlashcards()
         resetFlashcardControl()
         updateFlashcardView(flip: false)
-        updateProgressBar()
+//        updateProgressBar()
 
     }
     
@@ -204,7 +209,7 @@ class ViewController: UIViewController {
         flashcardBrain.memorizedFlashcard()
         removeFlashcardControlPage()
         updateFlashcardView(flip: false)
-        updateProgressBar()
+//        updateProgressBar()
     }
     
     

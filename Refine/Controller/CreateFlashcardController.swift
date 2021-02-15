@@ -69,7 +69,8 @@ class CreateFlashcardController: UIViewController {
             if let presenter = presentingViewController as? ViewController {
                 presenter.flashcardBrain.addFlashcard(flashcard)
                 presenter.updateFlashcardView()
-                presenter.updateProgressBar()
+                presenter.updateFlashcardControlPages()
+//                presenter.updateProgressBar()
             }
             
             } catch let error as NSError {

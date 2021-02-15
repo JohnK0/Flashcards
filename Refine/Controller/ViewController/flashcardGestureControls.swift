@@ -21,7 +21,7 @@ extension ViewController {
         if !flashcardBrain.noCurrentFlashcardsLeft() {
             switch (sender.state) {
                     case .ended:
-                        hapticFeedback(2)
+                        hapticFeedback(3)
                         uiView.animateBackground(view: self.flashcardView, color: UIColor(named: flashcardViewBackgroundColor)!)
                         memorizeHoldToCancelTimer?.invalidate()
                         let touchLocation = sender.location(in: flashcardView)
@@ -30,7 +30,7 @@ extension ViewController {
                             memorizedFlashcard()
                         }
                     case .began:
-                        hapticFeedback(2)
+                        hapticFeedback(3)
                         uiView.animateBackground(view: self.flashcardView, color: UIColor(named:flashcardViewMemorizingBackgroundColor)!)
                         memorizeHoldToCancelTimer?.invalidate()
                         memorizeHoldToCancelTimer = Timer.scheduledTimer(withTimeInterval: TimeInterval(memorizeHoldToCancelDuration), repeats: false) { _ in
@@ -39,7 +39,7 @@ extension ViewController {
 //                        memorizeHoldTimer = Timer.scheduledTimer(timeInterval: TimeInterval(memorizeHoldDuration), repeats: false)
                         print("Began")
                     case .cancelled:
-                        hapticFeedback(2)
+                        hapticFeedback(3)
                         uiView.animateBackground(view: self.flashcardView, color: UIColor(named:flashcardViewBackgroundColor)!)
                         print("Cancelled")
                     case .changed:
@@ -52,30 +52,30 @@ extension ViewController {
     
     @objc func makeFull(a: Int) {
         full = true
-        hapticFeedback(2)
+        hapticFeedback(3)
         updateFlashcardView()
     }
     
     @objc func makeHalf() {
         full = false
-        hapticFeedback(2)
+        hapticFeedback(3)
         updateFlashcardView(down: true)
     }
     
     @objc func toggleBetweenFrontandBack() {
-        hapticFeedback(2)
+        hapticFeedback(3)
         defaultSide = !defaultSide
         updateFlashcardView()
     }
     
     @objc func swipeToPreviousFlashcard() {
-        hapticFeedback(2)
+        hapticFeedback(3)
         moveFlashcardControlCurrentPage(direction: -1)
         previousFlashcard()
     }
     
     @objc func SwipeToNextFlashcard() {
-        hapticFeedback(2)
+        hapticFeedback(3)
         moveFlashcardControlCurrentPage(direction: 1)
         nextFlashcard()
     }

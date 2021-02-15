@@ -37,9 +37,14 @@ extension UIView {
 extension ViewController {
     
     func resetFlashcardControl() {
-        flashcardControl.numberOfPages = flashcardBrain.getCurrentFlashcardCount()
+        print("resetFlashcardControl")
+        updateFlashcardControlPages()
         flashcardControl.currentPage = 0
         currentPage = 0
+    }
+    func updateFlashcardControlPages() {
+        print("updateFlashcardControl")
+        flashcardControl.numberOfPages = flashcardBrain.getCurrentFlashcardCount()
     }
     func removeFlashcardControlPage() {
         if currentPage == flashcardControl.numberOfPages-1 {
@@ -83,7 +88,7 @@ extension ViewController {
         let label = UILabel()
         var attributedText: NSMutableAttributedString
         if flashcardBrain.getCurrentFlashcard() == nil {
-            attributedText = frodoGandalfQuote(label)
+            attributedText = finishedSet(label)
         } else {
             
             if full {
@@ -112,21 +117,21 @@ extension ViewController {
         flashcardView.centerVertically()
     }
     
-    func updateProgressBar() {
-        let currentFlashcardCount = flashcardBrain.getCurrentFlashcardCount()
-        let allFlashcardCount = flashcardBrain.getAllFlashcardCount()
-        if allFlashcardCount == 0 {
-            progressBar.progress = 0
-        } else {
-            if progressBar.progressTintColor == UIColor(named: progressBarProgressTintColor)! {
-                uiView.animateProgressTintColor(view: progressBar, color: .orange, duration: 0.2)
-            }
-        progressBar.progress = 1.0 - Float(currentFlashcardCount)/Float(allFlashcardCount)
-        }
-        if progressBar.progress == 1 {
-            uiView.animateProgressTintColor(view: progressBar, color: UIColor(named: progressBarProgressTintColor)!)
-        }
-    }
+//    func updateProgressBar() {
+//        let currentFlashcardCount = flashcardBrain.getCurrentFlashcardCount()
+//        let allFlashcardCount = flashcardBrain.getAllFlashcardCount()
+//        if allFlashcardCount == 0 {
+//            progressBar.progress = 0
+//        } else {
+//            if progressBar.progressTintColor == UIColor(named: progressBarProgressTintColor)! {
+//                uiView.animateProgressTintColor(view: progressBar, color: .orange, duration: 0.2)
+//            }
+//        progressBar.progress = 1.0 - Float(currentFlashcardCount)/Float(allFlashcardCount)
+//        }
+//        if progressBar.progress == 1 {
+//            uiView.animateProgressTintColor(view: progressBar, color: UIColor(named: progressBarProgressTintColor)!)
+//        }
+//    }
     
     func getFrontText(_ label: UILabel, underline: Bool = false) -> NSMutableAttributedString {
         var attributedText = label.createAttributedText(text: (flashcardBrain.getCurrentFlashcard()!.value(forKey: "source") as? String)!, textSize: 28, alignment: .center)
@@ -140,6 +145,12 @@ extension ViewController {
         return label.createAttributedText(text: (flashcardBrain.getCurrentFlashcard()!.value(forKey: "body") as? String)!, textSize: 17, spacing: 5)
     }
 
+    func finishedSet(_ label: UILabel) -> NSMutableAttributedString {
+        let finishedQuote = "You finished the set!\nPress the redo button on the top left to start again."
+        let attributedText = label.createAttributedText(text: finishedQuote, textSize: bodyTextSize, alignment: .center, underline: false)
+        return attributedText
+    }
+    
     func frodoGandalfQuote(_ label: UILabel) -> NSMutableAttributedString {
         let frodo = "Frodo"
         let frodoQuote = "I wish it need not have happened in my time."
