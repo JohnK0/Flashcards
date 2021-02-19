@@ -7,12 +7,14 @@
         <attribute name="setID" optional="YES" attributeType="String"/>
         <attribute name="source" optional="YES" attributeType="String"/>
         <attribute name="translation" optional="YES" attributeType="String"/>
+        <relationship name="set" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Set" inverseName="flashcard" inverseEntity="Set"/>
     </entity>
-    <entity name="Set" representedClassName="Set" syncable="YES" codeGenerationType="class">
+    <entity name="Set" representedClassName="Set" syncable="YES" codeGenerationType="category">
         <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="flashcard" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Flashcard" inverseName="set" inverseEntity="Flashcard"/>
     </entity>
     <elements>
-        <element name="Flashcard" positionX="-63" positionY="-18" width="128" height="119"/>
-        <element name="Set" positionX="-63" positionY="9" width="128" height="44"/>
+        <element name="Flashcard" positionX="-63" positionY="-18" width="128" height="134"/>
+        <element name="Set" positionX="-63" positionY="9" width="128" height="59"/>
     </elements>
 </model>

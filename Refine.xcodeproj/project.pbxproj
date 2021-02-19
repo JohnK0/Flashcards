@@ -13,6 +13,7 @@
 		520645D6256871DC00EB5AFE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 520645D4256871DC00EB5AFE /* Main.storyboard */; };
 		520645DB256871DE00EB5AFE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 520645D9256871DE00EB5AFE /* LaunchScreen.storyboard */; };
 		5226E40C25DA0E0A002102AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 520645D7256871DE00EB5AFE /* Assets.xcassets */; };
+		5241977025DF8A8200A37852 /* Set+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5241976E25DF8A8200A37852 /* Set+CoreDataClass.swift */; };
 		525DAE71256EF14E006C3751 /* LinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525DAE70256EF14E006C3751 /* LinkedList.swift */; };
 		5260FECE25DCECBE0037BEFC /* Flashcard+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5260FECC25DCECBE0037BEFC /* Flashcard+CoreDataClass.swift */; };
 		527F0410256E1BF6002AF200 /* FlashcardBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527F040F256E1BF6002AF200 /* FlashcardBrain.swift */; };
@@ -34,6 +35,7 @@
 		520645D7256871DE00EB5AFE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		520645DA256871DE00EB5AFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		520645DC256871DE00EB5AFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5241976E25DF8A8200A37852 /* Set+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Set+CoreDataClass.swift"; sourceTree = "<group>"; };
 		525DAE70256EF14E006C3751 /* LinkedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedList.swift; sourceTree = "<group>"; };
 		5260FECC25DCECBE0037BEFC /* Flashcard+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Flashcard+CoreDataClass.swift"; sourceTree = "<group>"; };
 		527F040F256E1BF6002AF200 /* FlashcardBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardBrain.swift; sourceTree = "<group>"; };
@@ -90,6 +92,31 @@
 			path = Refine;
 			sourceTree = "<group>";
 		};
+		5241977325DF8A9700A37852 /* CoreDataTables */ = {
+			isa = PBXGroup;
+			children = (
+				5241977725DF8AB600A37852 /* Set */,
+				5241977925DF8ABE00A37852 /* Flashcard */,
+			);
+			path = CoreDataTables;
+			sourceTree = "<group>";
+		};
+		5241977725DF8AB600A37852 /* Set */ = {
+			isa = PBXGroup;
+			children = (
+				5241976E25DF8A8200A37852 /* Set+CoreDataClass.swift */,
+			);
+			path = Set;
+			sourceTree = "<group>";
+		};
+		5241977925DF8ABE00A37852 /* Flashcard */ = {
+			isa = PBXGroup;
+			children = (
+				5260FECC25DCECBE0037BEFC /* Flashcard+CoreDataClass.swift */,
+			);
+			path = Flashcard;
+			sourceTree = "<group>";
+		};
 		527F040A256E1B77002AF200 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -114,7 +141,7 @@
 			children = (
 				527F040F256E1BF6002AF200 /* FlashcardBrain.swift */,
 				525DAE70256EF14E006C3751 /* LinkedList.swift */,
-				5260FECC25DCECBE0037BEFC /* Flashcard+CoreDataClass.swift */,
+				5241977325DF8A9700A37852 /* CoreDataTables */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -209,6 +236,7 @@
 				52C3C6A525BBFC6100AB29DA /* Flashcards.xcdatamodeld in Sources */,
 				52C3C69F25B8FD4700AB29DA /* CreateFlashcardController.swift in Sources */,
 				52C3C6F425BCCC4E00AB29DA /* CATransition.swift in Sources */,
+				5241977025DF8A8200A37852 /* Set+CoreDataClass.swift in Sources */,
 				520645CF256871DC00EB5AFE /* AppDelegate.swift in Sources */,
 				520645D1256871DC00EB5AFE /* SceneDelegate.swift in Sources */,
 				527F0410256E1BF6002AF200 /* FlashcardBrain.swift in Sources */,
