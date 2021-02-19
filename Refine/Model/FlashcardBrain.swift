@@ -64,6 +64,29 @@ struct FlashcardBrain {
         
     }
     
+    mutating func deleteFlashcard(_ managedContext: NSManagedObjectContext) {
+        // Remove the flashcard
+        managedContext.delete(currFlashcard!.value)
+        
+        // Save the data
+        do {
+            try managedContext.save()
+        }
+        catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+        
+        for i in 0...flashcards.count {
+            if flashcards[i] == currFlashcard!.value {
+                flashcards.remove(at: i)
+                break
+            }
+        }
+        let temp = currFlashcard!
+        currFlashcard = currFlashcard!.next				
+        _ = currFlashcards.remove(node: temp)
+    }
+    
     mutating func memorizedFlashcard() {
         let temp = currFlashcard!.next
         _ = currFlashcards.remove(node: currFlashcard!)

@@ -54,6 +54,8 @@ class ViewController: UIViewController {
      */
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Reference to the managed object context
+        managedContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         redoButton.tintColor = UIColor(named: topButtonColor)
         addButton.tintColor = UIColor(named: topButtonColor)
         removeButton.tintColor = UIColor(named: topButtonColor)
@@ -78,13 +80,8 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         print("ViewWillAppear")
         super.viewWillAppear(animated)
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-          return
-        }
-        managedContext = appDelegate.persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Flashcard")
         do {
-            flashcardBrain.setFlashcards(try managedContext!.fetch(fetchRequest))
+            flashcardBrain.setFlashcards(try managedContext!.fetch(Flashcard.fetchRequest()))
             resetFlashcardControl()
             updateFlashcardView()
 //            updateProgressBar()
@@ -160,8 +157,11 @@ class ViewController: UIViewController {
     }
     
     @IBAction func removeButtonPressed(_ sender: UIButton) {
-         
+        flashcardBrain.deleteFlashcard(managedContext!)
+        updateFlashcardControlPages()
+        nextFlashcard()
     }
+
     /*
      Action button pressed
      */

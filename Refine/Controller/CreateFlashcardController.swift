@@ -58,12 +58,13 @@ class CreateFlashcardController: UIViewController {
     }
     
     func save(_ body: String, _ source: String, _ memorized: Bool = false) {
-        let entity = NSEntityDescription.entity(forEntityName: "Flashcard", in: managedContext!)!
-        let flashcard = NSManagedObject(entity: entity, insertInto: managedContext!)
-        flashcard.setValue(body, forKeyPath: "body")
-        flashcard.setValue(source, forKeyPath: "source")
-        flashcard.setValue(memorized, forKeyPath: "memorized")
+        // create a person object
+        let flashcard = Flashcard(context: managedContext!)
+        flashcard.body = body
+        flashcard.source = source
+        flashcard.memorized = memorized
         
+        // save the data
         do {
             try managedContext!.save()
             if let presenter = presentingViewController as? ViewController {
@@ -72,8 +73,8 @@ class CreateFlashcardController: UIViewController {
                 presenter.updateFlashcardControlPages()
 //                presenter.updateProgressBar()
             }
-            
-            } catch let error as NSError {
+        }
+        catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
     }

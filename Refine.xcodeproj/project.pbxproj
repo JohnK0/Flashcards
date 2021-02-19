@@ -14,6 +14,7 @@
 		520645DB256871DE00EB5AFE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 520645D9256871DE00EB5AFE /* LaunchScreen.storyboard */; };
 		5226E40C25DA0E0A002102AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 520645D7256871DE00EB5AFE /* Assets.xcassets */; };
 		525DAE71256EF14E006C3751 /* LinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525DAE70256EF14E006C3751 /* LinkedList.swift */; };
+		5260FECE25DCECBE0037BEFC /* Flashcard+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5260FECC25DCECBE0037BEFC /* Flashcard+CoreDataClass.swift */; };
 		527F0410256E1BF6002AF200 /* FlashcardBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527F040F256E1BF6002AF200 /* FlashcardBrain.swift */; };
 		52A3E16825C393530099CFEC /* flashcardGestureControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A3E16725C393530099CFEC /* flashcardGestureControls.swift */; };
 		52A3E16B25C398BD0099CFEC /* updateFlashcardViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A3E16A25C398BD0099CFEC /* updateFlashcardViews.swift */; };
@@ -34,6 +35,7 @@
 		520645DA256871DE00EB5AFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		520645DC256871DE00EB5AFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		525DAE70256EF14E006C3751 /* LinkedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedList.swift; sourceTree = "<group>"; };
+		5260FECC25DCECBE0037BEFC /* Flashcard+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Flashcard+CoreDataClass.swift"; sourceTree = "<group>"; };
 		527F040F256E1BF6002AF200 /* FlashcardBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardBrain.swift; sourceTree = "<group>"; };
 		52A3E16725C393530099CFEC /* flashcardGestureControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = flashcardGestureControls.swift; sourceTree = "<group>"; };
 		52A3E16A25C398BD0099CFEC /* updateFlashcardViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = updateFlashcardViews.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 			children = (
 				527F040F256E1BF6002AF200 /* FlashcardBrain.swift */,
 				525DAE70256EF14E006C3751 /* LinkedList.swift */,
+				5260FECC25DCECBE0037BEFC /* Flashcard+CoreDataClass.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -197,6 +200,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5260FECE25DCECBE0037BEFC /* Flashcard+CoreDataClass.swift in Sources */,
 				52A3E16825C393530099CFEC /* flashcardGestureControls.swift in Sources */,
 				52C3C6FA25BD3E6A00AB29DA /* UILabel.swift in Sources */,
 				52A3E16B25C398BD0099CFEC /* updateFlashcardViews.swift in Sources */,
