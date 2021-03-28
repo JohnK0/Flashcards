@@ -26,19 +26,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8QE-Tn-ogL">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="setCell" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8QE-Tn-ogL">
                                 <rect key="frame" x="0.0" y="89" width="390" height="721"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="CmL-l1-1ME" customClass="SetCell" customModule="Refine" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="setCell" id="CmL-l1-1ME" customClass="SetCell" customModule="Refine" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="390" height="54.333332061767578"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CmL-l1-1ME" id="YLa-Aq-0BI">
                                             <rect key="frame" x="0.0" y="0.0" width="390" height="54.333332061767578"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qcF-uX-M8T">
-                                                    <rect key="frame" x="20.000000000000014" y="11" width="226.33333333333337" height="32.333333333333336"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qcF-uX-M8T">
+                                                    <rect key="frame" x="10" y="11" width="226.33333333333334" height="32.333333333333336"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="qcF-uX-M8T" secondAttribute="height" multiplier="7:1" id="mAQ-rr-iPS"/>
                                                     </constraints>
@@ -48,13 +48,14 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="qcF-uX-M8T" firstAttribute="leading" secondItem="YLa-Aq-0BI" secondAttribute="leadingMargin" id="DFn-xN-HdI"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="qcF-uX-M8T" secondAttribute="bottom" id="Mb0-11-88z"/>
                                                 <constraint firstItem="qcF-uX-M8T" firstAttribute="top" secondItem="YLa-Aq-0BI" secondAttribute="topMargin" id="SFb-np-ht4"/>
+                                                <constraint firstItem="qcF-uX-M8T" firstAttribute="leading" secondItem="YLa-Aq-0BI" secondAttribute="leading" constant="10" id="hkj-ki-L6Y"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="setLabel" destination="qcF-uX-M8T" id="v9c-oe-NMf"/>
+                                            <segue destination="BYZ-38-t0r" kind="presentation" id="shS-pU-08x"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -68,6 +69,9 @@
                                     <attributedString key="attributedTitle"/>
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
                                 </state>
+                                <connections>
+                                    <action selector="addButtonPressed:" destination="ZWE-WX-FtR" eventType="touchUpInside" id="Sfl-jI-yHd"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Refine" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ltf-WE-lXG">
                                 <rect key="frame" x="149.33333333333334" y="44" width="91.666666666666657" height="40"/>
@@ -98,25 +102,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9O8-hN-k5P" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-641" y="97"/>
+            <point key="canvasLocation" x="-708" y="92"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Refine" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="flashcardView" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JWY-Cd-6AK" userLabel="FlashcardView">
-                                <rect key="frame" x="30" y="89" width="330" height="641"/>
+                                <rect key="frame" x="30" y="45" width="330" height="631"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" name="BodyTextColor"/>
                                 <fontDescription key="fontDescription" name="Lora-Regular" family="Lora" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="2" translatesAutoresizingMaskIntoConstraints="NO" id="Sg7-NY-ean">
-                                <rect key="frame" x="10" y="780" width="370" height="30"/>
+                                <rect key="frame" x="10" y="726" width="370" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="AZf-Iz-I1h"/>
                                 </constraints>
@@ -127,7 +131,7 @@
                                 </connections>
                             </pageControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nAC-eg-8s1" userLabel="AddFlashcardButton">
-                                <rect key="frame" x="340" y="44" width="40" height="40"/>
+                                <rect key="frame" x="340" y="0.0" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="G5A-Tn-1Mi"/>
                                     <constraint firstAttribute="width" secondItem="nAC-eg-8s1" secondAttribute="height" multiplier="1:1" id="giJ-VT-iTQ"/>
@@ -141,7 +145,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PQw-Xa-gf2" userLabel="RedoButton">
-                                <rect key="frame" x="10" y="44" width="40" height="40"/>
+                                <rect key="frame" x="10" y="0.0" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="9M0-KC-Zr4"/>
                                     <constraint firstAttribute="width" secondItem="PQw-Xa-gf2" secondAttribute="height" multiplier="1:1" id="Z0n-JT-Xm6"/>
@@ -155,7 +159,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kM6-UV-LTq">
-                                <rect key="frame" x="295" y="44" width="40" height="40"/>
+                                <rect key="frame" x="295" y="0.0" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="1Ff-aS-zae"/>
                                     <constraint firstAttribute="width" secondItem="kM6-UV-LTq" secondAttribute="height" multiplier="1:1" id="1yc-a0-JP1"/>

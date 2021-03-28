@@ -44,7 +44,7 @@ class ViewController: UIViewController {
     weak var memorizeHoldTimer: Timer?
     let memorizeHoldToCancelDuration = 1.5
 //  seque variables
-    var managedContext: NSManagedObjectContext?
+    let managedContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     
     /*
@@ -55,7 +55,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Reference to the managed object context
-        managedContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         redoButton.tintColor = UIColor(named: topButtonColor)
         addButton.tintColor = UIColor(named: topButtonColor)
         removeButton.tintColor = UIColor(named: topButtonColor)
@@ -81,7 +80,7 @@ class ViewController: UIViewController {
         print("ViewWillAppear")
         super.viewWillAppear(animated)
         do {
-            flashcardBrain.setFlashcards(try managedContext!.fetch(Flashcard.fetchRequest()))
+            flashcardBrain.setFlashcards(try managedContext.fetch(Flashcard.fetchRequest()))
             resetFlashcardControl()
             updateFlashcardView()
 //            updateProgressBar()
@@ -157,7 +156,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func removeButtonPressed(_ sender: UIButton) {
-        flashcardBrain.deleteFlashcard(managedContext!)
+        flashcardBrain.deleteFlashcard(managedContext)
         updateFlashcardControlPages()
         nextFlashcard()
     }

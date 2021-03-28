@@ -13,15 +13,15 @@
 		520645D6256871DC00EB5AFE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 520645D4256871DC00EB5AFE /* Main.storyboard */; };
 		520645DB256871DE00EB5AFE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 520645D9256871DE00EB5AFE /* LaunchScreen.storyboard */; };
 		5226E40C25DA0E0A002102AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 520645D7256871DE00EB5AFE /* Assets.xcassets */; };
-		5241977025DF8A8200A37852 /* Set+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5241976E25DF8A8200A37852 /* Set+CoreDataClass.swift */; };
 		525DAE71256EF14E006C3751 /* LinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525DAE70256EF14E006C3751 /* LinkedList.swift */; };
-		5260FECE25DCECBE0037BEFC /* Flashcard+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5260FECC25DCECBE0037BEFC /* Flashcard+CoreDataClass.swift */; };
 		527F0410256E1BF6002AF200 /* FlashcardBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527F040F256E1BF6002AF200 /* FlashcardBrain.swift */; };
 		52A3E16825C393530099CFEC /* flashcardGestureControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A3E16725C393530099CFEC /* flashcardGestureControls.swift */; };
 		52A3E16B25C398BD0099CFEC /* updateFlashcardViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A3E16A25C398BD0099CFEC /* updateFlashcardViews.swift */; };
 		52C3776626101C610018F4FB /* homeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C3776526101C610018F4FB /* homeController.swift */; };
 		52C3776926101CAD0018F4FB /* setCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C3776826101CAD0018F4FB /* setCell.swift */; };
 		52C3776E261020700018F4FB /* Lora-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 52C3776C26101F6E0018F4FB /* Lora-Bold.ttf */; };
+		52C37774261020D40018F4FB /* Flashcard+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C37770261020D40018F4FB /* Flashcard+CoreDataClass.swift */; };
+		52C3778B261021C10018F4FB /* Set+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C3778A261021C10018F4FB /* Set+CoreDataClass.swift */; };
 		52C3C69F25B8FD4700AB29DA /* CreateFlashcardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C3C69E25B8FD4700AB29DA /* CreateFlashcardController.swift */; };
 		52C3C6A525BBFC6100AB29DA /* Flashcards.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 52C3C6A325BBFC6100AB29DA /* Flashcards.xcdatamodeld */; };
 		52C3C6ED25BCB26300AB29DA /* Lora-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 52C3C6EC25BCB25C00AB29DA /* Lora-Regular.ttf */; };
@@ -38,15 +38,15 @@
 		520645D7256871DE00EB5AFE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		520645DA256871DE00EB5AFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		520645DC256871DE00EB5AFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5241976E25DF8A8200A37852 /* Set+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Set+CoreDataClass.swift"; sourceTree = "<group>"; };
 		525DAE70256EF14E006C3751 /* LinkedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedList.swift; sourceTree = "<group>"; };
-		5260FECC25DCECBE0037BEFC /* Flashcard+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Flashcard+CoreDataClass.swift"; sourceTree = "<group>"; };
 		527F040F256E1BF6002AF200 /* FlashcardBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardBrain.swift; sourceTree = "<group>"; };
 		52A3E16725C393530099CFEC /* flashcardGestureControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = flashcardGestureControls.swift; sourceTree = "<group>"; };
 		52A3E16A25C398BD0099CFEC /* updateFlashcardViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = updateFlashcardViews.swift; sourceTree = "<group>"; };
 		52C3776526101C610018F4FB /* homeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = homeController.swift; path = "../../../../Desktop/untitled folder 2/homeController.swift"; sourceTree = "<group>"; };
 		52C3776826101CAD0018F4FB /* setCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = setCell.swift; path = "../../../../Desktop/untitled folder 2/setCell.swift"; sourceTree = "<group>"; };
 		52C3776C26101F6E0018F4FB /* Lora-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lora-Bold.ttf"; path = "../../../../Downloads/Fonts/static/Lora-Bold.ttf"; sourceTree = "<group>"; };
+		52C37770261020D40018F4FB /* Flashcard+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Flashcard+CoreDataClass.swift"; path = "../../../../Flashcard+CoreDataClass.swift"; sourceTree = "<group>"; };
+		52C3778A261021C10018F4FB /* Set+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Set+CoreDataClass.swift"; sourceTree = "<group>"; };
 		52C3C69E25B8FD4700AB29DA /* CreateFlashcardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFlashcardController.swift; sourceTree = "<group>"; };
 		52C3C6A425BBFC6100AB29DA /* Flashcards.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Flashcards.xcdatamodel; sourceTree = "<group>"; };
 		52C3C6EC25BCB25C00AB29DA /* Lora-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lora-Regular.ttf"; sourceTree = "<group>"; };
@@ -110,7 +110,7 @@
 		5241977725DF8AB600A37852 /* Set */ = {
 			isa = PBXGroup;
 			children = (
-				5241976E25DF8A8200A37852 /* Set+CoreDataClass.swift */,
+				52C3778A261021C10018F4FB /* Set+CoreDataClass.swift */,
 			);
 			path = Set;
 			sourceTree = "<group>";
@@ -118,7 +118,7 @@
 		5241977925DF8ABE00A37852 /* Flashcard */ = {
 			isa = PBXGroup;
 			children = (
-				5260FECC25DCECBE0037BEFC /* Flashcard+CoreDataClass.swift */,
+				52C37770261020D40018F4FB /* Flashcard+CoreDataClass.swift */,
 			);
 			path = Flashcard;
 			sourceTree = "<group>";
@@ -245,17 +245,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5260FECE25DCECBE0037BEFC /* Flashcard+CoreDataClass.swift in Sources */,
 				52A3E16825C393530099CFEC /* flashcardGestureControls.swift in Sources */,
 				52C3C6FA25BD3E6A00AB29DA /* UILabel.swift in Sources */,
 				52A3E16B25C398BD0099CFEC /* updateFlashcardViews.swift in Sources */,
+				52C37774261020D40018F4FB /* Flashcard+CoreDataClass.swift in Sources */,
 				520645D3256871DC00EB5AFE /* ViewController.swift in Sources */,
 				525DAE71256EF14E006C3751 /* LinkedList.swift in Sources */,
 				52C3776926101CAD0018F4FB /* setCell.swift in Sources */,
 				52C3C6A525BBFC6100AB29DA /* Flashcards.xcdatamodeld in Sources */,
 				52C3C69F25B8FD4700AB29DA /* CreateFlashcardController.swift in Sources */,
 				52C3C6F425BCCC4E00AB29DA /* CATransition.swift in Sources */,
-				5241977025DF8A8200A37852 /* Set+CoreDataClass.swift in Sources */,
+				52C3778B261021C10018F4FB /* Set+CoreDataClass.swift in Sources */,
 				520645CF256871DC00EB5AFE /* AppDelegate.swift in Sources */,
 				520645D1256871DC00EB5AFE /* SceneDelegate.swift in Sources */,
 				52C3776626101C610018F4FB /* homeController.swift in Sources */,

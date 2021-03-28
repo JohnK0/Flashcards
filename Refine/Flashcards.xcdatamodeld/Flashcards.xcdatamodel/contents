@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20C69" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20D91" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Flashcard" representedClassName="Flashcard" syncable="YES" codeGenerationType="category">
         <attribute name="body" optional="YES" attributeType="String"/>
         <attribute name="language" optional="YES" attributeType="String"/>
         <attribute name="memorized" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
-        <attribute name="setID" optional="YES" attributeType="String"/>
         <attribute name="source" optional="YES" attributeType="String"/>
         <attribute name="translation" optional="YES" attributeType="String"/>
         <relationship name="set" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Set" inverseName="flashcard" inverseEntity="Set"/>
@@ -14,7 +13,7 @@
         <relationship name="flashcard" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Flashcard" inverseName="set" inverseEntity="Flashcard"/>
     </entity>
     <elements>
-        <element name="Flashcard" positionX="-63" positionY="-18" width="128" height="134"/>
+        <element name="Flashcard" positionX="-63" positionY="-18" width="128" height="119"/>
         <element name="Set" positionX="-63" positionY="9" width="128" height="59"/>
     </elements>
 </model>
