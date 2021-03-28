@@ -10,6 +10,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Lora-Bold.ttf">
+            <string>Lora-Bold</string>
+        </array>
         <array key="Lora-Regular.ttf">
             <string>Lora-Regular</string>
         </array>
@@ -66,17 +69,26 @@
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
                                 </state>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Refine" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ltf-WE-lXG">
+                                <rect key="frame" x="149.33333333333334" y="44" width="91.666666666666657" height="40"/>
+                                <fontDescription key="fontDescription" name="Lora-Bold" family="Lora" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="G8m-7T-aYV"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="G8m-7T-aYV" firstAttribute="bottom" secondItem="8QE-Tn-ogL" secondAttribute="bottom" id="7LM-fj-l5e"/>
                             <constraint firstItem="G8m-7T-aYV" firstAttribute="trailing" secondItem="Kc7-Ve-fbz" secondAttribute="trailing" constant="10" id="7Y6-Z4-Zg6"/>
+                            <constraint firstItem="Ltf-WE-lXG" firstAttribute="top" secondItem="G8m-7T-aYV" secondAttribute="top" id="BVN-2A-gL9"/>
                             <constraint firstItem="8QE-Tn-ogL" firstAttribute="top" secondItem="Kc7-Ve-fbz" secondAttribute="bottom" constant="5" id="L47-TV-xNl"/>
                             <constraint firstItem="Kc7-Ve-fbz" firstAttribute="top" secondItem="G8m-7T-aYV" secondAttribute="top" id="Wao-0E-RjK"/>
                             <constraint firstItem="8QE-Tn-ogL" firstAttribute="top" secondItem="G8m-7T-aYV" secondAttribute="top" constant="45" id="Y5f-6O-esS"/>
                             <constraint firstItem="G8m-7T-aYV" firstAttribute="trailing" secondItem="8QE-Tn-ogL" secondAttribute="trailing" id="ZSO-2O-XvI"/>
                             <constraint firstItem="8QE-Tn-ogL" firstAttribute="leading" secondItem="G8m-7T-aYV" secondAttribute="leading" id="cB3-6M-y6n"/>
+                            <constraint firstItem="Ltf-WE-lXG" firstAttribute="centerX" secondItem="Yhs-Mn-vxO" secondAttribute="centerX" id="rAU-6a-Jaw"/>
+                            <constraint firstItem="8QE-Tn-ogL" firstAttribute="top" secondItem="Ltf-WE-lXG" secondAttribute="bottom" constant="5" id="xnG-zi-0sW"/>
                         </constraints>
                     </view>
                     <connections>
