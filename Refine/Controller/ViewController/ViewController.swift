@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var superView: UIView!
     @IBOutlet weak var flashcardView: UITextView!
     @IBOutlet weak var removeButton: UIButton!
+    @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var redoButton: UIButton!
     @IBOutlet weak var retainedButton: UIButton!
     @IBOutlet weak var nextButton: UIButton!
@@ -55,6 +56,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Reference to the managed object context
+        backButton.tintColor = UIColor(named: topButtonColor)
         redoButton.tintColor = UIColor(named: topButtonColor)
         addButton.tintColor = UIColor(named: topButtonColor)
         removeButton.tintColor = UIColor(named: topButtonColor)
