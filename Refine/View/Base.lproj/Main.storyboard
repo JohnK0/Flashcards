@@ -34,7 +34,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="390" height="54.333332061767578"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qcF-uX-M8T">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="qcF-uX-M8T">
                                                     <rect key="frame" x="10" y="11" width="226.33333333333334" height="32.333333333333336"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="qcF-uX-M8T" secondAttribute="height" multiplier="7:1" id="mAQ-rr-iPS"/>
@@ -169,68 +169,92 @@
                                     <action selector="flashcardControlPressed:" destination="BYZ-38-t0r" eventType="valueChanged" id="d5h-In-AP5"/>
                                 </connections>
                             </pageControl>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nAC-eg-8s1" userLabel="AddFlashcardButton">
-                                <rect key="frame" x="340" y="44" width="40" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="40" id="G5A-Tn-1Mi"/>
-                                    <constraint firstAttribute="width" secondItem="nAC-eg-8s1" secondAttribute="height" multiplier="1:1" id="giJ-VT-iTQ"/>
-                                </constraints>
-                                <state key="normal">
-                                    <attributedString key="attributedTitle"/>
-                                    <imageReference key="image" image="plus" catalog="system" symbolScale="large" renderingMode="template"/>
-                                </state>
-                                <connections>
-                                    <action selector="addButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="E6C-3W-qi1"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PQw-Xa-gf2" userLabel="RedoButton">
-                                <rect key="frame" x="34.666666666666664" y="44" width="39.999999999999993" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="40" id="9M0-KC-Zr4"/>
-                                    <constraint firstAttribute="width" secondItem="PQw-Xa-gf2" secondAttribute="height" multiplier="1:1" id="Z0n-JT-Xm6"/>
-                                </constraints>
-                                <state key="normal">
-                                    <attributedString key="attributedTitle"/>
-                                    <imageReference key="image" image="arrow.counterclockwise" catalog="system" symbolScale="medium" renderingMode="template"/>
-                                </state>
-                                <connections>
-                                    <action selector="actionButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HOk-0j-1cK"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kM6-UV-LTq">
-                                <rect key="frame" x="295" y="59" width="40" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="40" id="1Ff-aS-zae"/>
-                                    <constraint firstAttribute="width" secondItem="kM6-UV-LTq" secondAttribute="height" multiplier="1:1" id="1yc-a0-JP1"/>
-                                </constraints>
-                                <state key="normal">
-                                    <attributedString key="attributedTitle"/>
-                                    <imageReference key="image" image="minus" catalog="system" symbolScale="large" renderingMode="template"/>
-                                </state>
-                                <string key="userLabel" base64-UTF8="YES">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v9o-9N-6PM" userLabel="TopView">
+                                <rect key="frame" x="10" y="44" width="370" height="40"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nAC-eg-8s1" userLabel="AddFlashcardButton">
+                                        <rect key="frame" x="330" y="0.0" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="G5A-Tn-1Mi"/>
+                                            <constraint firstAttribute="width" secondItem="nAC-eg-8s1" secondAttribute="height" multiplier="1:1" id="giJ-VT-iTQ"/>
+                                        </constraints>
+                                        <state key="normal">
+                                            <attributedString key="attributedTitle"/>
+                                            <imageReference key="image" image="plus" catalog="system" symbolScale="large" renderingMode="template"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="addButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="E6C-3W-qi1"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kM6-UV-LTq">
+                                        <rect key="frame" x="290" y="0.0" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="1Ff-aS-zae"/>
+                                            <constraint firstAttribute="width" secondItem="kM6-UV-LTq" secondAttribute="height" multiplier="1:1" id="1yc-a0-JP1"/>
+                                        </constraints>
+                                        <state key="normal">
+                                            <attributedString key="attributedTitle"/>
+                                            <imageReference key="image" image="minus" catalog="system" symbolScale="large" renderingMode="template"/>
+                                        </state>
+                                        <string key="userLabel" base64-UTF8="YES">
 cmVtb3ZlRmxhc2hjYXJkEEJ1dHRvbg
 </string>
-                                <connections>
-                                    <action selector="removeButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="678-uJ-RZl"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bdq-i0-eT7">
-                                <rect key="frame" x="10.000000000000002" y="44" width="19.666666666666671" height="40"/>
-                                <state key="normal">
-                                    <attributedString key="attributedTitle"/>
-                                    <imageReference key="image" image="arrow.left" catalog="system" symbolScale="medium"/>
-                                </state>
-                                <connections>
-                                    <action selector="backButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Utl-td-Otl"/>
-                                </connections>
-                            </button>
+                                        <connections>
+                                            <action selector="removeButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="678-uJ-RZl"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PQw-Xa-gf2" userLabel="RedoButton">
+                                        <rect key="frame" x="40" y="0.0" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="9M0-KC-Zr4"/>
+                                            <constraint firstAttribute="width" secondItem="PQw-Xa-gf2" secondAttribute="height" multiplier="1:1" id="Z0n-JT-Xm6"/>
+                                        </constraints>
+                                        <state key="normal">
+                                            <attributedString key="attributedTitle"/>
+                                            <imageReference key="image" image="arrow.counterclockwise" catalog="system" symbolScale="medium" renderingMode="template"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="actionButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HOk-0j-1cK"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bdq-i0-eT7">
+                                        <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="Bdq-i0-eT7" secondAttribute="height" multiplier="1:1" id="Xy0-YC-9ES"/>
+                                        </constraints>
+                                        <state key="normal">
+                                            <attributedString key="attributedTitle"/>
+                                            <imageReference key="image" image="arrow.left" catalog="system" symbolScale="medium"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="backButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Utl-td-Otl"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="Bdq-i0-eT7" firstAttribute="leading" secondItem="v9o-9N-6PM" secondAttribute="leading" id="7fy-ok-1Kc"/>
+                                    <constraint firstAttribute="bottom" secondItem="nAC-eg-8s1" secondAttribute="bottom" id="8AG-Xt-0mH"/>
+                                    <constraint firstAttribute="bottom" secondItem="kM6-UV-LTq" secondAttribute="bottom" id="GJq-GU-5WL"/>
+                                    <constraint firstAttribute="bottom" secondItem="PQw-Xa-gf2" secondAttribute="bottom" id="J3m-jF-hDb"/>
+                                    <constraint firstItem="nAC-eg-8s1" firstAttribute="top" secondItem="v9o-9N-6PM" secondAttribute="top" id="JyJ-1a-t4K"/>
+                                    <constraint firstAttribute="height" constant="40" id="UMo-Du-WWb"/>
+                                    <constraint firstItem="Bdq-i0-eT7" firstAttribute="top" secondItem="v9o-9N-6PM" secondAttribute="top" id="aMS-82-sj8"/>
+                                    <constraint firstItem="PQw-Xa-gf2" firstAttribute="leading" secondItem="Bdq-i0-eT7" secondAttribute="trailing" id="cQ8-So-XGK"/>
+                                    <constraint firstItem="nAC-eg-8s1" firstAttribute="leading" secondItem="kM6-UV-LTq" secondAttribute="trailing" id="f2m-KA-tbh"/>
+                                    <constraint firstItem="PQw-Xa-gf2" firstAttribute="top" secondItem="v9o-9N-6PM" secondAttribute="top" id="goK-qi-jVf"/>
+                                    <constraint firstAttribute="bottom" secondItem="Bdq-i0-eT7" secondAttribute="bottom" id="kDG-sW-HJn"/>
+                                    <constraint firstItem="kM6-UV-LTq" firstAttribute="top" secondItem="v9o-9N-6PM" secondAttribute="top" id="kSC-2s-CI9"/>
+                                    <constraint firstAttribute="trailing" secondItem="nAC-eg-8s1" secondAttribute="trailing" id="kV0-A3-LbS"/>
+                                </constraints>
+                            </view>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" translatesAutoresizingMaskIntoConstraints="NO" id="VkI-Gt-jeh">
                                 <rect key="frame" x="30" y="808.33333333333337" width="330" height="2.6666666666666288"/>
                                 <color key="progressTintColor" name="ProgressBarTintColor"/>
                                 <color key="trackTintColor" name="ProgressBarColor"/>
                             </progressView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="flashcardView" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JWY-Cd-6AK" userLabel="FlashcardView">
-                                <rect key="frame" x="25" y="114" width="340" height="629.33333333333337"/>
+                                <rect key="frame" x="25" y="104" width="340" height="649.33333333333337"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" name="BodyTextColor"/>
                                 <fontDescription key="fontDescription" name="Lora-Regular" family="Lora" pointSize="17"/>
@@ -240,25 +264,19 @@ cmVtb3ZlRmxhc2hjYXJkEEJ1dHRvbg
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="v9o-9N-6PM" secondAttribute="trailing" constant="10" id="0U9-6K-796"/>
+                            <constraint firstItem="v9o-9N-6PM" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="CNO-yY-UFH"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="JWY-Cd-6AK" secondAttribute="trailing" constant="25" id="ElF-v0-7g4"/>
                             <constraint firstItem="VkI-Gt-jeh" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="FzD-3D-CkF"/>
-                            <constraint firstItem="JWY-Cd-6AK" firstAttribute="top" secondItem="nAC-eg-8s1" secondAttribute="bottom" constant="30" id="Jz0-rf-NzT"/>
-                            <constraint firstItem="Bdq-i0-eT7" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="LQN-sr-Ial"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="VkI-Gt-jeh" secondAttribute="trailing" constant="30" id="RgT-Nc-hXv"/>
-                            <constraint firstItem="PQw-Xa-gf2" firstAttribute="leading" secondItem="Bdq-i0-eT7" secondAttribute="trailing" constant="5" id="ULQ-cw-FUw"/>
-                            <constraint firstItem="Bdq-i0-eT7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="fr4-X7-UXJ"/>
-                            <constraint firstItem="JWY-Cd-6AK" firstAttribute="top" secondItem="Bdq-i0-eT7" secondAttribute="bottom" constant="30" id="gMX-YQ-vpq"/>
+                            <constraint firstItem="v9o-9N-6PM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="VKF-af-LhK"/>
                             <constraint firstItem="VkI-Gt-jeh" firstAttribute="top" secondItem="Sg7-NY-ean" secondAttribute="bottom" constant="5" id="iYO-jq-JnA"/>
-                            <constraint firstItem="nAC-eg-8s1" firstAttribute="leading" secondItem="kM6-UV-LTq" secondAttribute="trailing" constant="5" id="kZJ-he-zGc"/>
                             <constraint firstItem="JWY-Cd-6AK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="lcc-rl-m8L"/>
                             <constraint firstItem="VkI-Gt-jeh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="mRY-pD-Wcm"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nAC-eg-8s1" secondAttribute="trailing" constant="10" id="oiT-wE-JsX"/>
+                            <constraint firstItem="JWY-Cd-6AK" firstAttribute="top" secondItem="v9o-9N-6PM" secondAttribute="bottom" constant="20" id="ozk-iJ-FgN"/>
                             <constraint firstItem="Sg7-NY-ean" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="rfv-Cz-hJn"/>
-                            <constraint firstItem="Sg7-NY-ean" firstAttribute="top" secondItem="JWY-Cd-6AK" secondAttribute="bottom" constant="30" id="u94-e2-RjC"/>
-                            <constraint firstItem="JWY-Cd-6AK" firstAttribute="top" secondItem="kM6-UV-LTq" secondAttribute="bottom" constant="15" id="vVB-Dw-mW6"/>
-                            <constraint firstItem="PQw-Xa-gf2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="vfS-zd-EtY"/>
+                            <constraint firstItem="Sg7-NY-ean" firstAttribute="top" secondItem="JWY-Cd-6AK" secondAttribute="bottom" constant="20" id="u94-e2-RjC"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Sg7-NY-ean" secondAttribute="trailing" constant="10" id="wJC-bD-mSv"/>
-                            <constraint firstItem="nAC-eg-8s1" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="wzf-BS-0tK"/>
                         </constraints>
                     </view>
                     <connections>
