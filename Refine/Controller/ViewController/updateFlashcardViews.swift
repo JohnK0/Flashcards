@@ -9,13 +9,14 @@ import UIKit
 //
 
 extension UITextView {
-   func centerVertically() {
-       let fittingSize = CGSize(width: bounds.width, height: CGFloat.greatestFiniteMagnitude)
-       let size = sizeThatFits(fittingSize)
-       let topOffset = (bounds.size.height - size.height * zoomScale) / 2
-       let positiveTopOffset = max(1, topOffset)-10
-       contentOffset.y = -positiveTopOffset
-   }
+    func centerVertically() {
+        let fittingSize = CGSize(width: bounds.width, height: CGFloat.greatestFiniteMagnitude)
+        let size = sizeThatFits(fittingSize)
+        let topOffset = (bounds.size.height - size.height * zoomScale) / 2
+        let positiveTopOffset = max(1, topOffset)-10
+        contentOffset.y = -positiveTopOffset
+        print("Here")
+    }
 }
 
 extension UIView {
@@ -34,7 +35,7 @@ extension UIView {
     }
 }
 
-extension ViewController {
+extension SetController {
     
     func resetFlashcardControl() {
         print("resetFlashcardControl")
@@ -117,21 +118,21 @@ extension ViewController {
         flashcardView.centerVertically()
     }
     
-//    func updateProgressBar() {
-//        let currentFlashcardCount = flashcardBrain.getCurrentFlashcardCount()
-//        let allFlashcardCount = flashcardBrain.getAllFlashcardCount()
-//        if allFlashcardCount == 0 {
-//            progressBar.progress = 0
-//        } else {
-//            if progressBar.progressTintColor == UIColor(named: progressBarProgressTintColor)! {
-//                uiView.animateProgressTintColor(view: progressBar, color: .orange, duration: 0.2)
-//            }
-//        progressBar.progress = 1.0 - Float(currentFlashcardCount)/Float(allFlashcardCount)
-//        }
-//        if progressBar.progress == 1 {
-//            uiView.animateProgressTintColor(view: progressBar, color: UIColor(named: progressBarProgressTintColor)!)
-//        }
-//    }
+    func updateProgressBar() {
+        let currentFlashcardCount = flashcardBrain.getCurrentFlashcardCount()
+        let allFlashcardCount = flashcardBrain.getAllFlashcardCount()
+        if allFlashcardCount == 0 {
+            progressBar.progress = 0
+        } else {
+            if progressBar.progressTintColor == UIColor(named: progressBarProgressTintColor)! {
+                uiView.animateProgressTintColor(view: progressBar, color: .orange, duration: 0.2)
+            }
+        progressBar.progress = 1.0 - Float(currentFlashcardCount)/Float(allFlashcardCount)
+        }
+        if progressBar.progress == 1 {
+            uiView.animateProgressTintColor(view: progressBar, color: UIColor(named: progressBarProgressTintColor)!)
+        }
+    }
     
     func getFrontText(_ label: UILabel, underline: Bool = false) -> NSMutableAttributedString {
         var attributedText = label.createAttributedText(text: (flashcardBrain.getCurrentFlashcard()!.value(forKey: "source") as? String)!, textSize: 28, alignment: .center)
@@ -151,19 +152,19 @@ extension ViewController {
         return attributedText
     }
     
-    func frodoGandalfQuote(_ label: UILabel) -> NSMutableAttributedString {
-        let frodo = "Frodo"
-        let frodoQuote = "I wish it need not have happened in my time."
-        let gandalf = "Gandalf the Grey"
-        let gandalfQuote = "So do I, and so do all who live to see such times. But that is not for them to decide. All we have to decide is what to do with the time that is given us."
-        let attributedText = label.createAttributedText(text: frodo, textSize: headerTextSize, alignment: .center, underline: true)
-        attributedText.append(NSMutableAttributedString(string: "\n"))
-        attributedText.append(label.createAttributedText(text: frodoQuote, textSize: bodyTextSize, spacing: bodySpacing))
-        attributedText.append(NSMutableAttributedString(string: "\n"))
-        attributedText.append(label.createAttributedText(text: gandalf, textSize: headerTextSize, alignment: .center, underline: true))
-        attributedText.append(NSMutableAttributedString(string: "\n"))
-        attributedText.append(label.createAttributedText(text: gandalfQuote, textSize: bodyTextSize, spacing: bodySpacing))
-        return attributedText
-    }
+//    func frodoGandalfQuote(_ label: UILabel) -> NSMutableAttributedString {
+//        let frodo = "Frodo"
+//        let frodoQuote = "I wish it need not have happened in my time."
+//        let gandalf = "Gandalf the Grey"
+//        let gandalfQuote = "So do I, and so do all who live to see such times. But that is not for them to decide. All we have to decide is what to do with the time that is given us."
+//        let attributedText = label.createAttributedText(text: frodo, textSize: headerTextSize, alignment: .center, underline: true)
+//        attributedText.append(NSMutableAttributedString(string: "\n"))
+//        attributedText.append(label.createAttributedText(text: frodoQuote, textSize: bodyTextSize, spacing: bodySpacing))
+//        attributedText.append(NSMutableAttributedString(string: "\n"))
+//        attributedText.append(label.createAttributedText(text: gandalf, textSize: headerTextSize, alignment: .center, underline: true))
+//        attributedText.append(NSMutableAttributedString(string: "\n"))
+//        attributedText.append(label.createAttributedText(text: gandalfQuote, textSize: bodyTextSize, spacing: bodySpacing))
+//        return attributedText
+//    }
 //    
 }

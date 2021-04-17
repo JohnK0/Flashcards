@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension ViewController {
+extension SetController {
     
     func createDirectionFunction(selector: Selector, direction: UISwipeGestureRecognizer.Direction) -> UISwipeGestureRecognizer{
         

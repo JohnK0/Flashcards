@@ -8,7 +8,7 @@
 import UIKit
 import CoreData
 
-class ViewController: UIViewController {
+class SetController: UIViewController {
     
 //  IIBOutlets
     @IBOutlet weak var superView: UIView!
@@ -21,11 +21,15 @@ class ViewController: UIViewController {
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var progressBar: UIProgressView!
     @IBOutlet weak var flashcardControl: UIPageControl!
-//  instances
+    @IBOutlet weak var backFlashcardButton: UIButton!
+    @IBOutlet weak var NextFlashcardButton: UIButton!
+    
+    //  instances
     var flashcardBrain = FlashcardBrain()
     let uiView = UIView()
 //  colors
     let flashcardViewTextColor = "BodyTextColor"
+    let flashcardViewBorderColor = "BorderColor"
     let flashcardViewBackgroundColor = "BackgroundColor"
     let flashcardViewMemorizingBackgroundColor = "LabelBackgroundBoldedColor"
     let topButtonColor = "TopButtonColor"
@@ -45,8 +49,7 @@ class ViewController: UIViewController {
     weak var memorizeHoldTimer: Timer?
     let memorizeHoldToCancelDuration = 1.5
 //  seque variables
-    let managedContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    
+    var managedContext: NSManagedObjectContext?
     
     /*
      Sets tintColor of redo and add buttons to topButtonColor
@@ -60,10 +63,14 @@ class ViewController: UIViewController {
         redoButton.tintColor = UIColor(named: topButtonColor)
         addButton.tintColor = UIColor(named: topButtonColor)
         removeButton.tintColor = UIColor(named: topButtonColor)
+//        backFlashcardButton.tintColor = UIColor(named: topButtonColor)
+//        NextFlashcardButton.tintColor = UIColor(named: topButtonColor)
 //        retainedButton.tintColor = UIColor(named: topButtonColor)
 //        nextButton.tintColor = UIColor(named: topButtonColor)
+        flashcardView.layer.borderWidth = 1
+        flashcardView.layer.borderColor = UIColor(named: flashcardViewBorderColor)!.cgColor
         flashcardView.layer.cornerRadius = 10
-        flashcardView.clipsToBounds = true
+//        flashcardView.clipsToBounds = true
         setUpGestureRecognizers()
     }
     
@@ -72,7 +79,10 @@ class ViewController: UIViewController {
      Centers flashcardView's text at view controller's activation
      */
     override func viewDidLayoutSubviews() {
+//        flashcardView.contentInset.left = 5
+//        flashcardView.contentInset.right = 5
         flashcardView.centerVertically()
+        
     }
     
     /*
@@ -82,7 +92,7 @@ class ViewController: UIViewController {
         print("ViewWillAppear")
         super.viewWillAppear(animated)
         do {
-            flashcardBrain.setFlashcards(try managedContext.fetch(Flashcard.fetchRequest()))
+            flashcardBrain.setFlashcards(try managedContext!.fetch(Flashcard.fetchRequest()))
             resetFlashcardControl()
             updateFlashcardView()
 //            updateProgressBar()
@@ -157,8 +167,12 @@ class ViewController: UIViewController {
         currentPage = sender.currentPage
     }
     
+    @IBAction func backButtonPressed(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction func removeButtonPressed(_ sender: UIButton) {
-        flashcardBrain.deleteFlashcard(managedContext)
+        flashcardBrain.deleteFlashcard(managedContext!)
         updateFlashcardControlPages()
         nextFlashcard()
     }
@@ -196,7 +210,7 @@ class ViewController: UIViewController {
         flashcardBrain.setupFlashcards()
         resetFlashcardControl()
         updateFlashcardView(flip: false)
-//        updateProgressBar()
+        updateProgressBar()
 
     }
     
@@ -210,7 +224,7 @@ class ViewController: UIViewController {
         flashcardBrain.memorizedFlashcard()
         removeFlashcardControlPage()
         updateFlashcardView(flip: false)
-//        updateProgressBar()
+        updateProgressBar()
     }
     
     

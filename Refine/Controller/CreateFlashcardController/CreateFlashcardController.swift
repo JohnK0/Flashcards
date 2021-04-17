@@ -67,7 +67,7 @@ class CreateFlashcardController: UIViewController {
         // save the data
         do {
             try managedContext!.save()
-            if let presenter = presentingViewController as? ViewController {
+            if let presenter = presentingViewController as? SetController {
                 presenter.flashcardBrain.addFlashcard(flashcard)
                 presenter.updateFlashcardView()
                 presenter.updateFlashcardControlPages()

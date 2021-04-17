@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		520645CF256871DC00EB5AFE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520645CE256871DC00EB5AFE /* AppDelegate.swift */; };
 		520645D1256871DC00EB5AFE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520645D0256871DC00EB5AFE /* SceneDelegate.swift */; };
-		520645D3256871DC00EB5AFE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520645D2256871DC00EB5AFE /* ViewController.swift */; };
+		520645D3256871DC00EB5AFE /* SetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520645D2256871DC00EB5AFE /* SetController.swift */; };
 		520645D6256871DC00EB5AFE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 520645D4256871DC00EB5AFE /* Main.storyboard */; };
 		520645DB256871DE00EB5AFE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 520645D9256871DE00EB5AFE /* LaunchScreen.storyboard */; };
 		5226E40C25DA0E0A002102AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 520645D7256871DE00EB5AFE /* Assets.xcassets */; };
@@ -35,7 +35,7 @@
 		520645CB256871DB00EB5AFE /* Refine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Refine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		520645CE256871DC00EB5AFE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		520645D0256871DC00EB5AFE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		520645D2256871DC00EB5AFE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		520645D2256871DC00EB5AFE /* SetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetController.swift; sourceTree = "<group>"; };
 		520645D5256871DC00EB5AFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		520645D7256871DE00EB5AFE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		520645DA256871DE00EB5AFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -187,7 +187,7 @@
 		52A3E17325C3B84F0099CFEC /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				520645D2256871DC00EB5AFE /* ViewController.swift */,
+				520645D2256871DC00EB5AFE /* SetController.swift */,
 				52A3E16A25C398BD0099CFEC /* updateFlashcardViews.swift */,
 				52A3E16725C393530099CFEC /* flashcardGestureControls.swift */,
 			);
@@ -280,7 +280,7 @@
 				52A3E16B25C398BD0099CFEC /* updateFlashcardViews.swift in Sources */,
 				523B7E632622393700B8062C /* AlwaysPopupSeque.swift in Sources */,
 				52C37774261020D40018F4FB /* Flashcard+CoreDataClass.swift in Sources */,
-				520645D3256871DC00EB5AFE /* ViewController.swift in Sources */,
+				520645D3256871DC00EB5AFE /* SetController.swift in Sources */,
 				525DAE71256EF14E006C3751 /* LinkedList.swift in Sources */,
 				523B7E5B2622325900B8062C /* setCell.swift in Sources */,
 				52C3C6A525BBFC6100AB29DA /* Flashcards.xcdatamodeld in Sources */,
