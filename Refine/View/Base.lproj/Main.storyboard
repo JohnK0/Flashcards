@@ -15,6 +15,60 @@
         </array>
     </customFonts>
     <scenes>
+        <!--Setting Controller-->
+        <scene sceneID="aJg-yb-Tfc">
+            <objects>
+                <viewController id="rYS-1A-aiG" customClass="SettingController" customModule="Refine" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ljo-dC-Ig2">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fq7-Sl-qui">
+                                <rect key="frame" x="0.0" y="54" width="390" height="156"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AwS-7o-R50">
+                                        <rect key="frame" x="234" y="0.0" width="156" height="156"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="AwS-7o-R50" secondAttribute="height" id="C38-AV-dyp"/>
+                                        </constraints>
+                                        <state key="normal" image="blackCircle"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mZW-B6-Rfd">
+                                        <rect key="frame" x="0.0" y="0.0" width="156" height="156"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="mZW-B6-Rfd" secondAttribute="height" id="tEX-co-To7"/>
+                                        </constraints>
+                                        <state key="normal" image="whiteCircleOutlined">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="fq7-Sl-qui" secondAttribute="height" multiplier="2.5:1" id="2DT-ys-lZS"/>
+                                    <constraint firstItem="AwS-7o-R50" firstAttribute="top" secondItem="fq7-Sl-qui" secondAttribute="top" id="7pI-m4-Dsh"/>
+                                    <constraint firstItem="AwS-7o-R50" firstAttribute="width" secondItem="AwS-7o-R50" secondAttribute="height" id="Clt-2p-zCO"/>
+                                    <constraint firstItem="mZW-B6-Rfd" firstAttribute="top" secondItem="fq7-Sl-qui" secondAttribute="top" id="EYo-gk-0hP"/>
+                                    <constraint firstAttribute="bottom" secondItem="mZW-B6-Rfd" secondAttribute="bottom" id="Fas-MI-AA8"/>
+                                    <constraint firstItem="mZW-B6-Rfd" firstAttribute="leading" secondItem="fq7-Sl-qui" secondAttribute="leading" id="K2G-PR-UIA"/>
+                                    <constraint firstAttribute="bottom" secondItem="AwS-7o-R50" secondAttribute="bottom" id="mq9-Wn-j6J"/>
+                                    <constraint firstAttribute="trailing" secondItem="AwS-7o-R50" secondAttribute="trailing" id="vqm-C6-iyZ"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="9Yy-yo-29Q"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="fq7-Sl-qui" firstAttribute="leading" secondItem="9Yy-yo-29Q" secondAttribute="leading" id="Q7j-um-mo3"/>
+                            <constraint firstAttribute="trailing" secondItem="fq7-Sl-qui" secondAttribute="trailing" id="YcX-9h-p0b"/>
+                            <constraint firstItem="fq7-Sl-qui" firstAttribute="top" secondItem="9Yy-yo-29Q" secondAttribute="top" constant="10" id="fPG-OM-Y3Y"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qsf-gB-bKv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1603.0769230769231" y="96.682464454976298"/>
+        </scene>
         <!--Home Controller-->
         <scene sceneID="j3o-8A-hFI">
             <objects>
@@ -57,43 +111,73 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kc7-Ve-fbz">
-                                <rect key="frame" x="340" y="44" width="40" height="40"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zJv-dJ-nmp">
+                                <rect key="frame" x="10" y="44" width="370" height="40"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4hb-GD-Ia3">
+                                        <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="4hb-GD-Ia3" secondAttribute="height" multiplier="1:1" id="OyB-UX-H5e"/>
+                                        </constraints>
+                                        <state key="normal">
+                                            <attributedString key="attributedTitle"/>
+                                            <imageReference key="image" image="gearshape.fill" catalog="system" symbolScale="medium"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="settingButtonPressed:" destination="ZWE-WX-FtR" eventType="touchUpInside" id="eK9-Zp-Exr"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kc7-Ve-fbz">
+                                        <rect key="frame" x="330" y="0.0" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="Kc7-Ve-fbz" secondAttribute="height" multiplier="1:1" id="Sp9-vH-pya"/>
+                                        </constraints>
+                                        <state key="normal" image="plus" catalog="system">
+                                            <attributedString key="attributedTitle"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="addButtonPressed:" destination="ZWE-WX-FtR" eventType="touchUpInside" id="Sfl-jI-yHd"/>
+                                            <segue destination="iWV-TG-PLG" kind="popoverPresentation" identifier="goToCreateSet" customClass="AlwaysPopupSegue" customModule="Refine" customModuleProvider="target" popoverAnchorView="Kc7-Ve-fbz" id="0zD-sN-QBA">
+                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                            </segue>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="Kc7-Ve-fbz" secondAttribute="height" multiplier="1:1" id="Sp9-vH-pya"/>
+                                    <constraint firstItem="Kc7-Ve-fbz" firstAttribute="top" secondItem="zJv-dJ-nmp" secondAttribute="top" id="OV0-wc-cj1"/>
+                                    <constraint firstItem="4hb-GD-Ia3" firstAttribute="top" secondItem="zJv-dJ-nmp" secondAttribute="top" id="Sdz-Nl-3vx"/>
+                                    <constraint firstItem="4hb-GD-Ia3" firstAttribute="leading" secondItem="zJv-dJ-nmp" secondAttribute="leading" id="bUQ-4y-hMV"/>
+                                    <constraint firstAttribute="bottom" secondItem="4hb-GD-Ia3" secondAttribute="bottom" id="f0q-2k-J8T"/>
+                                    <constraint firstAttribute="height" constant="40" id="ppd-YM-QxY"/>
+                                    <constraint firstAttribute="trailing" secondItem="Kc7-Ve-fbz" secondAttribute="trailing" id="sr2-bD-NvC"/>
+                                    <constraint firstAttribute="bottom" secondItem="Kc7-Ve-fbz" secondAttribute="bottom" id="vRL-fu-kth"/>
                                 </constraints>
-                                <state key="normal" image="plus" catalog="system">
-                                    <attributedString key="attributedTitle"/>
-                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
-                                </state>
-                                <connections>
-                                    <action selector="addButtonPressed:" destination="ZWE-WX-FtR" eventType="touchUpInside" id="Sfl-jI-yHd"/>
-                                    <segue destination="iWV-TG-PLG" kind="popoverPresentation" identifier="goToCreateSet" customClass="AlwaysPopupSegue" customModule="Refine" customModuleProvider="target" popoverAnchorView="Kc7-Ve-fbz" id="0zD-sN-QBA">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
-                                </connections>
-                            </button>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="G8m-7T-aYV"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="G8m-7T-aYV" firstAttribute="bottom" secondItem="8QE-Tn-ogL" secondAttribute="bottom" id="7LM-fj-l5e"/>
-                            <constraint firstItem="G8m-7T-aYV" firstAttribute="trailing" secondItem="Kc7-Ve-fbz" secondAttribute="trailing" constant="10" id="7Y6-Z4-Zg6"/>
-                            <constraint firstItem="8QE-Tn-ogL" firstAttribute="top" secondItem="Kc7-Ve-fbz" secondAttribute="bottom" constant="5" id="L47-TV-xNl"/>
-                            <constraint firstItem="Kc7-Ve-fbz" firstAttribute="top" secondItem="G8m-7T-aYV" secondAttribute="top" id="Wao-0E-RjK"/>
+                            <constraint firstItem="zJv-dJ-nmp" firstAttribute="top" secondItem="G8m-7T-aYV" secondAttribute="top" id="N8G-pe-fqM"/>
+                            <constraint firstItem="8QE-Tn-ogL" firstAttribute="top" secondItem="zJv-dJ-nmp" secondAttribute="bottom" constant="5" id="QYL-w1-2Vj"/>
                             <constraint firstItem="8QE-Tn-ogL" firstAttribute="top" secondItem="G8m-7T-aYV" secondAttribute="top" constant="45" id="Y5f-6O-esS"/>
                             <constraint firstItem="G8m-7T-aYV" firstAttribute="trailing" secondItem="8QE-Tn-ogL" secondAttribute="trailing" id="ZSO-2O-XvI"/>
                             <constraint firstItem="8QE-Tn-ogL" firstAttribute="leading" secondItem="G8m-7T-aYV" secondAttribute="leading" id="cB3-6M-y6n"/>
+                            <constraint firstItem="zJv-dJ-nmp" firstAttribute="leading" secondItem="G8m-7T-aYV" secondAttribute="leading" constant="10" id="f1g-cA-cG7"/>
+                            <constraint firstItem="G8m-7T-aYV" firstAttribute="trailing" secondItem="zJv-dJ-nmp" secondAttribute="trailing" constant="10" id="wUK-Ea-CK5"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="addButton" destination="Kc7-Ve-fbz" id="foh-3r-8hu"/>
+                        <outlet property="settingButton" destination="4hb-GD-Ia3" id="Baj-Mc-IZo"/>
                         <outlet property="tableView" destination="8QE-Tn-ogL" id="bd5-bd-gj8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9O8-hN-k5P" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-708" y="92"/>
+            <point key="canvasLocation" x="-709.23076923076917" y="91.706161137440759"/>
         </scene>
         <!--Create Set Controller-->
         <scene sceneID="lRu-Eh-sCw">
@@ -379,8 +463,11 @@ cmVtb3ZlRmxhc2hjYXJkEEJ1dHRvbg
         <image name="arrow.counterclockwise" catalog="system" width="115" height="128"/>
         <image name="arrow.left" catalog="system" width="128" height="98"/>
         <image name="arrowtriangle.forward.fill" catalog="system" width="128" height="113"/>
+        <image name="blackCircle" width="360" height="360"/>
+        <image name="gearshape.fill" catalog="system" width="128" height="121"/>
         <image name="minus" catalog="system" width="128" height="24"/>
         <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="whiteCircleOutlined" width="360" height="360"/>
         <namedColor name="BodyTextColor">
             <color red="0.31372549019607843" green="0.30196078431372547" blue="0.27843137254901962" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
